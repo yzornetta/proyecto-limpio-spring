@@ -9,7 +9,7 @@
 <body>
 <!--  ${clasePersona.nombre}-->
 
-<%
+%<
 int f = ${mensajeMostrar};
 
 
