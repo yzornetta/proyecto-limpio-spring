@@ -7,14 +7,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Crear Proyecto</title>
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet" >
+<!-- Bootstrap theme -->
+<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
+<div class="container-fluid">
+<div class="panel panel-primary"> 
+<div class="panel-heading">
+<h1 class="center-block"><center>Administrador de Proyectos</center></h1>
+</div>
+</div>
+</div>
+<br><br>
+
+<div class="container-fluid">
+<div class="panel panel-info"> 
+<div class="panel-body">
 <form:form action="agregar.html" method="GET" >
-	<form:label path="nombre">Nombre proyecto</form:label>
-	<form:input path="nombre"/>
-	
-	<input type="submit" value="Crear"/>
+<div class="row">
+  <div class="col-xs-3">
+	<!--<form:label path="nombre" class="form-control">Nombre proyecto</form:label>-->
+	<form:input path="nombre" placeholder="Nombre del proyecto" class="form-control input-sm"/>
+	</div>
+	</div>
+	<br>
+	<input type="submit" value="Crear Proyecto" class="btn btn-primary btn-lg" />
 
 </form:form>
+</div>
+</div>
+</div>
 </body>
 </html>

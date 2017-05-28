@@ -13,10 +13,27 @@ pageEncoding="UTF-8"%>
 </head>
 
 <body>
+<div class="container-fluid">
+	    <div class="panel panel-primary"> 
+  		<div class="panel-heading">
+    <h1 class="center-block"><center>Administrador de Proyectos</center></h1>
+</div>
+</div>
+</div>
+<br></br> 
+<div class="container-fluid">
+<div class="panel panel-info"> 
+<div class="panel-body">   
 <c:forEach items="${command}" var="persona" >
+
 <a href="IrAProyecto" class="btn btn-primary btn-lg">${persona.nombre} </a>
+
 </c:forEach>
 <a href="formulario" class="btn btn-danger btn-lg active" role="button">Crear proyecto</a>
+</div>
+</div>
+</div>
+
 </body>
 </html>
 

@@ -12,6 +12,13 @@ pageEncoding="UTF-8"%>
 <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
+<div class="container-fluid">
+<div class="panel panel-primary"> 
+<div class="panel-heading">
+<h1 class="center-block"><center>Administrador de Proyectos</center></h1>
+</div>
+</div>
+</div>
 <a href="formulario" class="btn btn-danger btn-lg active" role="button">Crear proyecto</a>
 </body>
 </html>
