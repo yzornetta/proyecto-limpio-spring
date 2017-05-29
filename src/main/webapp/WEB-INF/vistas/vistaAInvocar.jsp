@@ -8,34 +8,34 @@
 </head>
 <body>
 <!--  ${clasePersona.nombre}-->
+${mensajeMostrar}
+<!--  
+//int f = ${mensajeMostrar};
 
-%<
-int f = ${mensajeMostrar};
 
-
-out.println("<table>");
+//out.println("<table>");
 	
-	for(int i = 1; i <= f; i++) {
+	//for(int i = 1; i <= f; i++) {
 
-out.println("<tr>");
+//out.println("<tr>");
 
-out.println("<td>Juan");
-out.println("</td>");
+//out.println("<td>Juan");
+//out.println("</td>");
 
-out.println("<td>Perez");
-out.println("</td>");
+//out.println("<td>Perez");
+//out.println("</td>");
 
-out.println("<td>Merlo");
-out.println("</td>");
+//out.println("<td>Merlo");
+//out.println("</td>");
 
-out.println("</tr>");
-}
+//out.println("</tr>");
+//}
 
-out.println("</table>");
-
-//${mensajeMostrar}
+//out.println("</table>");
 
 
-%>
+
+
+%>-->
 </body>
 </html>
