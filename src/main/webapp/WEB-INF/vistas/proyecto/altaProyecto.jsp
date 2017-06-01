@@ -12,9 +12,11 @@
 		<div class = "container">
 			<div id="altaProyecto"">
 				<form:form action="guardar-proyecto" method="POST" modelAttribute="proyecto">      
-			    	<h3 class="form-signin-heading">ALTA DE PROYECTOS</h3>
+			    	<h3 class="form-signin-heading">ALTA DE TAREAS</h3>
 					<hr class="colorgraph"><br>
 			        <h4><span>Ingrese descripción</span></h4>
+					<form:input path="descripcion" id="descripcion" type="text" class="form-control"></form:input>
+					<h4><span>Ingrese descripción</span></h4>
 					<form:input path="descripcion" id="descripcion" type="text" class="form-control"></form:input>
 					<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Proyecto" type="Submit">Guardar</button>  			
 				</form:form>
