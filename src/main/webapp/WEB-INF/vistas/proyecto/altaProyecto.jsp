@@ -30,11 +30,10 @@
   <div class="col-xs-3">
   	<!--<form:input path="id" placeholder="ID del proyecto" class="form-control input-sm"/>-->
   	<form:input path="descripcion" placeholder="Nombre del proyecto" class="form-control input-sm"/>
-	</div>
-	</div>
-	<br>
+  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control input-sm"/>
+  	<form:input path="horasReales" placeholder="Horas reales" class="form-control input-sm"/>
+  	<form:input path="porcentajeAvance" placeholder="% de avance" class="form-control input-sm"/>
 	<input type="submit" value="Crear Proyecto" class="btn btn-primary btn-lg" />
-
 </form:form>
 </div>
 </div>

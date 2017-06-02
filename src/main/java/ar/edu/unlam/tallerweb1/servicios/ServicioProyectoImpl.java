@@ -30,16 +30,20 @@ public class ServicioProyectoImpl implements ServicioProyecto {
 		//TODO Esto lo debería hacer el DAO cuando exista algo en la base
 		//El servicio solo va a ser el pasamano de los datos entre el DAO y el controller
 		Proyecto p = new Proyecto();		
-		p.setId(idProyecto);		
 
 		for (Proyecto temp : listaProyectos) {
 			idActual = temp.getId();
 			if (idActual.equals(idActual))	{
+				p = temp;
+								
 				//p.setId(temp.getId());
-				p.setDescripcion(temp.getDescripcion());
+				//p.setDescripcion(temp.getDescripcion());
+				//p.setHorasEstimadas(temp.getHorasEstimadas());
+				//p.setHorasReales(temp.getHorasReales());
+				//p.setPorcentajeAvance(temp.getPorcentajeAvance());				
 			}
 		}
-		
+				
 		return p;
 	}
 

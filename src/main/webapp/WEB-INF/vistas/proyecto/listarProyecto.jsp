@@ -12,7 +12,11 @@ pageEncoding="UTF-8"%>
 <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
-	<p>El ID del proyecto es ${proyecto.id}	</p>
-	<p>La descripcion del proyecto es ${proyecto.descripcion}	</p>
+	<p>ID del proyecto es ${proyecto.id} </p>
+	<p>Nombre del proyecto: ${proyecto.descripcion}	</p>
+	<p>Horas estimadas: ${proyecto.horasEstimadas}	</p>
+	<p>Horas reales: ${proyecto.horasReales}	</p>
+	<p>% de avance: ${proyecto.porcentajeAvance}	</p>
+	<a href="agregarProyecto.html">Volver a Lista de Proyectos</a> 	
 </body>
 </html>
