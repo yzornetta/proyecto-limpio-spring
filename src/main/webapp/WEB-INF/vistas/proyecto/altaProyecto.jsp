@@ -28,7 +28,7 @@
 <form:form action="agregarProyecto.html" method="GET" >
 <div class="row">
   <div class="col-xs-3">
-	<form:input path="descripcion" placeholder="Nombre del proyecto" class="form-control input-sm"/>
+  	<form:input path="descripcion" placeholder="Nombre del proyecto" class="form-control input-sm"/>
 	</div>
 	</div>
 	<br>

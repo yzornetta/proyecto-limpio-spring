@@ -10,7 +10,7 @@ public class Proyecto {
 	private Integer horasEstimadas;
 	private Integer horasReales;
 	private Integer porcentajeAvance;
-	private List<Proyecto> lsProyecto;
+	public ArrayList<Proyecto> lsProyecto;
 	
 	public Integer getId() {
 		return Id;
@@ -43,6 +43,7 @@ public class Proyecto {
 		this.horasReales = horasReales;
 	} 
 	
+	/*
 	public List<Proyecto> listaProyecto(){
 		lsProyecto = null;
 		
@@ -53,6 +54,6 @@ public class Proyecto {
 		lsProyecto.add(p1);
 		return lsProyecto;
 	}
-	
+	*/
 
 }
