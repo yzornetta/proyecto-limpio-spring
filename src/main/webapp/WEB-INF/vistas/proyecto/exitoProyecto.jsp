@@ -36,8 +36,9 @@ pageEncoding="UTF-8"%>
 						<form action="listarProyecto.html" method="post">
 							<table>
 								<tr>
-									<td><input name="descripcion" value=${proyecto.descripcion} type="text" size="40"/></td>
-									<td><input value="Ir al proyecto" type="submit" /></td>									
+									<td><a href="listarProyecto.html?id=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td> 
+									<!-- 																								 
+									<td><input value="Ir al proyecto" type="submit" /></td>-->					
 								</tr>
 								<tr>
 								<td></td>
