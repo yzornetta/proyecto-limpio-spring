@@ -33,12 +33,24 @@ pageEncoding="UTF-8"%>
 			<div class="panel-body">   
 				<c:forEach items="${command}" var="proyecto" >
 					<c:if test="${not empty proyecto.descripcion}">
-						<div>
+						<!--<div>
 							<div></div>
-							<a href="listarProyecto" path="descripcion" name="descripcion" class="btn btn-primary btn-lg">${proyecto.descripcion} </a>
+							<a href="listarProyecto" path="descripcion" name="descripcion">${proyecto.descripcion} </a>
 							<div></div>
-						</div>
-		        	</c:if>	
+						</div>-->
+						<form action="listarProyecto.html" method="post">
+							<table>
+								<tr>
+									<!--<td><a href="listarProyecto.html" path="descripcion" name="descripcion">${proyecto.descripcion} </a></td> -->
+									<td><input name="descripcion" value=${proyecto.descripcion} type="text" size="40"/></td>
+									<td><input value="Ir al proyecto" type="submit" /></td>									
+								</tr>
+								<tr>
+								<td></td>
+								</tr>
+							</table>
+						</form>
+					</c:if>					
 				</c:forEach>
 			</div>
 		</div>

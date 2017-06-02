@@ -37,11 +37,16 @@ public class ControladorProyecto {
 	}
 	
 	@RequestMapping(value="proyecto/listarProyecto")
-	public ModelAndView IrAProyecto(@ModelAttribute Proyecto proyecto)
+	public ModelAndView IrAProyecto(@RequestParam String descripcion)
 	{
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("proyecto/listarProyecto");
-		modelAndView.addObject("proyecto", proyecto);
+		Proyecto p = new Proyecto();
+		//Proyecto p = servicioProyecto.consultarProyecto(id);
+		
+		p.setId(1);
+		p.setDescripcion(descripcion);
+		modelAndView.addObject("proyecto", p);
 		return modelAndView;
 	}
 

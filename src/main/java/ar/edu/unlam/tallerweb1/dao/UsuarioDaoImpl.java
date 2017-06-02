@@ -18,11 +18,13 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	@Override
 	public Usuario consultarUsuario(Usuario usuario) {
 
-		final Session session = sessionFactory.openSession();
+		final Session session = sessionFactory.getCurrentSession();
 		return (Usuario) session.createCriteria(Usuario.class)
 				.add(Restrictions.eq("email", usuario.getEmail()))
 				.add(Restrictions.eq("password", usuario.getPassword()))
 				.uniqueResult();
+				//Get
+				//session.get("tabla",id); Busca de esta tabla este id y devolvelo
 	}
 
 }

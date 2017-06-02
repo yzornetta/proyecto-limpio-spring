@@ -1,5 +1,8 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Proyecto {
 
 	private Integer Id;
@@ -7,6 +10,7 @@ public class Proyecto {
 	private Integer horasEstimadas;
 	private Integer horasReales;
 	private Integer porcentajeAvance;
+	private List<Proyecto> lsProyecto;
 	
 	public Integer getId() {
 		return Id;
@@ -38,4 +42,17 @@ public class Proyecto {
 	public void setHorasReales(Integer horasReales) {
 		this.horasReales = horasReales;
 	} 
+	
+	public List<Proyecto> listaProyecto(){
+		lsProyecto = null;
+		
+		Proyecto p1 = new Proyecto();
+		p1.Id = 1;
+		p1.descripcion = "Ejemplo nro 1";
+		
+		lsProyecto.add(p1);
+		return lsProyecto;
+	}
+	
+
 }

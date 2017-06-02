@@ -12,6 +12,7 @@ pageEncoding="UTF-8"%>
 <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
+	<p>El ID del proyecto es ${proyecto.id}	</p>
 	<p>La descripcion del proyecto es ${proyecto.descripcion}	</p>
 </body>
 </html>
