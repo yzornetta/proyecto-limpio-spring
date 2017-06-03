@@ -20,5 +20,19 @@ public class ServicioLoginImpl implements ServicioLogin {
 	public Usuario consultarUsuario (Usuario usuario) {
 		return servicioLoginDao.consultarUsuario(usuario);
 	}
+	
+	@Override
+	@Transactional
+	public void save(Usuario user) {
+		
+		servicioLoginDao.save(user);
+		
+	}
+
+	@Override
+	public Usuario findUserByEmail(String email) {
+		return servicioLoginDao.findUserByEmail(email);
+	}
+
 
 }

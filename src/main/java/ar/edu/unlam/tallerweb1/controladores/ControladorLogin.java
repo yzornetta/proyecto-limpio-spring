@@ -3,7 +3,9 @@ package ar.edu.unlam.tallerweb1.controladores;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,4 +50,35 @@ public class ControladorLogin {
 	public ModelAndView inicio() {
 		return new ModelAndView("redirect:/login");
 	}
+	
+	
+/*mapping de creacion de usuario*/
+	
+	
+	@RequestMapping(value = "/nuevoUsuario", method = RequestMethod.GET)
+	public String create(Model model) {
+		 model.addAttribute("altaUsuario", new Usuario());
+		return "/altaUsuario";
+	}
+	
+	
+	@RequestMapping(value = "/alta", method = RequestMethod.POST)
+	public String save(@ModelAttribute("usuario") Usuario user, BindingResult bindingResult){
+	
+		Usuario existeUsuario = servicioLogin.findUserByEmail(user.getEmail());
+		
+		if(existeUsuario != null){
+			bindingResult.rejectValue("email","error.user","el usuario ya esta dado de alta");
+		}
+		else
+		{
+			servicioLogin.save(user);
+		}
+		
+		
+		return "redirect:/login";
+		
+	}
+	
+	
 }

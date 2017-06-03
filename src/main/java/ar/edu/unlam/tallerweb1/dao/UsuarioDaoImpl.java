@@ -26,5 +26,20 @@ public class UsuarioDaoImpl implements UsuarioDao {
 				//Get
 				//session.get("tabla",id); Busca de esta tabla este id y devolvelo
 	}
+	
+	@Override
+	public Usuario findUserByEmail(String email) {
+		final Session session = sessionFactory.openSession();
+		return (Usuario) session.createCriteria(Usuario.class)
+				.add(Restrictions.eq("email", email))
+				.uniqueResult();
+	}
+
+	@Override
+	public void save(Usuario user) {
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		session.persist(user);
+	}
 
 }
