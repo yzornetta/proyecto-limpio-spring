@@ -6,7 +6,7 @@ public interface ServicioLogin {
 
 	Usuario consultarUsuario(Usuario usuario);
 	
-	void save(Usuario user);
+	void grabarUsuario(Usuario user);
 	
 	Usuario findUserByEmail(String email);
 	

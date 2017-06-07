@@ -23,7 +23,7 @@ public class ServicioLoginImpl implements ServicioLogin {
 	
 	@Override
 	@Transactional
-	public void save(Usuario user) {
+	public void grabarUsuario(Usuario user) {
 		
 		servicioLoginDao.save(user);
 		

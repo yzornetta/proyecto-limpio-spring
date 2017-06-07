@@ -1,61 +1,86 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"  %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
-<head>
-	<title>Alata usuario</title>
-	<style type="text/css">
-		.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
-		.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
-		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
-		.tg .tg-4eph{background-color:#f9f9f9}
-	</style>
-</head>
-<body>
-<h1>
-	ALTA DE USUARIO
-</h1>
-
-<c:url var="altaAction" value="/alta" ></c:url>
-
-<form:form action="${altaAction}" commandName="altaUsuario">
-<table>
-	<c:if test="${!empty altaUsuario.email}">
-	</c:if>
-	<tr>
-		<td>
-			<form:label path="email">
-				<spring:message text="email"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="email" />
-		</td> 
-	</tr>
-	<tr>
-		<td>
-			<form:label path="password">
-				<spring:message text="password"/>
-			</form:label>
-		</td>
-		<td>
-			<form:input path="password" />
-		</td>
-	</tr>
+	<head>
+	<!-- Bootstrap core CSS -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet" >
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    
+	<!-- Bootstrap core CSS -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet" >
+	    <!-- Bootstrap theme -->
+	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="css/estilos.css" rel="stylesheet">
+	    
+	</head>
 	
-	<tr>
-		<td colspan="1">
-			<c:if test="${empty altaUsuario.email}">
-				<input type="submit"
-					value="<spring:message text="Alta de usuario"/>" />
-			</c:if>
-		</td>
-	</tr>
-	
-</table>	
-</form:form>
-<br>
+	<body>
+		
+		<nav class="navbar navbar-fixed-top menu">
+  			<div class="container-fluid">
+				<ul class="nav nav-pills navbar-right">
+				  	<c:choose>
+					  	<c:when test="${email != null}">
+					  		<li><a class="btn btn-menu" href="proyecto-limpio-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+						  	<li><a class="btn btn-menu" href="#">${email}</a></li>
+					  	</c:when>
+					  	<c:otherwise>
+							<li><a class="btn btn-menu" href="/proyecto-limpio-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+							<li><a class="btn btn-menu" href="/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+						  	<li><a class="btn btn-menu" href="./login=0"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						</c:otherwise>
+					</c:choose>							  	
+				</ul>
+			</div>
+		</nav>	
+		
 
-</body>
+		            <h2 class="text-center texto-login">Registración</h2>
+	           
+					
+						<form:form method="POST" action="registracion" modelAttribute="classRegistrarse" class="form-horizontal" role="form">
+							
+							
+						    	<label for="nombre_usr">Nombre:</label>
+								<form:input path="nombre" type="text" id="nombre_usr" class="form-control" required="required"/>
+							
+						    
+						    	<label for="apellido_usr">Apellido:</label>
+								<form:input path="apellido" type="text" id="apellido_usr" class="form-control" required="required"/>
+						    
+						        
+						    
+						    	<label for="mail_usr">Email:</label>
+						    	<form:input path="email" type="text" class="form-control" id="mail_usr" required="required"/>
+						    
+						        
+						    
+						    	<label for="pwd">Contraseña:</label>
+						    	<form:input path="password" type="password" class="form-control" id="pwd" required="required"/>
+						  	
+						  	
+						    	<label for="pwd">Repetir Contraseña:</label>
+						    	<form:input path="passwordConf" type="password" class="form-control" id="pwd" required="required"/>
+						  	
+						  	
+								<button type="submit" class="btn btn-success btnRegistrarse">Registrarse</button>
+								<a class="btn btn-danger btnCancelar" href="/proyecto-base-spring">Cancelar</a>
+							
+						</form:form>		
+			
+			<hr>
+       		<!-- Footer -->
+	        <footer>
+	            <div class="row">
+	                <div class="col-lg-12 footer">
+	                    <center><p>Copyright &copy; Task Manager Pro 2018</p></center>
+	                </div>
+	            </div>
+	        </footer>
+		</div>
+	</body>
 </html>
+
+
