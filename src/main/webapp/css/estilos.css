@@ -9,6 +9,104 @@ body {
 	background-color: #cccccc;
 }
 
+.footer{
+	color: white;	
+}
+
+
+.titulo {
+	border-bottom: 1px solid #000;
+	font-size: 42px;
+}
+
+a:hover {
+    color: #c0c0c0;
+    text-decoration: none;
+}
+
+.transparencia {
+    position: relative;
+    opacity: .9;
+    background-color: #000;
+}
+
+.texto-carrera-descripcion {
+	line-height: 30px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+.texto-carrera-reglamento {
+	padding-bottom: 40px;
+	padding-top: 20px;
+}
+
+.texto-inscripcion{
+	padding-bottom: 40px;
+	padding-top: 20px;
+}
+
+.menu {
+	background-color: #000;
+	color: #fff;
+}
+
+.btn-menu {
+	margin: 5px 10px 5px 0;
+	background-color: #000;
+	color: #fff;
+}
+
+.contenedor-login, .contenedor-registracion, .contenedor-inscripcion {
+	border-radius: 6px;
+	border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.contenedor-info {
+   	margin: 15% auto;
+   	margin-bottom: 4.5%;
+   	margin-top: 4.5%;
+}
+
+.nombre-carrera {
+	font-size: 35px;
+	margin-top: 4.5%;
+}
+
+p {
+	margin: 0 0 0 0px;
+}
+
+.dato-descripcion {
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+.carreras-abiertas {
+	font-size: 35px;
+	margin-top: 25px;
+	margin-bottom: 40px;
+}
+
+.texto-login{
+	font-size: 36px;
+	padding-top: 20px;
+	padding-bottom: 5px;
+}
+
+.opciones-inscripcion{
+	color: #000;
+}
+
+.br {
+	margin-bottom: 50px;	
+}
+
 hr {
 	border-top: 1px solid #000;	
 }
@@ -19,16 +117,25 @@ hr {
 	margin-bottom: 5px;
 }
 
-.titulo {
-	border-bottom: 1px solid #000;
-	font-size: 42px;
-	color: white;
+.hr-reglamento {
+	border-top: 1px solid #fff;	
 }
 
-.br {
-	margin-bottom: 100px;	
+.btnInscripcion, .btnIngresar, .btnCancelar, .btnRegistrarse, .btnLogin, .btnContinuar {
+	font-size: 16px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
-.footer{
-	color: white;	
+.btn-default {
+	font-size: 20px;
 }
+
+.btn-default:hover, .btn-default:focus {
+	background-color: #000;
+	border-color: #fff;
+	color: #fff;
+}
+
+
+h4 { color: #369; }
