@@ -85,8 +85,7 @@
 						  	</div>
 						  	<div>
 								<center><button type="submit" class="btn btn-success btnRegistrarse">Registrarse</button></center>
-							</div>
-							<br>						
+							</div>												
 							<div>
 								<center><a class="btn btn-danger btnCancelar" href="/proyecto-base-spring">Cancelar</a></center>
 							</div>

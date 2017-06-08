@@ -13,6 +13,11 @@
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	    <link href="css/estilos.css" rel="stylesheet">
 	    
+	     <style>
+    h4 { color: white; }
+    h1 { color: white; }
+  		</style>
+	    
 	</head>
 	<body>
 	<nav class="navbar navbar-fixed-top menu">
@@ -26,7 +31,7 @@
 					  	<c:otherwise>
 							<li><a class="btn btn-menu" href="/proyecto-limpio-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 							<li><a class="btn btn-menu" href="/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-						  	<li><a class="btn btn-menu" href="./login=0"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						  	<li><a class="btn btn-menu" href="http://localhost:8080/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 						</c:otherwise>
 					</c:choose>							  	
 				</ul>

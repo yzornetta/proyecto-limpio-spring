@@ -26,8 +26,7 @@ a:hover {
 
 .transparencia {
     position: relative;
-    opacity: .9;
-    background-color: #000;
+    opacity: .5;
 }
 
 .texto-carrera-descripcion {
