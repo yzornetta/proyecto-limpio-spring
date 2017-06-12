@@ -3,14 +3,21 @@ package ar.edu.unlam.tallerweb1.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Proyecto {
 
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer Id;
 	private String descripcion;
 	private Integer horasEstimadas;
 	private Integer horasReales;
 	private Integer porcentajeAvance;
-	public ArrayList<Proyecto> lsProyecto;
 	
 	public Integer getId() {
 		return Id;

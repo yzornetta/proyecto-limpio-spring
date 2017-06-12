@@ -39,9 +39,8 @@
 		</nav>	
 		
 		<div class = "container">
-			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-		
-				<form:form action="agregarProyecto.html" method="GET">      
+			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">		
+				<form:form action="agregarProyecto" method="POST" modelAttribute="classAltaProyecto" role="form">      
 			    	<h1 class="page-header text-center titulo">Alta de Proyectos</h1>
 					<br>					
 					<form:input path="descripcion" placeholder="Nombre del proyecto" class="form-control"/>
