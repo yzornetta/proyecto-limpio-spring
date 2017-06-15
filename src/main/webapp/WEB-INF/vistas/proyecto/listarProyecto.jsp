@@ -39,12 +39,14 @@
 		</nav>	
 		
 		<div class = "container">
-			<h1>ID del proyecto es<span> ${proyecto.id} </span></h1>
+			<h1>ID del proyecto es: <span> ${proyecto.id} </span></h1>
 			<h1>Nombre del proyecto: <span>${proyecto.descripcion}	</span></h1>
 			<h1>Horas estimadas: <span>${proyecto.horasEstimadas}	</span></h1>
 			<h1>Horas reales: <span>${proyecto.horasReales}	</span></h1>
-			<h1>% de avance: <span>${proyecto.porcentajeAvance}	</span></h1>
-			<a href="agregarProyecto.html" class="btn btn-lg btn-primary">Volver a Proyectos</a>	
+			<h1>Avance: <span>${proyecto.porcentajeAvance}	</span>%</h1>
+			<h1>Fecha de Finalización: <span>${proyecto.fechaFinalizacion} </span></h1>
+			<h1>Fecha de Alta: <span>${proyecto.fechaAlta}	</span></h1>			
+			<a href="listarProyectos" class="btn btn-lg btn-primary">Volver a Proyectos</a>	
 		</div>
 		
 		<!-- Placed at the end of the document so the pages load faster -->

@@ -44,7 +44,9 @@ public class ControladorProyecto {
 	@RequestMapping(value="proyecto/agregarProyecto",  method = RequestMethod.POST)
 	public ModelAndView agregarProyecto(@ModelAttribute("proyecto") Proyecto proyecto) {
 		servicioProyecto.grabarProyecto(proyecto);
-		return new ModelAndView("proyecto/listarProyectos");
+		return new ModelAndView("redirect:/proyecto/listarProyectos");
+
+		//return new ModelAndView("listarProyectos");
 	}	
 
 	//LISTAR TODOS LOS PROYECTOS
@@ -56,20 +58,21 @@ public class ControladorProyecto {
 	}
 	
 	//LISTAR TODOS LOS PROYECTOS
-	@RequestMapping(value="proyecto",  method = RequestMethod.GET)
+	/*@RequestMapping(value="proyecto",  method = RequestMethod.GET)
 	public ModelAndView proyectos()
 	{
 		listaProyectos = servicioProyecto.obtenerTodos();
 		return new ModelAndView("proyecto/listarProyectos","command", listaProyectos);//devuelve vista exito
 	}
-	
+	*/
 	
 	//VER DETALLE DE PROYECTO
 	@RequestMapping(value="proyecto/listarProyecto")
-	public ModelAndView IrAProyecto(@ModelAttribute Proyecto proyecto)
+	//public ModelAndView IrAProyecto(@ModelAttribute Proyecto proyecto)
+	public ModelAndView IrAProyecto(@RequestParam("id") Integer idProyecto)
 	{
 		//Id seleccionado
-		Integer idProyecto = proyecto.getId();
+		//Integer idProyecto = proyecto.getId();
 				
 		//Servicio devuelve Objeto en base al id enviado
 		//Cuando haya base la lista no va, porque se busca sobre la base directamente

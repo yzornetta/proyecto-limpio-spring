@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,8 @@ public class Proyecto {
 	private Integer horasEstimadas;
 	private Integer horasReales;
 	private Integer porcentajeAvance;
+	private Date fechaAlta;
+	private Date fechaFinalizacion;
 	
 	public Integer getId() {
 		return Id;
@@ -48,6 +51,18 @@ public class Proyecto {
 	}
 	public void setHorasReales(Integer horasReales) {
 		this.horasReales = horasReales;
+	}
+	public Date getFechaAlta() {
+		return fechaAlta;
+	}
+	public void setFechaAlta(Date fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+	public Date getFechaFinalizacion() {
+		return fechaFinalizacion;
+	}
+	public void setFechaFinalizacion(Date fechaFinalizacion) {
+		this.fechaFinalizacion = fechaFinalizacion;
 	} 
 	
 	/*
