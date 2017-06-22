@@ -51,7 +51,7 @@
 					<br>
 				  	<form:input path="porcentajeAvance" placeholder="% de avance" class="form-control"/>
 					<br>
-				  	<form:input path="fechaFinalizacion" placeholder="Fecha de Finalizacion" class="form-control"/>				  	
+				  	<form:input path="fechaFinalizacion" placeholder="Fecha de Finalizacion (año-mes-dia)" class="form-control"/>				  	
 				  	<br>
 				  	<br>		
 					<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			

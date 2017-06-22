@@ -20,7 +20,7 @@ public class Proyecto {
 	private Integer horasReales;
 	private Integer porcentajeAvance;
 	private Date fechaAlta;
-	private Date fechaFinalizacion;
+	private String fechaFinalizacion;
 	
 	public Integer getId() {
 		return Id;
@@ -58,13 +58,13 @@ public class Proyecto {
 	public void setFechaAlta(Date fechaAlta) {
 		this.fechaAlta = fechaAlta;
 	}
-	public Date getFechaFinalizacion() {
+	public String getFechaFinalizacion() {
 		return fechaFinalizacion;
 	}
-	public void setFechaFinalizacion(Date fechaFinalizacion) {
+	public void setFechaFinalizacion(String fechaFinalizacion) {
 		this.fechaFinalizacion = fechaFinalizacion;
-	} 
-	
+	}
+
 	/*
 	public List<Proyecto> listaProyecto(){
 		lsProyecto = null;

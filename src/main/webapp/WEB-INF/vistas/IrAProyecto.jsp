@@ -12,7 +12,7 @@ pageEncoding="UTF-8"%>
 <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
-<h1>ACA TENDRIA QUE APARECER EL NOMBRE DEL PROYECTO DE MIERDA</h1>
+<h1>ACA TENDRIA QUE APARECER EL NOMBRE DEL PROYECTO</h1>
 ${persona.nombre}
 
 
