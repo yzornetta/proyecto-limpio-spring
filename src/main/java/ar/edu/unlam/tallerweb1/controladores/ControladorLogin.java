@@ -1,11 +1,9 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import javax.inject.Inject;
-
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,12 +26,17 @@ public class ControladorLogin {
 		modelo.put("usuario", usuario);
 		return new ModelAndView("login", modelo);
 	}
-
-	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
-	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario) {
+	
+		@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
+	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
 		ModelMap model = new ModelMap();
-
-		if (servicioLogin.consultarUsuario(usuario) != null) {
+		Usuario usuarioValidado = servicioLogin.consultarUsuario(usuario);
+		
+		if (usuarioValidado != null) {
+			request.getSession().setAttribute("email",usuarioValidado.getEmail());
+			request.getSession().setAttribute("password",usuarioValidado.getPassword());
+			request.getSession().setAttribute("Id",usuarioValidado.getId());
+			model.put("UsuarioLogueado", usuario);
 			return new ModelAndView("redirect:/home");
 		} else {
 			model.put("error", "Usuario o clave incorrecta");
@@ -51,7 +54,16 @@ public class ControladorLogin {
 		return new ModelAndView("redirect:/login");
 	}
 	
+	@RequestMapping(value = "/exit",  method = RequestMethod.GET)
+	public ModelAndView vistaLogout (HttpServletRequest request) {
+		if(request.getSession() != null) {
+			request.getSession().invalidate();
+		}
+		return new ModelAndView("redirect:/");
+	}
 	
-	
+	public void setServicioLoginMock(ServicioLogin servicioLogin) {
+		this.servicioLogin = servicioLogin;
+	}
 	
 }
