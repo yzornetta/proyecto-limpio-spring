@@ -32,7 +32,7 @@ public class ControladorLoginTest {
 		//HttpServletRequest request = null;
 		ModelAndView modelAndView = controlador.validarLogin(usuarioPrueba, null);
 
-		
+		//Verifica que se ejecute al menos 1 vez, metodo getEmail();
 		verify(usuarioPrueba, times(1)).getEmail();
 		assertThat(modelAndView.getViewName()).isEqualTo("redirect:/home");
 		
