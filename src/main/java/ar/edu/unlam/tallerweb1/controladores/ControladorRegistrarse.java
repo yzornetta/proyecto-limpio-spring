@@ -35,7 +35,7 @@ public class ControladorRegistrarse {
 	public ModelAndView vistaRegistrar(Model modelo) {
 		ModelAndView altaUsuario = new ModelAndView();
 		modelo.addAttribute("classRegistrarse", new Usuario());
-		altaUsuario.setViewName("altaUsuario");
+		altaUsuario.setViewName("usuario/altaUsuario");
 		return altaUsuario;
 	}
 	
@@ -48,7 +48,7 @@ public class ControladorRegistrarse {
 		registracion.addObject("apellido", usuario.getApellido());
 		registracion.addObject("email", usuario.getEmail());
 		registracion.addObject("password", usuario.getPassword());
-		registracion.setViewName("registracionOk");
+		registracion.setViewName("usuario/registracionOk");
         return registracion;
 	}
 	
