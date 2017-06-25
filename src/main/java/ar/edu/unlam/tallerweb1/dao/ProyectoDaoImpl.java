@@ -1,6 +1,8 @@
 package ar.edu.unlam.tallerweb1.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,6 +33,10 @@ public class ProyectoDaoImpl implements ProyectoDao {
 	public void save(Proyecto proyecto) {
 		
 		Session session = this.sessionFactory.getCurrentSession();
+		
+		//Date date = new Date();
+		//proyecto.setFechaAlta(date);
+		
 		session.persist(proyecto);
 	}
 

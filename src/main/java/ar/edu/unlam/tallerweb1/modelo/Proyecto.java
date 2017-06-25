@@ -1,7 +1,7 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -19,7 +19,7 @@ public class Proyecto {
 	private Integer horasEstimadas;
 	private Integer horasReales;
 	private Integer porcentajeAvance;
-	private Date fechaAlta;
+	private Date fechaAlta = new Date();
 	private String fechaFinalizacion;
 	
 	public Integer getId() {
@@ -56,7 +56,7 @@ public class Proyecto {
 		return fechaAlta;
 	}
 	public void setFechaAlta(Date fechaAlta) {
-		this.fechaAlta = fechaAlta;
+		this.fechaAlta = new Date();
 	}
 	public String getFechaFinalizacion() {
 		return fechaFinalizacion;
