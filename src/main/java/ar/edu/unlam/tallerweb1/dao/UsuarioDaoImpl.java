@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.hibernate.Session;
@@ -7,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Service("usuarioDao")
@@ -40,6 +43,12 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		
 		Session session = this.sessionFactory.getCurrentSession();
 		session.persist(user);
+	}
+	
+	@Override
+	public List<Usuario> obtenerTodos() {
+		List <Usuario> usuarios = sessionFactory.openSession().createCriteria(Usuario.class).list();
+		return usuarios;
 	}
 
 }

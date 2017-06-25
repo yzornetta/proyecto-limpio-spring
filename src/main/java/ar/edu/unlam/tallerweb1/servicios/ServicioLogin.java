@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.util.List;
+
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 public interface ServicioLogin {
@@ -9,5 +11,7 @@ public interface ServicioLogin {
 	void grabarUsuario(Usuario user);
 	
 	Usuario findUserByEmail(String email);
+
+	List<Usuario> obtenerTodos();
 	
 }

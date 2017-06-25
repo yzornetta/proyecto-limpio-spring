@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.dao;
 
+import java.util.List;
+
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 public interface UsuarioDao {
@@ -9,4 +11,6 @@ public interface UsuarioDao {
     void save(Usuario user);
 	
 	Usuario findUserByEmail(String email);
+
+	List<Usuario> obtenerTodos();
 }

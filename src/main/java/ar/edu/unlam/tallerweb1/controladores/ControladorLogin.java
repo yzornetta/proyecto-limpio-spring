@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 
@@ -17,6 +20,9 @@ public class ControladorLogin {
 
 	@Inject
 	private ServicioLogin servicioLogin;
+	
+	private List<Usuario> listaUsuarios;
+
 	
 	@RequestMapping("/login")
 	public ModelAndView irALogin() {
@@ -27,7 +33,7 @@ public class ControladorLogin {
 		return new ModelAndView("login", modelo);
 	}
 	
-		@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
+	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
 	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
 		ModelMap model = new ModelMap();
 		Usuario usuarioValidado = servicioLogin.consultarUsuario(usuario);
@@ -64,6 +70,14 @@ public class ControladorLogin {
 	
 	public void setServicioLoginMock(ServicioLogin servicioLogin) {
 		this.servicioLogin = servicioLogin;
+	}
+	
+	//LISTAR TODOS LOS USUARIOS
+	@RequestMapping(value="usuario/listarUsuarios",  method = RequestMethod.GET)
+	public ModelAndView listarProyectos()
+	{
+		listaUsuarios = servicioLogin.obtenerTodos();
+		return new ModelAndView("usuario/listarUsuarios","command", listaUsuarios);//devuelve vista exito
 	}
 	
 }
