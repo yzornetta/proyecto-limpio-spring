@@ -31,20 +31,20 @@ private List<Tarea> listarTareas;
 	public ModelAndView vistaRegistrarTarea(Model modelo) {
 		ModelAndView altaTarea = new ModelAndView();
 		modelo.addAttribute("classAltaTarea", new Tarea());
-		altaTarea.setViewName("tarea/altaTarea");
+		altaTarea.setViewName("Tareas/altaTarea");
 		return altaTarea;
 	}
 
 	//ACCION DEL BOTON GRABAR - ALTA TAREA
 		@RequestMapping(value="Tareas/agregarTarea",  method = RequestMethod.POST)
-		public ModelAndView agregarTareas(@ModelAttribute("tarea") Tarea tarea) {
+		public ModelAndView agregarTareas(@ModelAttribute("Tarea") Tarea tarea) {
 			ServicioTarea.grabarTarea(tarea);
 			return new ModelAndView("redirect:/Tareas/listarTareas");
 
 		}	
 
 		//LISTAR TAREAS
-		@RequestMapping(value="Tareas/listarTarea",  method = RequestMethod.GET)
+		@RequestMapping(value="Tareas/listarTareas",  method = RequestMethod.GET)
 		public ModelAndView listarTareas()
 		{
 			listarTareas = ServicioTarea.obtenerTodosTarea();

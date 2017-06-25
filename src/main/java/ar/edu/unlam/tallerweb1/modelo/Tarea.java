@@ -4,6 +4,7 @@ public class Tarea {
 	
 	private Long Id;
 	//Esto sera fk a empleados y será integer
+	private String nombreTarea;
 	private String usuarioAsignado;
 	private String estado;
 	private Integer porcentajeAvance;
@@ -21,6 +22,14 @@ public class Tarea {
 		Id = id;
 	}
 
+	public String getnombreTarea() {
+		return nombreTarea;
+	}
+
+	public void setnombreTarea(String nombreTarea) {
+		this.nombreTarea = nombreTarea;
+	}
+	
 	public String getEstado() {
 		return estado;
 	}

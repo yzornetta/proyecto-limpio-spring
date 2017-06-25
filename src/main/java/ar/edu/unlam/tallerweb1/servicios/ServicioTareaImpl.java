@@ -35,9 +35,11 @@ public class ServicioTareaImpl implements ServicioTarea {
 
 
 	@Override
+	@Transactional
 	public void grabarTarea(Tarea tarea) {
-		// TODO Auto-generated method stub
+		servicioTareaDao.save(tarea);
 		
-	}
+	}	
+
 
 }

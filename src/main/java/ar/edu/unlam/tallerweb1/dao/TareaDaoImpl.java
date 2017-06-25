@@ -50,8 +50,8 @@ public class TareaDaoImpl implements TareaDao {
 
 	@Override
 	public List<Tarea> obtenerTodosTarea() {
-		List <Tarea> proyectos = sessionFactory.openSession().createCriteria(Tarea.class).list();
-		return proyectos;
+		List <Tarea> Tarea = sessionFactory.openSession().createCriteria(Tarea.class).list();
+		return Tarea;
 	}
 
 	@Override
