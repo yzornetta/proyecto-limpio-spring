@@ -76,6 +76,11 @@ public class Tarea {
 	public void setNombreProyecto(String nombreProyecto) {
 		this.nombreProyecto = nombreProyecto;
 	}
+
+	public static Object getDescripcion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }
