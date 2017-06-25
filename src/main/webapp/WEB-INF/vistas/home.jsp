@@ -40,8 +40,8 @@
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
 					  	<c:when test="${email != null}">
-					  		<li><a class="btn btn-menu" href="proyecto-limpio-spring/0"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
-						  	<li><a class="btn btn-menu" href="#">${email}</a></li>
+					  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+						  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
 					  	</c:when>
 					  	<c:otherwise>
 							<li><a class="btn btn-menu" href="/proyecto-limpio-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
@@ -62,7 +62,7 @@
 	           
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">
 						<a href="proyecto/listarProyectos" class="button">Proyectos</a>
-						<a href="proyecto/agregarProyecto.html" class="button">Tareas</a>
+						<a href="Tareas/listarTareas" class="button">Tareas</a>
 						<a href="proyecto/agregarProyecto.html" class="button">Roles</a>
 						<a href="proyecto/agregarProyecto.html" class="button">Usuarios</a>						
 				    </div>	
