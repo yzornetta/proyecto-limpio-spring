@@ -42,10 +42,22 @@
 			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">		
 				<form:form action="agregarTareas" method="POST" modelAttribute="classAltaTarea" role="form">      
 			    	<h1 class="page-header text-center titulo">Nueva Tarea para ${email}</h1>	    
-			    	<br>					
-					<form:input path="nombreTarea" placeholder="Nombre de Tarea" class="form-control"/>						  			
+			    	<br>
+			    	<div>					
+					<form:input path="nombreTarea" placeholder="Nombre de Tarea" class="form-control"/>		
+					</div>				  			
 				  	<br>
-				  	<form:input path="comentarios" placeholder="Detalle de la Tarea" class="form-control"/>					  	
+				  	<div>
+				  	<form:input path="comentarios" placeholder="Detalle de la Tarea" class="form-control"/>
+				  	</div>
+				  	<br>
+				  	<div>
+				  	<form:input path="usuarioAsignado" placeholder="Usuario" class="form-control"/>
+				  	</div>	
+				  	<br>
+				  	<div>
+				  	<form:input path="estado" placeholder="Estado de la Tarea" class="form-control"/>
+				  	</div>				  	
 				  	<br>
 				  	<br>		
 					<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			
