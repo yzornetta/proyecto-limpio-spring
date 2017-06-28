@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.modelo.Persona;
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProyecto;
 
 @Controller
@@ -30,16 +31,25 @@ public class ControladorProyecto {
 
 	@Inject
 	private ServicioProyecto servicioProyecto;
+	
+	@Inject
+	private ServicioLogin servicioLogin;	
+	
 	private Random random = new Random();
 	private List<Proyecto> listaProyectos;
+	private List<Usuario> listaUsuarios;
+
 		
 	//ARMA EL FORM DE ALTA DE PROYECTO
 	@RequestMapping(value="proyecto/altaProyecto",  method = RequestMethod.GET)
 	public ModelAndView vistaRegistrar(Model modelo) {
-		ModelAndView altaProyecto = new ModelAndView();
-		modelo.addAttribute("classAltaProyecto", new Proyecto());
-		altaProyecto.setViewName("proyecto/altaProyecto");
-		return altaProyecto;
+		//ModelAndView altaProyecto = new ModelAndView();
+		modelo.addAttribute("classAltaProyecto", new Proyecto());	
+		
+		listaUsuarios = servicioLogin.obtenerTodos();		
+		
+		//altaProyecto.setViewName("proyecto/altaProyecto", "command", listaUsuarios);
+		return new ModelAndView("proyecto/altaProyecto", "command", listaUsuarios);
 	}
 	
 
