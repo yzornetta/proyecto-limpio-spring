@@ -40,26 +40,44 @@
 		
 		<div class = "container">
 			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">		
-				<form:form action="agregarProyecto" method="POST" modelAttribute="proyecto" role="form">      
-			    	<h1 class="page-header text-center titulo">Alta de Proyectos</h1>
+				<form:form action="editarTarea" method="POST" modelAttribute="tarea" role="form">      
+			    	<h1 class="page-header text-center titulo">Alta de Tareas</h1>
+			    	<br>
+			    	<!--<form:hidden path="id" class="form-control"/>-->
+			    	<form:input path="id" placeholder="Descripcion" class="form-control"/>	
 					<br>					
-					<form:input path="descripcion" placeholder="Nombre del proyecto" class="form-control"/>
+					<form:input path="descripcion" placeholder="Descripcion" class="form-control"/>
 					<br>
-				  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control"/>
+				  	<form:input path="usuarioAsignado" placeholder="Usuario asignado" class="form-control"/>
 				  	<br>
-				  	<form:input path="horasReales" placeholder="Horas reales" class="form-control"/>
-					<br>
+				  	<!--<form:input path="estado" placeholder="Estado de la tarea" class="form-control"/>-->	
+				  					  	
+					<table>
+						<tr>
+							<td>Estado de la tarea :</td>
+							<!-- ACA HAY QUE METER UN IF Y SETEAR EL VALOR QUE TENGA EL ESTADO ORIGINAL -->
+							<td>
+							<form:radiobutton path="estado" value="Pendiente" />Pendiente 
+							<form:radiobutton path="estado" value="En curso" />En curso
+							<form:radiobutton path="estado" value="Finalizada" />Finalizada								
+							</td>
+						</tr>
+					</table>
+				  	<br>
 				  	<form:input path="porcentajeAvance" placeholder="% de avance" class="form-control"/>
 					<br>
-				  	<form:input path="fechaFinalizacion" placeholder="Fecha de Finalizacion (año-mes-dia)" class="form-control"/>				  	
+				  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control"/>
+					<br>
+				  	<form:input path="horasReales" placeholder="Horas reales" class="form-control"/>				  	
 				  	<br>
-					<c:forEach items="${command}" var="usuario" >											  	
-						<div class="checkbox">
-							<label><input type="checkbox" value="${usuario.id}" >${usuario.email}</label>
-						</div>
-					</c:forEach>
+				  	<form:input path="comentarios" placeholder="Comentarios" class="form-control"/>				  	
+					<br>
+				  	<form:input path="descripcionProyecto" placeholder="Proyecto relacionado" class="form-control"/>				  	
+				  	<br>
+				  	<form:input path="fechaFinalizacion" placeholder="Fecha de Finalizacion (año-mes-dia)" class="form-control"/>				  					  					  					  	
 				  	<br>		
-					<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			
+				  	<br>
+					<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Tarea" type="Submit">Guardar</button>  			
 				</form:form>
 				<c:if test="${not empty error}">
 			        <h4><span>${error}</span></h4>

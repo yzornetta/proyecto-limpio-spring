@@ -35,7 +35,6 @@ public class ControladorProyecto {
 	@Inject
 	private ServicioLogin servicioLogin;	
 	
-	private Random random = new Random();
 	private List<Proyecto> listaProyectos;
 	private List<Usuario> listaUsuarios;
 
@@ -44,7 +43,7 @@ public class ControladorProyecto {
 	@RequestMapping(value="proyecto/altaProyecto",  method = RequestMethod.GET)
 	public ModelAndView vistaRegistrar(Model modelo) {
 		//ModelAndView altaProyecto = new ModelAndView();
-		modelo.addAttribute("classAltaProyecto", new Proyecto());	
+		modelo.addAttribute("proyecto", new Proyecto());	
 		
 		listaUsuarios = servicioLogin.obtenerTodos();		
 		

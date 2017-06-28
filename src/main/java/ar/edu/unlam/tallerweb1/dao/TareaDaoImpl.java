@@ -1,8 +1,9 @@
 package ar.edu.unlam.tallerweb1.dao;
 
-import java.util.HashMap;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -11,15 +12,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.stereotype.Service;
-
-
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
-@Service("TareaDao")
+@Service("tareaDao")
 public class TareaDaoImpl implements TareaDao {
 	
 	@Inject
@@ -29,15 +25,25 @@ public class TareaDaoImpl implements TareaDao {
 	public Tarea consultarTarea(Tarea tarea) {
 		final Session session = sessionFactory.openSession();
 		return (Tarea) session.createCriteria(Tarea.class)
-				.add(Restrictions.eq("descripcion", Tarea.getDescripcion()))
+				.add(Restrictions.eq("descripcion", tarea.getDescripcion()))
 				.uniqueResult();
 	}
 
 	@Override
-	public void save(Tarea Tarea) {
+	public void save(Tarea tarea) {
 		
 		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(Tarea);
+			
+		session.persist(tarea);
+	}
+	
+	@Override
+	public void edit(Tarea tarea) {
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		//session.flush();
+
+		session.update(tarea);
 	}
 
 	@Override
@@ -49,15 +55,9 @@ public class TareaDaoImpl implements TareaDao {
 	}
 
 	@Override
-	public List<Tarea> obtenerTodosTarea() {
-		List <Tarea> Tarea = sessionFactory.openSession().createCriteria(Tarea.class).list();
-		return Tarea;
-	}
-
-	@Override
-	public List<Tarea> listarTareas() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Tarea> obtenerTodas() {
+		List <Tarea> Tareas = sessionFactory.openSession().createCriteria(Tarea.class).list();
+		return Tareas;
 	}
 	
 

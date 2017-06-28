@@ -39,33 +39,9 @@
 		</nav>	
 		
 		<div class = "container">
-			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">		
-				<form:form action="agregarProyecto" method="POST" modelAttribute="proyecto" role="form">      
-			    	<h1 class="page-header text-center titulo">Alta de Proyectos</h1>
-					<br>					
-					<form:input path="descripcion" placeholder="Nombre del proyecto" class="form-control"/>
-					<br>
-				  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control"/>
-				  	<br>
-				  	<form:input path="horasReales" placeholder="Horas reales" class="form-control"/>
-					<br>
-				  	<form:input path="porcentajeAvance" placeholder="% de avance" class="form-control"/>
-					<br>
-				  	<form:input path="fechaFinalizacion" placeholder="Fecha de Finalizacion (año-mes-dia)" class="form-control"/>				  	
-				  	<br>
-					<c:forEach items="${command}" var="usuario" >											  	
-						<div class="checkbox">
-							<label><input type="checkbox" value="${usuario.id}" >${usuario.email}</label>
-						</div>
-					</c:forEach>
-				  	<br>		
-					<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			
-				</form:form>
-				<c:if test="${not empty error}">
-			        <h4><span>${error}</span></h4>
-			        <br>
-		        </c:if>	
-			</div>						
+			<h1>ID de la tarea es: <span> ${tarea.id} </span></h1>
+			<h1>Descripcion de la tarea es: <span>${tarea.descripcion}	</span></h1>		
+			<a href="listarTareas" class="btn btn-lg btn-primary">Volver a Tareas</a>	
 		</div>
 		
 		<!-- Placed at the end of the document so the pages load faster -->

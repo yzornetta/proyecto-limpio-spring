@@ -23,23 +23,30 @@ public class ServicioTareaImpl implements ServicioTarea {
 	//TareaDao tareaDao;
 	
 	@Override
-	public List<Tarea> listarTareas() {
-		return servicioTareaDao.listarTareas();
+	public Tarea consultarTarea(Tarea tarea) {
+		return servicioTareaDao.consultarTarea(tarea);
 	}
-	
-	
-	@Override
-	public List<Tarea> obtenerTodosTarea() {
-		return servicioTareaDao.obtenerTodosTarea();
-	}
-
 
 	@Override
 	@Transactional
 	public void grabarTarea(Tarea tarea) {
 		servicioTareaDao.save(tarea);
-		
+	}
+	
+	@Override
+	@Transactional
+	public void editarTarea(Tarea tarea) {
+		servicioTareaDao.edit(tarea);
 	}	
 
+	@Override
+	public Tarea consultarTareaPorID(Integer idTarea) {
+		return servicioTareaDao.consultarTareaPorID(idTarea);
+	}
+
+	@Override
+	public List<Tarea> obtenerTodos() {
+		return servicioTareaDao.obtenerTodas();
+	}
 
 }
