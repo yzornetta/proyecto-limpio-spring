@@ -61,10 +61,22 @@
 		            <h1 class="text-center texto-login">Menu Principal</h1>	           
 	           
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">
-						<a href="proyecto/listarProyectos" class="button">Proyectos</a>
-						<a href="Tareas/listarTareas" class="button">Tareas</a>
-						<a href="usuario/listarUsuarios.html" class="button">Usuarios</a>	
-						<a href="proyecto/agregarProyecto.html" class="button">Roles</a>											
+					<div class="form-group">
+						<h4><center><a href="proyecto/listarProyectos" class="button">Proyectos</a></center></h4>
+					</div>
+					<br>
+					<div >
+						<h4><center><a href="Tareas/listarTareas" class="button">Tareas</a></center></h4>
+					</div>
+					<br>
+					<div>
+						<h4><center><a href="usuario/listarUsuarios.html" class="button">Usuarios</a></center></h4>	
+				    </div>
+				    <br>
+				    <div>
+						<h4><center><a href="proyecto/agregarProyecto.html" class="button">Roles</a></center></h4>
+					</div>	
+					<br>										
 				    </div>	
 				   </div>
 				  </div>
