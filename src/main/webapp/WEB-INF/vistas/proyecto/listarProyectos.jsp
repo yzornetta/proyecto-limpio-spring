@@ -6,8 +6,15 @@ pageEncoding="UTF-8"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
 <!-- Bootstrap core CSS -->
 <link href="../css/bootstrap.min.css" rel="stylesheet" >
+ <link href="../css/bootstrap.min.css" rel="stylesheet" >
+ 
+<!-- Bootstrap theme -->
+<link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="../css/estilos.css" rel="stylesheet">
+
 <!-- Bootstrap theme -->
 <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 
@@ -27,6 +34,9 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+h4 { color: white; }
+h1 { color: white; }
 </style>
 
 </head>
@@ -60,15 +70,12 @@ tr:nth-child(even) {
 	</div>  -->
 	<br></br> 
 	<div class="container-fluid">
-		<div class="panel panel-info"> 
-			<div>
-				<br></br>			
-				<a href="altaProyecto" class="btn btn-danger btn-lg active" role="button">Crear proyecto</a>				
-			</div>
-			<div>
-				<h3 align="left">Lista de Proyectos</h1>
-			</div>
-			<div class="panel-body">   								
+			
+
+  	
+				<h1 align="center">Lista de Proyectos</h1>
+			
+			<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">											
 				<form>
 					<table>
 					  <tr>
@@ -94,8 +101,12 @@ tr:nth-child(even) {
 						</c:forEach>			
 					</table>
 				</form>
-			</div>
-		</div>
+        </div>
+     </div>
+
+ 	<div>
+		<br>			
+		<center><a href="altaProyecto" class="btn btn-danger btn-lg active" role="button">Crear proyecto</a></center>				
 	</div>
 </body>
 </html>
