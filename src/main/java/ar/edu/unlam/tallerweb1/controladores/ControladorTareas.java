@@ -67,6 +67,17 @@ public class ControladorTareas {
 	//ACCION DEL BOTON GRABAR - ALTA DE TAREA
 	@RequestMapping(value="tarea/agregarTarea",  method = RequestMethod.POST)
 	public ModelAndView agregarTarea(@ModelAttribute("tarea") Tarea tarea) {
+		
+		//Prueba
+		
+		Usuario u = new Usuario();
+		u.setEmail("elias@gmail.com");
+		u.setPassword("pass");
+		
+		tarea.setUsuario(servicioLogin.consultarUsuario(u));
+		//Prueba
+		
+		
 		servicioTarea.grabarTarea(tarea);
 		return new ModelAndView("redirect:/tarea/listarTareas");
 
