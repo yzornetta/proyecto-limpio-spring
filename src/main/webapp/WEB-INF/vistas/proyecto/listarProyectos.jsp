@@ -32,7 +32,7 @@ td, th {
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #000000;
 }
 
 h4 { color: white; }
@@ -43,23 +43,23 @@ h1 { color: white; }
 
 <body>
 
-		<nav class="navbar navbar-fixed-top menu">
-  			<div class="container-fluid">
-				<ul class="nav nav-pills navbar-right">
-				  	<c:choose>
-					  	<c:when test="${email != null}">
-					  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
-						  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
-					  	</c:when>
-					  	<c:otherwise>
-							<li><a class="btn btn-menu" href="/proyecto-limpio-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-							<li><a class="btn btn-menu" href="/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-						  	<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-						</c:otherwise>
-					</c:choose>							  	
-				</ul>
-			</div>
-		</nav>	
+	<nav class="navbar navbar-fixed-top menu">
+ 			<div class="container-fluid">
+			<ul class="nav nav-pills navbar-right">
+			  	<c:choose>
+				  	<c:when test="${email != null}">
+				  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+					  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
+				  	</c:when>
+				  	<c:otherwise>
+						<li><a class="btn btn-menu" href="/proyecto-limpio-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+						<li><a class="btn btn-menu" href="/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+					  	<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					</c:otherwise>
+				</c:choose>							  	
+			</ul>
+		</div>
+	</nav>	
 
 	<!-- <div class="container-fluid">
 	    <div class="panel panel-primary"> 
@@ -68,13 +68,14 @@ h1 { color: white; }
 			</div>
 		</div>
 	</div>  -->
-	<br></br> 
-	<div class="container-fluid">
-			
+	<br></br>
 
-  	
-				<h1 align="center">Lista de Proyectos</h1>
-			
+	<div class="container-fluid">
+			<h1 align="center">Lista de Proyectos</h1>
+		 	<div>
+				<br>			
+				<center><a href="altaProyecto" class="btn btn-danger btn-lg active" role="button">Crear proyecto</a></center>				
+			</div>	 
 			<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">											
 				<form>
 					<table>
@@ -104,10 +105,7 @@ h1 { color: white; }
         </div>
      </div>
 
- 	<div>
-		<br>			
-		<center><a href="altaProyecto" class="btn btn-danger btn-lg active" role="button">Crear proyecto</a></center>				
-	</div>
+
 </body>
 </html>
 
