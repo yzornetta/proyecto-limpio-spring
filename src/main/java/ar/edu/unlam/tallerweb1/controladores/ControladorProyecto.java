@@ -8,6 +8,8 @@ import java.util.Random;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import org.hamcrest.core.IsNull;
+import org.junit.runner.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -54,7 +56,9 @@ public class ControladorProyecto {
 
 	//ACCION DEL BOTON GRABAR - ALTA DE PROYECTO
 	@RequestMapping(value="proyecto/agregarProyecto",  method = RequestMethod.POST)
-	public ModelAndView agregarProyecto(@ModelAttribute("proyecto") Proyecto proyecto) {
+	public ModelAndView agregarProyecto(@ModelAttribute("proyecto") Proyecto proyecto, HttpServletRequest request) {
+		
+		proyecto.setIdUsuarioAlta((Integer) request.getSession().getAttribute("Id"));
 		servicioProyecto.grabarProyecto(proyecto);
 		return new ModelAndView("redirect:/proyecto/listarProyectos");
 
@@ -65,6 +69,7 @@ public class ControladorProyecto {
 	@RequestMapping(value="proyecto/listarProyectos",  method = RequestMethod.GET)
 	public ModelAndView listarProyectos()
 	{
+	
 		listaProyectos = servicioProyecto.obtenerTodos();
 		return new ModelAndView("proyecto/listarProyectos","command", listaProyectos);//devuelve vista exito
 	}

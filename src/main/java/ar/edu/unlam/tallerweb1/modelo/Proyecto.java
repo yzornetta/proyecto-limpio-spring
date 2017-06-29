@@ -1,5 +1,10 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.junit.runner.Request;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,8 +13,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 @Entity
+@Table(name = "proyecto")
 public class Proyecto {
 
 	@Id 
@@ -21,6 +29,9 @@ public class Proyecto {
 	private Integer porcentajeAvance;
 	private Date fechaAlta = new Date();
 	private String fechaFinalizacion;
+	private Integer idUsuarioAlta;
+			
+			//request.getSession().setAttribute("Id",usuarioValidado.getId());
 	
 	public Integer getId() {
 		return Id;
@@ -64,18 +75,11 @@ public class Proyecto {
 	public void setFechaFinalizacion(String fechaFinalizacion) {
 		this.fechaFinalizacion = fechaFinalizacion;
 	}
-
-	/*
-	public List<Proyecto> listaProyecto(){
-		lsProyecto = null;
-		
-		Proyecto p1 = new Proyecto();
-		p1.Id = 1;
-		p1.descripcion = "Ejemplo nro 1";
-		
-		lsProyecto.add(p1);
-		return lsProyecto;
+	public Integer getIdUsuarioAlta() {
+		return idUsuarioAlta;
 	}
-	*/
+	public void setIdUsuarioAlta(Integer idUsuarioAlta) {
+		this.idUsuarioAlta = idUsuarioAlta;
+	}
 
 }

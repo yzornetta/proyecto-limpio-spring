@@ -12,18 +12,18 @@ public class Usuario {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	private Long id;
+	private Integer id;
 	private String email;
 	private String nombre;
 	private String apellido;
 	private String password;
 	private String passwordConf;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getEmail() {
