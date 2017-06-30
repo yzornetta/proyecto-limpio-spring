@@ -14,7 +14,7 @@
 	    <link href="css/estilos.css" rel="stylesheet">
 	    
 	     <style>
-    h4 { color: white; }
+    h4 { color: red; }
     h1 { color: white; }
   		</style>
 	    
@@ -44,9 +44,9 @@
 			    	<h1 class="page-header text-center titulo">TASK MANAGER PRO</h1>
 					<br>					
 					
-					<form:input path="email" id="email" type="email" class="form-control" />
+					<form:input path="email" id="email" type="email" placeholder="Ingrese email" class="form-control" />
 					<br>
-					<form:input path="password" type="password" id="password" class="form-control"/>     		  
+					<form:input path="password" type="password" id="password" placeholder="Ingrese password" class="form-control"/>     		  
 					<br>
 					<br>	
 					<br>		

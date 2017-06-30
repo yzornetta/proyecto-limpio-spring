@@ -19,24 +19,11 @@ pageEncoding="UTF-8"%>
 <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 
 <style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
+	th, td {
+	    color: white;
+	}
 
-tr:nth-child(even) {
-    background-color: #000000;
-}
-
-h4 { color: white; }
-h1 { color: white; }
 </style>
 
 </head>
@@ -61,20 +48,21 @@ h1 { color: white; }
 		</div>
 	</nav>	
 
-
-
-	<br></br>
-
 	<div class="container-fluid">
-			<h1 align="center">Lista de Proyectos</h1>
-		 	<div>
-				<br>			
-				<center><a href="altaProyecto" class="btn btn-danger btn-lg active" role="button">Crear proyecto</a></center>				
-			</div>	 
-			<div class="col-xs-10 col-xs-offset-1 transparencia contenedor-registracion">											
-				<form>
-					<table>
-					  <tr>
+		<center><h1 align="center">Lista de proyectos</h1></center>
+	</div>
+	
+	<div>
+		<br></br>			
+		<center><a href="altaProyecto" class="btn btn-danger btn-lg active" role="button">Crear Proyecto</a></center>				
+	</div>
+	<br>
+	<br>		
+	<div class="container">			
+		<div class="table-responsive">          
+			<table class="table">
+				<thead>
+					 <tr>
 					    <th>ID</th>
 					    <th>Descripcion</th>
 					    <th>Hs Estimadas</th>
@@ -82,9 +70,11 @@ h1 { color: white; }
 					    <th>% Avance</th>
 					    <th>Fecha Finalizacion</th>
 						<th>Fecha de Alta </th>
-					  </tr>
-		  				<c:forEach items="${command}" var="proyecto" >					
-						  <tr>
+					 </tr>
+	     		<thead>
+				<tbody>
+	 				<c:forEach items="${command}" var="tarea" >					
+					  <tr>
 						    <td>${proyecto.id}</td>
 						    <!--<td><a href="listarProyecto?id=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td> -->
 						    <td><a href="../tarea/listarTareas?idProyecto=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td>						    
@@ -93,14 +83,12 @@ h1 { color: white; }
 						    <td>${proyecto.porcentajeAvance}</td>
 						    <td>${proyecto.fechaFinalizacion}</td>	
 						    <td>${proyecto.fechaAlta}</td>		
-						  </tr>
-						</c:forEach>			
-					</table>
-				</form>
-        </div>
-     </div>
-
-
+					  </tr>
+					</c:forEach>
+				</tbody>			
+			</table>
+		</div>
+	</div>
 </body>
 </html>
 

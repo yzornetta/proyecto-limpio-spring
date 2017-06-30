@@ -19,24 +19,11 @@ pageEncoding="UTF-8"%>
 <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 
 <style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
+	th, td {
+	    color: white;
+	}
 
-tr:nth-child(even) {
-    background-color: #000000;
-}
-
-h4 { color: white; }
-h1 { color: white; }
 </style>
 
 </head>
@@ -60,52 +47,55 @@ h1 { color: white; }
 			</ul>
 		</div>
 	</nav>		
-
-
 			
 			
 	<div class="container-fluid">
-	<center><h1 align="center">Lista de tareas</h1></center>
+		<center><h1 align="center">Lista de tareas</h1></center>
 	</div>
-			<div>
-				<br></br>			
-				<center><a href="altaTarea" class="btn btn-danger btn-lg active" role="button">Crear tarea</a></center>				
-			</div>
-			
-			
-			<div class="col-xs-10 col-xs-offset-1 transparencia contenedor-registracion">   								
-				<form>
-					<table>
+	
+	<div>
+		<br></br>			
+		<center><a href="altaTarea" class="btn btn-danger btn-lg active" role="button">Crear Tarea</a></center>				
+	</div>
+	<br>
+	<br>		
+	<div class="container">			
+		<div class="table-responsive">          
+			<table class="table">
+				<thead>
+					 <tr>
+					  <th>ID</th>
+					  <th>Descripcion</th>
+					  <th>Usuario Asignado</th>
+					  <th>Estado</th>
+					  <th>% Avance</th>					    
+					  <th>Hs Estimadas</th>
+					  <th>Horas Reales</th>
+					  <th>Comentarios</th>					    
+					  <th>Proyecto asociado</th>
+					  <th>Fecha de Alta </th>
+					 </tr>
+	     		<thead>
+				<tbody>
+	 				<c:forEach items="${command}" var="tarea" >					
 					  <tr>
-					    <th>ID</th>
-					    <th>Descripcion</th>
-					    <th>Usuario Asignado</th>
-					    <th>Estado</th>
-					    <th>% Avance</th>					    
-					    <th>Hs Estimadas</th>
-					    <th>Horas Reales</th>
-					    <th>Comentarios</th>					    
-					    <th>Proyecto asociado</th>
-						<th>Fecha de Alta </th>
+					    <td>${tarea.id}</td>
+					    <td><a href="editarTarea?id=<c:out value="${tarea.id}"/>"><c:out value="${tarea.descripcion}"/></a></td>						    
+					    <!--<td>${tarea.descripcion}</td> -->
+					    <td>${tarea.usuarioAsignado}</td>
+					    <td>${tarea.estado}</td>
+					    <td>${tarea.porcentajeAvance}</td>	
+					    <td>${tarea.horasEstimadas}</td>		
+					    <td>${tarea.horasReales}</td>		
+					    <td>${tarea.comentarios}</td>		
+					    <td>${tarea.descripcionProyecto}</td>		
+					    <td>${tarea.fechaAlta}</td>		
 					  </tr>
-		  				<c:forEach items="${command}" var="tarea" >					
-						  <tr>
-						    <td>${tarea.id}</td>
-						    <td><a href="editarTarea?id=<c:out value="${tarea.id}"/>"><c:out value="${tarea.descripcion}"/></a></td>						    
-						    <!--<td>${tarea.descripcion}</td> -->
-						    <td>${tarea.usuarioAsignado}</td>
-						    <td>${tarea.estado}</td>
-						    <td>${tarea.porcentajeAvance}</td>	
-						    <td>${tarea.horasEstimadas}</td>		
-						    <td>${tarea.horasReales}</td>		
-						    <td>${tarea.comentarios}</td>		
-						    <td>${tarea.descripcionProyecto}</td>		
-						    <td>${tarea.fechaAlta}</td>		
-						  </tr>
-						</c:forEach>			
-					</table>
-				</form>
-			</div>
+					</c:forEach>
+				</tbody>			
+			</table>
+		</div>
+	</div>
 </body>
 </html>
 
