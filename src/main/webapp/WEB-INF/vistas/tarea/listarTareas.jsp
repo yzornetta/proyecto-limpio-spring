@@ -6,8 +6,15 @@ pageEncoding="UTF-8"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
 <!-- Bootstrap core CSS -->
 <link href="../css/bootstrap.min.css" rel="stylesheet" >
+ <link href="../css/bootstrap.min.css" rel="stylesheet" >
+ 
+<!-- Bootstrap theme -->
+<link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="../css/estilos.css" rel="stylesheet">
+
 <!-- Bootstrap theme -->
 <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 
@@ -25,50 +32,48 @@ td, th {
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #000000;
 }
+
+h4 { color: white; }
+h1 { color: white; }
 </style>
 
 </head>
 
 <body>
 
-		<nav class="navbar navbar-fixed-top menu">
-  			<div class="container-fluid">
-				<ul class="nav nav-pills navbar-right">
-				  	<c:choose>
-					  	<c:when test="${email != null}">
-					  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
-						  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
-					  	</c:when>
-					  	<c:otherwise>
-							<li><a class="btn btn-menu" href="/proyecto-limpio-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-							<li><a class="btn btn-menu" href="/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-						  	<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-						</c:otherwise>
-					</c:choose>							  	
-				</ul>
-			</div>
-		</nav>	
-
-	<!-- <div class="container-fluid">
-	    <div class="panel panel-primary"> 
-		  	<div class="panel-heading">
-		    	<h1 class="center-block"><center>Administrador de Proyectos</center></h1>
-			</div>
+	<nav class="navbar navbar-fixed-top menu">
+ 			<div class="container-fluid">
+			<ul class="nav nav-pills navbar-right">
+			  	<c:choose>
+				  	<c:when test="${email != null}">
+				  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+					  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
+				  	</c:when>
+				  	<c:otherwise>
+						<li><a class="btn btn-menu" href="/proyecto-limpio-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+						<li><a class="btn btn-menu" href="/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+					  	<li><a class="btn btn-menu" href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					</c:otherwise>
+				</c:choose>							  	
+			</ul>
 		</div>
-	</div>  -->
-	<br></br> 
+	</nav>		
+
+
+			
+			
 	<div class="container-fluid">
-		<div class="panel panel-info"> 
+	<center><h1 align="center">Lista de tareas</h1></center>
+	</div>
 			<div>
 				<br></br>			
-				<a href="altaTarea" class="btn btn-danger btn-lg active" role="button">Crear tarea</a>				
+				<center><a href="altaTarea" class="btn btn-danger btn-lg active" role="button">Crear tarea</a></center>				
 			</div>
-			<div>
-				<h3 align="left">Lista de tareas</h1>
-			</div>
-			<div class="panel-body">   								
+			
+			
+			<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">   								
 				<form>
 					<table>
 					  <tr>
@@ -101,8 +106,6 @@ tr:nth-child(even) {
 					</table>
 				</form>
 			</div>
-		</div>
-	</div>
 </body>
 </html>
 

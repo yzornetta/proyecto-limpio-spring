@@ -61,13 +61,8 @@ h1 { color: white; }
 		</div>
 	</nav>	
 
-	<!-- <div class="container-fluid">
-	    <div class="panel panel-primary"> 
-		  	<div class="panel-heading">
-		    	<h1 class="center-block"><center>Administrador de Proyectos</center></h1>
-			</div>
-		</div>
-	</div>  -->
+
+
 	<br></br>
 
 	<div class="container-fluid">
