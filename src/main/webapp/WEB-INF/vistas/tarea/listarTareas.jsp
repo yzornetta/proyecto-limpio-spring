@@ -73,7 +73,7 @@ h1 { color: white; }
 			</div>
 			
 			
-			<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">   								
+			<div class="col-xs-10 col-xs-offset-1 transparencia contenedor-registracion">   								
 				<form>
 					<table>
 					  <tr>

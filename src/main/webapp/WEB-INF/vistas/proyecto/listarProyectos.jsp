@@ -71,7 +71,7 @@ h1 { color: white; }
 				<br>			
 				<center><a href="altaProyecto" class="btn btn-danger btn-lg active" role="button">Crear proyecto</a></center>				
 			</div>	 
-			<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">											
+			<div class="col-xs-10 col-xs-offset-1 transparencia contenedor-registracion">											
 				<form>
 					<table>
 					  <tr>

@@ -62,21 +62,17 @@
 	           
 					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">
 					<div>
-						<center><a href="proyecto/listarProyectos" class="button">Proyectos</a></center>
+						<center><a href="proyecto/listarProyectos" class="button">Mis Proyectos</a></center>
 					</div>
 					<br>
 					<div>
-						<center><a href="tarea/listarTareas" class="button">Tareas</a></center>
+						<center><a href="tarea/listarTareas" class="button">Todas mis tareas</a></center>
 					</div>
 					<br>
 					<div>
 						<center><a href="usuario/listarUsuarios.html" class="button">Usuarios</a></center>	
 					</div>
 					<br>
-					<div>
-						<center><a href="proyecto/agregarProyecto.html" class="button">Roles</a></center>		
-				    </div>	
-				    <br>								
 				    </div>	
 				   </div>
 				  </div>
