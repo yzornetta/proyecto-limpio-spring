@@ -20,7 +20,7 @@ pageEncoding="UTF-8"%>
 
 <style>
 
-	th, td {
+	th, td, h1 {
 	    color: white;
 	}
 
@@ -35,6 +35,7 @@ pageEncoding="UTF-8"%>
 			<ul class="nav nav-pills navbar-right">
 			  	<c:choose>
 				  	<c:when test="${email != null}">
+				  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>				  					  	
 				  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
 					  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
 				  	</c:when>
@@ -50,7 +51,7 @@ pageEncoding="UTF-8"%>
 			
 			
 	<div class="container-fluid">
-		<center><h1 align="center">Lista de tareas</h1></center>
+		<center><h1 align="center">Lista de Tareas</h1></center>
 	</div>
 	
 	<div>
@@ -96,6 +97,15 @@ pageEncoding="UTF-8"%>
 			</table>
 		</div>
 	</div>
+	
+			<!-- Footer -->
+	        <footer>
+	            <div class="row">
+	                <div class="col-lg-12 footer">
+	                    <center><p>Copyright &copy; Task Manager Pro 2018</p></center>
+	                </div>
+	            </div>
+	        </footer>
 </body>
 </html>
 

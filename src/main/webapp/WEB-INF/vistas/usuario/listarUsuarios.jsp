@@ -19,26 +19,12 @@ pageEncoding="UTF-8"%>
 <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
 
 <style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
+	th, td, h1 {
+	    color: white;
+	}
 
-tr:nth-child(even) {
-    background-color: #000000;
-}
-
-h4 { color: white; }
-h1 { color: white; }
 </style>
-
 </head>
 
 <body>
@@ -48,6 +34,7 @@ h1 { color: white; }
 			<ul class="nav nav-pills navbar-right">
 			  	<c:choose>
 				  	<c:when test="${email != null}">
+				  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>				  					  	
 				  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
 					  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
 				  	</c:when>
@@ -60,39 +47,47 @@ h1 { color: white; }
 			</ul>
 		</div>
 	</nav>	
-
-
-
 	<br></br> 
-     <div class="container-fluid">
+	
+	<div class="container-fluid">
 		<center><h1 align="center">Lista de Usuarios</h1></center>
 	</div>
-	<br>
-	<div>
-				<center><a href="../home" class="btn btn-lg btn-primary">Volver al Home</a></center>	
-			</div>
-			<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion"> 								
-				<form>
-					<table>
-					  <tr>
+
+	<div class="container">			
+		<div class="table-responsive">          
+			<table class="table">
+				<thead>
+					 <tr>
 					    <th>ID</th>
 					    <th>Email</th>
 					    <th>Nombre</th>
 					    <th>Apellido</th>
 					    <th>Password</th>
-					  </tr>
-		  				<c:forEach items="${command}" var="usuario" >					
-						  <tr>
+					 </tr>
+	     		<thead>
+				<tbody>
+	 				<c:forEach items="${command}" var="usuario" >					
+					  <tr>
 						    <td>${usuario.id}</td>
 						    <td>${usuario.email}</td>
 						    <td>${usuario.nombre}</td>
 						    <td>${usuario.apellido}</td>	
-						    <td>${usuario.password}</td>							    
-						  </tr>
-						</c:forEach>			
-					</table>
-				</form>
-			</div>					
+						    <td>${usuario.password}</td>		
+					  </tr>
+					</c:forEach>
+				</tbody>			
+			</table>
+		</div>
+	</div>	
+
+	<!-- Footer -->
+       <footer>
+           <div class="row">
+               <div class="col-lg-12 footer">
+                   <center><p>Copyright &copy; Task Manager Pro 2018</p></center>
+               </div>
+           </div>
+       </footer>					
 </body>
 </html>
 

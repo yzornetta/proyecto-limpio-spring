@@ -25,6 +25,7 @@
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
 					  	<c:when test="${email != null}">
+				  			<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>				  					  						  	
 					  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
 						  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
 					  	</c:when>

@@ -16,6 +16,8 @@
 	     <style>
     h4 { color: white; }
     h1 { color: white; }
+    h5 { color: white; }
+    
   		</style>
 	    
 	</head>
@@ -25,6 +27,7 @@
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
 					  	<c:when test="${email != null}">
+				  			<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>				  					  						  						  	
 					  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
 						  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
 					  	</c:when>
@@ -51,21 +54,18 @@
 				  					  	
 					<table>
 						<tr>
-							<td>Estado de la tarea :</td>
-							<td>
-							<form:radiobutton path="estado" checked="checked" value="Pendiente" />Pendiente 
-							<form:radiobutton path="estado" value="En curso" />En curso
-							<form:radiobutton path="estado" value="Finalizada" />Finalizada								
-							</td>
+							<td><h4>Estado de la tarea :<h4></td>
+							<td><form:radiobutton path="estado" checked="checked" value="No iniciada"/></td>
+							<td><h5> No iniciada</h5></td>
+							<td><form:radiobutton path="estado" value="En curso" disabled="true"/></td>
+							<td><h5> En curso</h5></td>	
+							<td><form:radiobutton path="estado" value="Finalizada" disabled="true"/></td>													
+							<td><h5> Finalizada	</h5></td>
 						</tr>
 					</table>
 				  	<br>
-				  	<form:input path="porcentajeAvance" placeholder="% de avance" class="form-control"/>
-					<br>
 				  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control"/>
 					<br>
-				  	<form:input path="horasReales" placeholder="Horas reales" class="form-control"/>				  	
-				  	<br>
 				  	<form:input path="comentarios" placeholder="Comentarios" class="form-control"/>				  	
 					<br>
 				  	<form:input path="descripcionProyecto" placeholder="Proyecto relacionado" class="form-control"/>				  	
