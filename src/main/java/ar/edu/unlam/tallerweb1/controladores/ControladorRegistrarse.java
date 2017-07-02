@@ -113,6 +113,7 @@ public class ControladorRegistrarse {
 		Usuario existeUsuario = servicioLogin.findUserById(usuario.getId());
 		
 		existeUsuario.setPassword(usuario.getPassword());
+		existeUsuario.setPasswordConf(usuario.getPasswordConf());
 		
 		servicioLogin.modificarUsuario(existeUsuario);
 		

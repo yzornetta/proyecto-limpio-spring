@@ -82,12 +82,12 @@
 								<form:input path="" type="password" id="nombre_password" class="form-control" required="required"/>
 							</div>							
 						    <div class="form-group">
-						    	<h4 for="nueva_password">Password nueva:</h4>
+						    	<h4 for="nueva_password">Password Nueva:</h4>
 								<form:input path="password" type="password" id="password" class="form-control" required="required"/>
 						    </div>						        
 						    <div class="form-group">
 						    	<h4 for="repetir_password">Repetir Password:</h4>
-						    	<form:input path="" type="password" class="form-control" id="confirmar_password" required="required"/>
+						    	<form:input path="passwordConf" type="password" class="form-control" id="confirmar_password" required="required"/>
 						    </div>
 						    
 						    <div class="form-group">	
@@ -96,14 +96,13 @@
 						  	
 						  	<div class="form-group">	
 						    <form:input path="id" type="hidden" class="form-control" id="id_user" value="${Id}" required="required"/>				        				  
-						  	</div>
-						  	
+						  	</div>						  	
 						  	  
 						  	  <div>
 								<center><button type="submit" class="btn btn-success btnRegistrarse">MODIFICAR</button></center>
 							</div>												
 							<div>
-								<center><a class="btn btn-danger btnCancelar" href="/proyecto-base-spring">Cancelar</a></center>
+								<center><a class="btn btn-danger btnCancelar" href="/proyecto-limpio-spring">Cancelar</a></center>
 							</div>
 							
 							
