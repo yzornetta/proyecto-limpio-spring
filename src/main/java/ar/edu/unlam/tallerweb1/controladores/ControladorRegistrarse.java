@@ -69,5 +69,56 @@ public class ControladorRegistrarse {
 		return "redirect:/login";
 		
 	}
+	
+	
+	
+	
+	/*Nuevo*/
+	
+	
+	@RequestMapping(value="/modificarUsuario",  method = RequestMethod.GET)
+	public ModelAndView vistaModificarUsuario(Model modelo) {
+		ModelAndView modificarUsuario = new ModelAndView();
+		modelo.addAttribute("classRegistrarse", new Usuario());
+		modificarUsuario.setViewName("usuario/modificarUsuario");
+		return modificarUsuario;
+	}	
+	
+	
+	@RequestMapping(value="/modificar",  method = RequestMethod.POST)
+	public ModelAndView modificarUsuario(@ModelAttribute("usuario") Usuario usuario) {
+		
+		servicioLogin.modificarUsuario(usuario);
+		ModelAndView modificar = new ModelAndView();
+		modificar.addObject("nombre", usuario.getNombre());
+		modificar.addObject("apellido", usuario.getApellido());
+		modificar.addObject("email", usuario.getEmail());
+		modificar.addObject("id", usuario.getId());
+		modificar.setViewName("usuario/modificacionOK");
+        return modificar;
+	}
+	
+	
+	@RequestMapping(value="/modificarPassword",  method = RequestMethod.GET)
+	public ModelAndView vistaModificarPassword(Model modelo) {
+		ModelAndView modificarPassword = new ModelAndView();
+		modelo.addAttribute("classNuevaPass", new Usuario());
+		modificarPassword.setViewName("usuario/modificarPassword");
+		return modificarPassword;
+	}	
+	
+	@RequestMapping(value="/nuevaPassword",  method = RequestMethod.POST)
+	public ModelAndView modificarPassword(@ModelAttribute("classNuevaPass") Usuario usuario) {
+		
+		Usuario existeUsuario = servicioLogin.findUserById(usuario.getId());
+		
+		existeUsuario.setPassword(usuario.getPassword());
+		
+		servicioLogin.modificarUsuario(existeUsuario);
+		
+		return new ModelAndView("usuario/registracionOk");
+		
+	}
+	
 
 }
