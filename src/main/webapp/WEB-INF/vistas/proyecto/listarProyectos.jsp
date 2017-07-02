@@ -87,7 +87,7 @@ pageEncoding="UTF-8"%>
 					 </tr>
 	     		<thead>
 				<tbody>
-	 				<c:forEach items="${command}" var="tarea" >					
+	 				<c:forEach items="${command}" var="proyecto" >					
 					  <tr>
 						    <td>${proyecto.id}</td>
 						    <!--<td><a href="listarProyecto?id=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td> -->
