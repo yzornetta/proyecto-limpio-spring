@@ -117,7 +117,7 @@ public class ControladorRegistrarse {
 		
 		servicioLogin.modificarUsuario(existeUsuario);
 		
-		return new ModelAndView("usuario/registracionOk");
+		return new ModelAndView("redirect:/exit");
 		
 	}
 	
