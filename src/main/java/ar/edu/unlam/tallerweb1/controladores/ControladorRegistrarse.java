@@ -112,16 +112,11 @@ public class ControladorRegistrarse {
 	@RequestMapping(value="/modificarPassword",  method = RequestMethod.POST)
 	public ModelAndView modificarPassword(@ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult) {
 		
-		//Usuario existeUsuario = servicioLogin.findUserById(usuario.getId());
+		Usuario existeUsuario = servicioLogin.findUserById(usuario.getId());
 		
-		//if(existeUsuario.getId() != null){
-		//	bindingResult.rejectValue("email","error.user","Las password ");
-		//}
-		//else
-		//{
-			servicioLogin.modificarUsuario(usuario);
-		//}
-
+		existeUsuario.setPassword(usuario.getPassword());
+		
+		servicioLogin.modificarUsuario(existeUsuario);
 		
 		ModelAndView modificar = new ModelAndView();
 		modificar.addObject("nombre", usuario.getNombre());

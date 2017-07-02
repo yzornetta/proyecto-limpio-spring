@@ -52,9 +52,7 @@
   			<div class="container-fluid">
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
-					  	<c:when test="${email != null}">
-					  	
-					  		
+					  	<c:when test="${email != null}">					  		
 					  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 	 						<li class="dropdown">
           						<a class="dropdown-toggle" data-toggle="dropdown" href="/proyecto-limpio-spring/home">${email}<span class="caret"></span></a>
@@ -65,8 +63,6 @@
             							<li><a href="/proyecto-limpio-spring/exit">Cerrar Sesion</a></li>
           							</ul>
         					</li>
-					  	
-					  	
 					  	</c:when>
 					  	<c:otherwise>
 							<li><a class="btn btn-menu" href="/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>

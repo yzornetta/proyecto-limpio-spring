@@ -89,18 +89,7 @@
 						  	<div class="form-group">	
 						    <form:input path="id" type="hidden" class="form-control" id="id_user" value="${Id}" required="required"/>				        				  
 						  	</div>
-						  	<div class="form-group">
-						   
-								<form:input path="nombre" type="hidden" id="nombre_usr" class="form-control" value="${nombre}" required="required"/>
-							</div>							
-						    <div class="form-group">
-						    	
-								<form:input path="apellido" type="hidden" id="apellido_usr" class="form-control" value="${apellido}" required="required"/>
-						    </div>						        
-						    <div class="form-group">
-						    	
-						    	<form:input path="email" type="hidden" class="form-control" id="mail_usr" value="${email}" required="required"/>
-						    </div>
+						  	
 						  	  
 						  	  <div>
 								<center><button type="submit" class="btn btn-success btnRegistrarse">MODIFICAR</button></center>
