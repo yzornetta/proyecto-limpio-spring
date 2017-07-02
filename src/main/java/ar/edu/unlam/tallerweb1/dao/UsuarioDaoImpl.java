@@ -51,4 +51,19 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		return usuarios;
 	}
 
+	@Override
+	public Usuario modificarUsuario(Usuario usuario) {
+		sessionFactory.getCurrentSession().update(usuario);
+		return usuario;
+	}
+
+	
+	@Override
+	public Usuario findUserById(int id) {
+		final Session session = sessionFactory.openSession();
+		return (Usuario) session.createCriteria(Usuario.class)
+				.add(Restrictions.eq("id", id))
+				.uniqueResult();
+	}
+	
 }

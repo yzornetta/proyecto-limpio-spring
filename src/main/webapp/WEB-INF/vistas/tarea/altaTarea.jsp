@@ -27,14 +27,19 @@
 				<ul class="nav nav-pills navbar-right">
 				  	<c:choose>
 					  	<c:when test="${email != null}">
-				  			<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>				  					  						  						  	
-					  		<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
-						  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
+				  			<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+	 						<li class="dropdown">
+          						<a class="dropdown-toggle" data-toggle="dropdown" href="/proyecto-limpio-spring/home">${email}<span class="caret"></span></a>
+          							<ul class="dropdown-menu">
+            							<li><a href="/proyecto-limpio-spring/modificarUsuario">Perfil</a></li>
+            							<li><a href="/proyecto-limpio-spring/modificarPassword">Modificar Password</a></li>
+            							<li role="separator" class="divider"></li>
+            							<li><a href="/proyecto-limpio-spring/exit">Cerrar Sesion</a></li>
+          							</ul>
+        					</li>
 					  	</c:when>
 					  	<c:otherwise>
-							<li><a class="btn btn-menu" href="/proyecto-limpio-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 							<li><a class="btn btn-menu" href="/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
-						  	<li><a class="btn btn-menu" href="http://localhost:8080/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 						</c:otherwise>
 					</c:choose>							  	
 				</ul>

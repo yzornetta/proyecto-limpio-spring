@@ -27,9 +27,13 @@
 					  	<c:when test="${email != null}">
 							<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
 						  	<li><a class="btn btn-menu" href="/proyecto-limpio-spring/home">${email}</a></li>
+						  		<ul id="expList">
+						  			<li><a class="btn btn-menu" href="/proyecto-limpio-spring/exit"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesion</a></li>
+						  			<li>Perfil</li>
+						  			<li>Cambiar contrasenia</li>
+						  		</ul>
 					  	</c:when>
 					  	<c:otherwise>
-							<li><a class="btn btn-menu" href="/proyecto-limpio-spring"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
 							<li><a class="btn btn-menu" href="/proyecto-limpio-spring/nuevoUsuario"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
 						</c:otherwise>
 					</c:choose>							  	

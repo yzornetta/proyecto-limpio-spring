@@ -13,4 +13,8 @@ public interface UsuarioDao {
 	Usuario findUserByEmail(String email);
 
 	List<Usuario> obtenerTodos();
+	
+	Usuario modificarUsuario(Usuario usuario);
+	
+	Usuario findUserById(int id);
 }

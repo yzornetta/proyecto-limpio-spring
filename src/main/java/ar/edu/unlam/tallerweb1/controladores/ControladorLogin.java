@@ -40,6 +40,8 @@ public class ControladorLogin {
 		
 		if (usuarioValidado != null) {
 			request.getSession().setAttribute("email",usuarioValidado.getEmail());
+			request.getSession().setAttribute("nombre",usuarioValidado.getNombre());
+			request.getSession().setAttribute("apellido",usuarioValidado.getApellido());
 			request.getSession().setAttribute("password",usuarioValidado.getPassword());
 			request.getSession().setAttribute("Id",usuarioValidado.getId());
 			model.put("UsuarioLogueado", usuario);

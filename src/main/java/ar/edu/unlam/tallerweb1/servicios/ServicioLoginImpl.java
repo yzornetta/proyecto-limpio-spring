@@ -42,4 +42,17 @@ public class ServicioLoginImpl implements ServicioLogin {
 		return servicioLoginDao.obtenerTodos();
 	}
 
+	@Override
+	public Usuario modificarUsuario(Usuario usuario) {
+		return servicioLoginDao.modificarUsuario(usuario);
+	}
+
+	@Override
+	public Usuario findUserById(int id) {
+	
+		return servicioLoginDao.findUserById(id);
+	}
+
+	
+	
 }

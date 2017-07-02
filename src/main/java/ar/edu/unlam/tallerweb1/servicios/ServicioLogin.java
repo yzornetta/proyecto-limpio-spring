@@ -14,4 +14,8 @@ public interface ServicioLogin {
 
 	List<Usuario> obtenerTodos();
 	
+	Usuario modificarUsuario(Usuario usuario);
+	
+	Usuario findUserById(int id);
+
 }

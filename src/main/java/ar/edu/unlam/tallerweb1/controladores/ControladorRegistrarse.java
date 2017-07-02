@@ -69,5 +69,69 @@ public class ControladorRegistrarse {
 		return "redirect:/login";
 		
 	}
+	
+	
+	
+	
+	/*Nuevo*/
+	
+	
+	@RequestMapping(value="/modificarUsuario",  method = RequestMethod.GET)
+	public ModelAndView vistaModificarUsuario(Model modelo) {
+		ModelAndView modificarUsuario = new ModelAndView();
+		modelo.addAttribute("classRegistrarse", new Usuario());
+		modificarUsuario.setViewName("usuario/modificarUsuario");
+		return modificarUsuario;
+	}	
+	
+	
+	@RequestMapping(value="/modificar",  method = RequestMethod.POST)
+	public ModelAndView modificarUsuario(@ModelAttribute("usuario") Usuario usuario) {
+		
+		servicioLogin.modificarUsuario(usuario);
+		ModelAndView modificar = new ModelAndView();
+		modificar.addObject("nombre", usuario.getNombre());
+		modificar.addObject("apellido", usuario.getApellido());
+		modificar.addObject("email", usuario.getEmail());
+		modificar.addObject("id", usuario.getId());
+		modificar.setViewName("usuario/registracionOk");
+        return modificar;
+	}
+	
+	
+	@RequestMapping(value="/modificarPassword",  method = RequestMethod.GET)
+	public ModelAndView vistaModificarPassword(Model modelo) {
+		ModelAndView modificarPassword = new ModelAndView();
+		modelo.addAttribute("classRegistrarse", new Usuario());
+		modificarPassword.setViewName("usuario/modificarPassword");
+		return modificarPassword;
+	}	
+	
+	
+
+	@RequestMapping(value="/modificarPassword",  method = RequestMethod.POST)
+	public ModelAndView modificarPassword(@ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult) {
+		
+		//Usuario existeUsuario = servicioLogin.findUserById(usuario.getId());
+		
+		//if(existeUsuario.getId() != null){
+		//	bindingResult.rejectValue("email","error.user","Las password ");
+		//}
+		//else
+		//{
+			servicioLogin.modificarUsuario(usuario);
+		//}
+
+		
+		ModelAndView modificar = new ModelAndView();
+		modificar.addObject("nombre", usuario.getNombre());
+		modificar.addObject("apellido", usuario.getApellido());
+		modificar.addObject("email", usuario.getEmail());
+		modificar.addObject("id", usuario.getId());
+		modificar.setViewName("usuario/registracionOk");
+        return modificar;
+	}
+	
+	
 
 }
