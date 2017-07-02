@@ -53,42 +53,43 @@
 		</nav>	
 		
 		<div class = "container">
-			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">		
-				<form:form action="editarTarea" method="POST" modelAttribute="tarea" role="form">      
-			    	<h1 class="page-header text-center titulo">Alta de Tareas</h1>
-			    	<br>
-			    	<!--<form:hidden path="id" class="form-control"/>-->
-			    	<form:input path="id" placeholder="Descripcion" class="form-control"/>	
+			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">						      
+				<form:form action="agregarTarea" method="POST" modelAttribute="tarea" role="form">      
+			    	<h1 class="page-header text-center titulo">Editar de Tarea</h1>
 					<br>					
 					<form:input path="descripcion" placeholder="Descripcion" class="form-control"/>
 					<br>
+				  	<form:input path="descripcionProyecto" placeholder="Proyecto relacionado" class="form-control"/>				  	
+				  	<br>					
 				  	<form:input path="usuarioAsignado" placeholder="Usuario asignado" class="form-control"/>
 				  	<br>
-				  	<!--<form:input path="estado" placeholder="Estado de la tarea" class="form-control"/>-->	
-				  					  	
+				  	<!--<form:input path="estado" placeholder="Estado de la tarea" class="form-control"/>-->							  	
 					<table>
 						<tr>
-							<td>Estado de la tarea :</td>
-							<!-- ACA HAY QUE METER UN IF Y SETEAR EL VALOR QUE TENGA EL ESTADO ORIGINAL -->
-							<td>
-							<form:radiobutton path="estado" value="Pendiente" />Pendiente 
-							<form:radiobutton path="estado" value="En curso" />En curso
-							<form:radiobutton path="estado" value="Finalizada" />Finalizada								
-							</td>
+							<td><h4>Estado de la tarea :<h4></td>
+							<td><form:radiobutton path="estado" checked="checked" value="No iniciada"/></td>
+							<td><h5> No iniciada</h5></td>
+							<td><form:radiobutton path="estado" value="En curso" disabled="true"/></td>
+							<td><h5> En curso</h5></td>	
+							<td><form:radiobutton path="estado" value="Finalizada" disabled="true"/></td>													
+							<td><h5> Finalizada	</h5></td>
 						</tr>
 					</table>
 				  	<br>
-				  	<form:input path="porcentajeAvance" placeholder="% de avance" class="form-control"/>
-					<br>
 				  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control"/>
 					<br>
-				  	<form:input path="horasReales" placeholder="Horas reales" class="form-control"/>				  	
-				  	<br>
-				  	<form:input path="comentarios" placeholder="Comentarios" class="form-control"/>				  	
+					<table>
+						<tr>
+							<td><h4>Fecha de Finalizacion: </h4></td>
+							<td><form:input type="date" path="fechaFinalizacion" placeholder="Fecha finalizacion" class="form-control"/></td>
+						</tr>
+					</table>  
 					<br>
-				  	<form:input path="descripcionProyecto" placeholder="Proyecto relacionado" class="form-control"/>				  	
+				  	<form:input path="horasReales" placeholder="Horas reales" disabled="true" class="form-control"/>				  	
 				  	<br>
-				  	<form:input path="fechaFinalizacion" placeholder="Fecha de Finalizacion (año-mes-dia)" class="form-control"/>				  					  					  					  	
+				  	<form:input path="porcentajeAvance" placeholder="% de avance" disabled="true" class="form-control"/>
+					<br>				  						
+				  	<form:textarea path="comentarios" rows="6" placeholder="Comentarios" class="form-control"/>				  	
 				  	<br>		
 				  	<br>
 					<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Tarea" type="Submit">Guardar</button>  			

@@ -63,9 +63,12 @@
 				  	<br>
 				  	<form:input path="horasReales" placeholder="Horas reales" class="form-control"/>
 					<br>
-				  	<form:input path="porcentajeAvance" placeholder="% de avance" class="form-control"/>
-					<br>
-				  	<form:input path="fechaFinalizacion" placeholder="Fecha de Finalizacion (año-mes-dia)" class="form-control"/>				  	
+					<table>
+						<tr>
+							<td><h4>Fecha de Finalizacion: </h4></td>
+							<td><form:input type="date" path="fechaFinalizacion" placeholder="Fecha finalizacion" class="form-control"/></td>
+						</tr>
+					</table>  
 				  	<br>
 					<c:forEach items="${command}" var="usuario" >											  	
 						<div class="checkbox">

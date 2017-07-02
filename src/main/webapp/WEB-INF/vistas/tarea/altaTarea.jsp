@@ -53,10 +53,11 @@
 					<br>					
 					<form:input path="descripcion" placeholder="Descripcion" class="form-control"/>
 					<br>
+				  	<form:input path="descripcionProyecto" placeholder="Proyecto relacionado" class="form-control"/>				  	
+				  	<br>					
 				  	<form:input path="usuarioAsignado" placeholder="Usuario asignado" class="form-control"/>
 				  	<br>
-				  	<!--<form:input path="estado" placeholder="Estado de la tarea" class="form-control"/>-->	
-				  					  	
+				  	<!--<form:input path="estado" placeholder="Estado de la tarea" class="form-control"/>-->							  	
 					<table>
 						<tr>
 							<td><h4>Estado de la tarea :<h4></td>
@@ -71,11 +72,14 @@
 				  	<br>
 				  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control"/>
 					<br>
-				  	<form:input path="comentarios" placeholder="Comentarios" class="form-control"/>				  	
+					<table>
+						<tr>
+							<td><h4>Fecha de Finalizacion: <h4></td>
+							<td><form:input type="date" path="fechaFinalizacion" placeholder="Fecha finalizacion" class="form-control"/></td>
+						</tr>
+					</table>  					
 					<br>
-				  	<form:input path="descripcionProyecto" placeholder="Proyecto relacionado" class="form-control"/>				  	
-				  	<br>
-				  	<form:input path="fechaFinalizacion" placeholder="Fecha de Finalizacion (año-mes-dia)" class="form-control"/>				  					  					  					  	
+				  	<form:textarea path="comentarios" rows="6" placeholder="Comentarios" class="form-control"/>				  	
 				  	<br>		
 				  	<br>
 					<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Tarea" type="Submit">Guardar</button>  			

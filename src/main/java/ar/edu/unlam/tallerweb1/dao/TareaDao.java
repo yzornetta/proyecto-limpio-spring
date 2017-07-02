@@ -17,6 +17,8 @@ public interface TareaDao {
 	List<Tarea> obtenerTodas();
 
 	void edit(Tarea tarea);
+
+	List<Tarea> consultarTareaPorProyecto(Integer idProyecto);
 	
 
 }

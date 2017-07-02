@@ -26,7 +26,7 @@ public class Proyecto {
 	private String descripcion;
 	private Integer horasEstimadas;
 	private Integer horasReales;
-	private Integer porcentajeAvance;
+	private Integer porcentajeAvance = 0;
 	private Date fechaAlta = new Date();
 	private String fechaFinalizacion;
 	private Integer idUsuarioAlta;

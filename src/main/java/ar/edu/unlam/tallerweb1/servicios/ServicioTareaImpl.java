@@ -43,6 +43,12 @@ public class ServicioTareaImpl implements ServicioTarea {
 	public Tarea consultarTareaPorID(Integer idTarea) {
 		return servicioTareaDao.consultarTareaPorID(idTarea);
 	}
+	
+	@Override
+	public List<Tarea> consultarTareaPorProyecto(Integer idProyecto) {
+		return servicioTareaDao.consultarTareaPorProyecto(idProyecto);
+	}
+	
 
 	@Override
 	public List<Tarea> obtenerTodos() {

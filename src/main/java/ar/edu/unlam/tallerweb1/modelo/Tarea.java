@@ -24,7 +24,7 @@ public class Tarea {
 	private String descripcion;
 	private String usuarioAsignado;
 	private String estado;
-	private Integer porcentajeAvance;
+	private Integer porcentajeAvance = 0;
 	private Integer horasEstimadas;
 	private Integer horasReales;
 	private String comentarios;
@@ -37,6 +37,10 @@ public class Tarea {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "usuario") //Nombre de la columna en la tabla Tarea
 	private Usuario usuario;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "proyecto") //Nombre de la columna en la tabla Tarea
+	private Proyecto proyecto;	
 	
 	public Integer getId() {
 		return Id;
@@ -135,6 +139,14 @@ public class Tarea {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public Proyecto getProyecto() {
+		return proyecto;
+	}
+
+	public void setProyecto(Proyecto proyecto) {
+		this.proyecto = proyecto;
 	}
 
 

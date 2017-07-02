@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.assertj.core.internal.cglib.transform.impl.AddDelegateTransformer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -59,6 +60,16 @@ public class TareaDaoImpl implements TareaDao {
 		List <Tarea> Tareas = sessionFactory.openSession().createCriteria(Tarea.class).list();
 		return Tareas;
 	}
-	
 
+	@Override
+	public List<Tarea> consultarTareaPorProyecto(Integer idProyecto) {
+		
+		final Session session = sessionFactory.openSession();
+		List<Tarea> Tareas;
+		Tareas = (List<Tarea>) session.createCriteria(Tarea.class)
+				.add(Restrictions.eq("proyecto", idProyecto))
+				.uniqueResult();
+		
+		return Tareas;
+	}
 }

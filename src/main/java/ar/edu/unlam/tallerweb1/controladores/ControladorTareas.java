@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Persona;
+import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
+import ar.edu.unlam.tallerweb1.servicios.ServicioProyecto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTarea;
 
 @Controller
@@ -34,7 +36,10 @@ public class ControladorTareas {
 	
 	@Inject
 	private ServicioLogin servicioLogin;	
-	
+
+	@Inject
+	private ServicioProyecto servicioProyecto;	
+
 	private List<Tarea> listaTareas;
 	private List<Usuario> listaUsuarios;
 
@@ -75,6 +80,10 @@ public class ControladorTareas {
 		u.setPassword("pass");
 		
 		tarea.setUsuario(servicioLogin.consultarUsuario(u));
+		
+		Proyecto p = new Proyecto();
+		p = servicioProyecto.consultarProyectoPorID(8);
+		tarea.setProyecto(p);
 		//Prueba
 		
 		
@@ -99,8 +108,16 @@ public class ControladorTareas {
 	public ModelAndView listarTareas()
 	{
 		listaTareas = servicioTarea.obtenerTodos();
-		return new ModelAndView("tarea/listarTareas","command", listaTareas);//devuelve vista exito
+		return new ModelAndView("tarea/listarTareas","command", listaTareas);
 	}
+	
+	//Tareas de un proyecto especifico
+	@RequestMapping("/mostrar/{idProyecto}")
+	public ModelAndView listarTareas(@PathVariable(value="idProyecto") Integer idProyecto){
+		
+		listaTareas = servicioTarea.consultarTareaPorProyecto(idProyecto);
+		return new ModelAndView("tarea/listarTareas","command", listaTareas);
+	}	
 	
 	//VER DETALLE DE LA TAREA
 	@RequestMapping(value="tarea/listarTarea")
