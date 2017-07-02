@@ -26,15 +26,22 @@
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	    <link href="css/estilos.css" rel="stylesheet">
 	    
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	    <link href="js/bootstrap.min.js" rel="stylesheet" >
+	    <link href="js/jquery-1.11.3.min.js" rel="stylesheet" >
+	    
+	      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    
 	    <style>
     h4 { color: white; }
     h1 { color: white; }
   		</style>
 	    
 	</head>
-	
+ 	
 	<body>
-		
 		<nav class="navbar navbar-fixed-top menu">
   			<div class="container-fluid">
 				<ul class="nav nav-pills navbar-right">
@@ -57,61 +64,17 @@
 					</c:choose>							  	
 				</ul>
 			</div>
-		</nav>	
-		
-
-				<div class="container">
-	       		 	<div class="row">
-	           		 	<div class="col-xs-12">
-
-		            <h1 class="text-center texto-login">MODIFICAR PERFIL</h1>	           
-	           
-					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">
-						<form:form method="POST" action="modificar" modelAttribute="classRegistrarse" class="form-horizontal" role="form">
-							
-							<div class="form-group">
-						    	<h4 for="nombre_usr">Nombre:</h4>
-								<form:input path="nombre" type="text" id="nombre_usr" class="form-control" value="${nombre}" required="required"/>
-							</div>							
-						    <div class="form-group">
-						    	<h4 for="apellido_usr">Apellido:</h4>
-								<form:input path="apellido" type="text" id="apellido_usr" class="form-control" value="${apellido}" required="required"/>
-						    </div>						        
-						    <div class="form-group">
-						    	<h4 for="mail_usr">Email:</h4>
-						    	<form:input path="email" type="text" class="form-control" id="mail_usr" value="${email}" required="required"/>
-						    </div>
-						     <div class="form-group">	
-						    <form:input path="id" type="hidden" class="form-control" id="id_user" value="${Id}" required="required"/>				        
-						  	<div>
-						  	 <div class="form-group">	
-						    <form:input path="password" type="hidden" class="form-control" id="id_user" value="${password}" required="required"/>				        
-						  	<div>
-						  	  </div>
-								<center><button type="submit" class="btn btn-success btnRegistrarse">MODIFICAR</button></center>
-							</div>												
-							<div>
-								<center><a class="btn btn-danger btnCancelar" href="/proyecto-base-spring">Cancelar</a></center>
-							</div>
-							
-							
-						</form:form>
-				    </div>	
-				   </div>
-				  </div>
-				</div>		
-			
-			<hr>
-       		<!-- Footer -->
-	        <footer>
-	            <div class="row">
-	                <div class="col-lg-12 footer">
-	                    <center><p>Copyright &copy; Task Manager Pro 2018</p></center>
-	                </div>
-	            </div>
-	        </footer>
+		</nav>
+		<div class="container">
+			<div class="row">
+		    	<div class="col-xs-12">
+		   			<h1 class="page-header text-center titulo">TASK MANAGER PRO</h1>
+					<div class="page-header text-center titulo">Modificacion exitosa</div>
+					<div class="page-header text-center titulo">Volver al Inicio <a href="/proyecto-limpio-spring/home">acá</a></div>	
+						<div></div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
-
-
