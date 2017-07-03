@@ -67,9 +67,8 @@ public class ControladorTareas {
 	public ModelAndView agregarTarea(@ModelAttribute("tarea") Tarea tarea) {
 		
 		//Prueba
-		tarea.setUsuario(servicioLogin.findUserByEmail("elias@gmail.com"));
-		
-		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(8));
+		//tarea.setUsuario(servicioLogin.findUserByEmail("elias@gmail.com"));
+		//tarea.setProyecto(servicioProyecto.consultarProyectoPorID(8));
 		
 		//Prueba
 		
@@ -89,6 +88,12 @@ public class ControladorTareas {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("tarea/editarTarea");
 		modelAndView.addObject("tarea", tareaElegida);
+		
+		listaProyectos = servicioProyecto.obtenerTodos();		
+		modelAndView.addObject("proyectos", listaProyectos);
+		
+		listaUsuarios = servicioLogin.obtenerTodos();
+		modelAndView.addObject("usuarios", listaUsuarios);		
 		
 		return modelAndView;
 	}	

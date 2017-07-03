@@ -53,21 +53,15 @@
 					<br>					
 					<form:input path="descripcion" placeholder="Descripcion" class="form-control"/>
 					<br>
-				  	<!--<form:input path="descripcionProyecto" placeholder="Proyecto relacionado" class="form-control"/>-->				  	
-					<form:select modelAttribute="proyecto" path="proyecto" class="form-control">
-		                <form:option value="0" label="Seleccione proyecto" />
-		                <c:forEach var="proyectos" items="${proyectos}">
-		                    <form:option value="${proyectos.id.toString()}"><c:out value="${proyectos.descripcion}"/></form:option>
-		                </c:forEach>
-	                </form:select>
-				  	<br>
-				  	<!--<form:input path="usuarioAsignado" placeholder="Usuario asignado" class="form-control"/>-->
-					<form:select modelAttribute="usuario" path="usuario" class="form-control">
-		                <form:option value="0" label="Seleccione usuario" />
-		                <c:forEach var="usuarios" items="${usuarios}">
-		                    <form:option value="${usuarios.id.toString()}"><c:out value="${usuarios.email}"/></form:option>
-		                </c:forEach>
-	                </form:select>
+
+					<form:select path="proyecto" multiple="false" class="form-control">
+					      <form:options items="${proyectos}" itemValue="id" itemLabel="descripcion"/>
+					 </form:select>
+					 <br>
+					 <form:select path="usuario" multiple="false" class="form-control">
+					      <form:options items="${usuarios}" itemValue="id" itemLabel="email"/>
+					 </form:select>
+
 				  	<br>
 				  	<!--<form:input path="estado" placeholder="Estado de la tarea" class="form-control"/>-->							  	
 					<table>
