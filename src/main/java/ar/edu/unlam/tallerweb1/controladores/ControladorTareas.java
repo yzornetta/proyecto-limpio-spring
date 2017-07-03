@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import javax.inject.Inject;
+import javax.persistence.Convert;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -42,19 +43,43 @@ public class ControladorTareas {
 
 	private List<Tarea> listaTareas;
 	private List<Usuario> listaUsuarios;
+	private List<Proyecto> listaProyectos;
 
 		
 	//ARMA EL FORM DE ALTA DE TAREA
 	@RequestMapping(value="tarea/altaTarea",  method = RequestMethod.GET)
 	public ModelAndView vistaRegistrar(Model modelo) {
-		//ModelAndView altaTarea = new ModelAndView();
-		modelo.addAttribute("tarea", new Tarea());	
 		
-		//listaUsuarios = servicioLogin.obtenerTodos();		
+		modelo.addAttribute("tarea", new Tarea());		
+		
+		listaProyectos = servicioProyecto.obtenerTodos();		
+		modelo.addAttribute("proyectos", listaProyectos);
+		
+		listaUsuarios = servicioLogin.obtenerTodos();
+		modelo.addAttribute("usuarios", listaUsuarios);
+		
 		return new ModelAndView("tarea/altaTarea");
 	}
+		
 	
+	//ACCION DEL BOTON GRABAR - ALTA DE TAREA
+	@RequestMapping(value="tarea/agregarTarea",  method = RequestMethod.POST)
+	public ModelAndView agregarTarea(@ModelAttribute("tarea") Tarea tarea) {
+		
+		//Prueba
+		tarea.setUsuario(servicioLogin.findUserByEmail("elias@gmail.com"));
+		
+		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(8));
+		
+		//Prueba
+		
+		servicioTarea.grabarTarea(tarea);
+		return new ModelAndView("redirect:/tarea/listarTareas");
 
+		//return new ModelAndView("listarTareas");
+	}	
+
+	
 	//ARMA EL FORM DE EDIT DE TAREA
 	@RequestMapping(value="tarea/editarTarea")
 	public ModelAndView editarTarea(@RequestParam("id") Integer idTarea) {
@@ -66,33 +91,7 @@ public class ControladorTareas {
 		modelAndView.addObject("tarea", tareaElegida);
 		
 		return modelAndView;
-	}
-		
-	
-	//ACCION DEL BOTON GRABAR - ALTA DE TAREA
-	@RequestMapping(value="tarea/agregarTarea",  method = RequestMethod.POST)
-	public ModelAndView agregarTarea(@ModelAttribute("tarea") Tarea tarea) {
-		
-		//Prueba
-		
-		Usuario u = new Usuario();
-		u.setEmail("elias@gmail.com");
-		u.setPassword("pass");
-		
-		tarea.setUsuario(servicioLogin.consultarUsuario(u));
-		
-		Proyecto p = new Proyecto();
-		p = servicioProyecto.consultarProyectoPorID(8);
-		tarea.setProyecto(p);
-		//Prueba
-		
-		
-		servicioTarea.grabarTarea(tarea);
-		return new ModelAndView("redirect:/tarea/listarTareas");
-
-		//return new ModelAndView("listarTareas");
 	}	
-
 	
 	//ACCION DEL BOTON GRABAR - EDITAR TAREA
 	@RequestMapping(value="tarea/editarTarea",  method = RequestMethod.POST)
@@ -103,7 +102,7 @@ public class ControladorTareas {
 		//return new ModelAndView("listarTareas");
 	}	
 	
-	//LISTAR TODOS LOS PROYECTOS
+	//LISTAR TODAS LAS TAREAS
 	@RequestMapping(value="tarea/listarTareas",  method = RequestMethod.GET)
 	public ModelAndView listarTareas()
 	{
@@ -125,11 +124,6 @@ public class ControladorTareas {
 	//public ModelAndView IrATarea(@ModelAttribute Tarea tarea)
 	public ModelAndView IrATarea(@RequestParam("id") Integer idTarea)
 	{
-		//Id seleccionado
-		//Integer idTarea = tarea.getId();
-				
-		//Servicio devuelve Objeto en base al id enviado
-		//Cuando haya base la lista no va, porque se busca sobre la base directamente
 		Tarea tareaElegida = servicioTarea.consultarTareaPorID(idTarea);
 		
 		ModelAndView modelAndView = new ModelAndView();
