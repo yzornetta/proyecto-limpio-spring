@@ -103,13 +103,13 @@ pageEncoding="UTF-8"%>
 					    <td>${tarea.id}</td>
 					    <td><a href="editarTarea?id=<c:out value="${tarea.id}"/>"><c:out value="${tarea.descripcion}"/></a></td>						    
 					    <!--<td>${tarea.descripcion}</td> -->
-					    <td>${tarea.usuarioAsignado}</td>
+					    <td>${tarea.usuario.email}</td>
 					    <td>${tarea.estado}</td>
 					    <td>${tarea.porcentajeAvance}</td>	
 					    <td>${tarea.horasEstimadas}</td>		
 					    <td>${tarea.horasReales}</td>		
 					    <td>${tarea.comentarios}</td>		
-					    <td>${tarea.descripcionProyecto}</td>		
+					    <td>${tarea.proyecto.descripcion}</td>		
 					    <td>${tarea.fechaAlta}</td>		
 					  </tr>
 					</c:forEach>

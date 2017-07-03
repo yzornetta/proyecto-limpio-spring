@@ -51,17 +51,16 @@
 				<form:form action="agregarTarea" method="POST" modelAttribute="tarea" role="form">      
 			    	<h1 class="page-header text-center titulo">Alta de Tareas</h1>
 					<br>					
-					<form:input path="descripcion" placeholder="Descripcion" class="form-control"/>
+					<form:input path="descripcion" placeholder="Descripcion" class="form-control" required="true"/>
 					<br>
 
-					<form:select path="proyecto" multiple="false" class="form-control">
+					<form:select path="proyectoId" multiple="false" class="form-control" required="true">
 					      <form:options items="${proyectos}" itemValue="id" itemLabel="descripcion"/>
 					 </form:select>
 					 <br>
-					 <form:select path="usuario" multiple="false" class="form-control">
+					 <form:select path="usuarioId" multiple="false" class="form-control" required="true">
 					      <form:options items="${usuarios}" itemValue="id" itemLabel="email"/>
 					 </form:select>
-
 				  	<br>
 				  	<!--<form:input path="estado" placeholder="Estado de la tarea" class="form-control"/>-->							  	
 					<table>
@@ -76,7 +75,7 @@
 						</tr>
 					</table>
 				  	<br>
-				  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control"/>
+				  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control" required="true"/>
 					<br>
 					<table>
 						<tr>

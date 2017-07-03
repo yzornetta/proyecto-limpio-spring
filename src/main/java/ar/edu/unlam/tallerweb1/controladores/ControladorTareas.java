@@ -65,17 +65,16 @@ public class ControladorTareas {
 	//ACCION DEL BOTON GRABAR - ALTA DE TAREA
 	@RequestMapping(value="tarea/agregarTarea",  method = RequestMethod.POST)
 	public ModelAndView agregarTarea(@ModelAttribute("tarea") Tarea tarea) {
-		
-		//Prueba
-		//tarea.setUsuario(servicioLogin.findUserByEmail("elias@gmail.com"));
-		//tarea.setProyecto(servicioProyecto.consultarProyectoPorID(8));
-		
-		//Prueba
-		
+
+		//Guardo proyecto asignado
+		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(tarea.getProyectoId()));
+
+		//Guardo usuario asignado
+		tarea.setUsuario(servicioLogin.findUserById(tarea.getUsuarioId()));
+			
 		servicioTarea.grabarTarea(tarea);
 		return new ModelAndView("redirect:/tarea/listarTareas");
 
-		//return new ModelAndView("listarTareas");
 	}	
 
 	
@@ -89,6 +88,7 @@ public class ControladorTareas {
 		modelAndView.setViewName("tarea/editarTarea");
 		modelAndView.addObject("tarea", tareaElegida);
 		
+		
 		listaProyectos = servicioProyecto.obtenerTodos();		
 		modelAndView.addObject("proyectos", listaProyectos);
 		
@@ -101,6 +101,14 @@ public class ControladorTareas {
 	//ACCION DEL BOTON GRABAR - EDITAR TAREA
 	@RequestMapping(value="tarea/editarTarea",  method = RequestMethod.POST)
 	public ModelAndView editarTarea(@ModelAttribute("tarea") Tarea tarea) {
+		
+		
+		//Guardo proyecto asignado
+		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(tarea.getProyectoId()));
+
+		//Guardo usuario asignado
+		tarea.setUsuario(servicioLogin.findUserById(tarea.getUsuarioId()));
+		
 		servicioTarea.editarTarea(tarea);
 		return new ModelAndView("redirect:/tarea/listarTareas");
 
@@ -112,6 +120,7 @@ public class ControladorTareas {
 	public ModelAndView listarTareas()
 	{
 		listaTareas = servicioTarea.obtenerTodos();
+				
 		return new ModelAndView("tarea/listarTareas","command", listaTareas);
 	}
 	

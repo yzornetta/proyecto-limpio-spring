@@ -32,15 +32,17 @@ public class Tarea {
 	private String descripcionProyecto;
 	private Date fechaAlta = new Date();
 	private String fechaFinalizacion;
-	
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "usuario") //Nombre de la columna en la tabla Tarea
 	private Usuario usuario;
 	
+	private Integer usuarioId;
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "proyecto") //Nombre de la columna en la tabla Tarea
 	private Proyecto proyecto;	
+	private Integer proyectoId;
 	
 	public Integer getId() {
 		return Id;
@@ -147,6 +149,22 @@ public class Tarea {
 
 	public void setProyecto(Proyecto proyecto) {
 		this.proyecto = proyecto;
+	}
+
+	public Integer getProyectoId() {
+		return proyectoId;
+	}
+
+	public void setProyectoId(Integer proyectoId) {
+		this.proyectoId = proyectoId;
+	}
+
+	public Integer getUsuarioId() {
+		return usuarioId;
+	}
+
+	public void setUsuarioId(Integer usuarioId) {
+		this.usuarioId = usuarioId;
 	}
 
 
