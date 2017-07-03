@@ -112,10 +112,11 @@ public class ControladorTareas {
 	}
 	
 	//Tareas de un proyecto especifico
-	@RequestMapping("/mostrar/{idProyecto}")
-	public ModelAndView listarTareas(@PathVariable(value="idProyecto") Integer idProyecto){
+	@RequestMapping("tarea/listarTareasPorProyecto")
+	public ModelAndView listarTareasPorProyecto(@RequestParam(value="idProyecto") Integer idProyecto){
 		
-		listaTareas = servicioTarea.consultarTareaPorProyecto(idProyecto);
+		Proyecto proyecto = servicioProyecto.consultarProyectoPorID(idProyecto);
+		listaTareas = servicioTarea.consultarTareaPorProyecto(proyecto);
 		return new ModelAndView("tarea/listarTareas","command", listaTareas);
 	}	
 	

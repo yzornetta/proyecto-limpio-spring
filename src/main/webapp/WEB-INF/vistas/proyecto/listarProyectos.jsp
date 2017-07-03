@@ -91,7 +91,7 @@ pageEncoding="UTF-8"%>
 					  <tr>
 						    <td>${proyecto.id}</td>
 						    <!--<td><a href="listarProyecto?id=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td> -->
-						    <td><a href="../tarea/listarTareas?idProyecto=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td>						    
+						    <td><a href="../tarea/listarTareasPorProyecto?idProyecto=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td>						    
 						    <td>${proyecto.horasEstimadas}</td>
 						    <td>${proyecto.horasReales}</td>
 						    <td>${proyecto.porcentajeAvance}</td>

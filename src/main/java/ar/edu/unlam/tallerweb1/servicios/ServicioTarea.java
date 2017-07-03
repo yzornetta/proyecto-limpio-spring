@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.servicios;
 
 import java.util.List;
 
+import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
 
 public interface ServicioTarea {
@@ -16,8 +17,6 @@ public interface ServicioTarea {
 
 	void editarTarea(Tarea tarea);
 
-	List<Tarea> consultarTareaPorProyecto(Integer idProyecto);
+	List<Tarea> consultarTareaPorProyecto(Proyecto proyecto);
 	
-
-
 }

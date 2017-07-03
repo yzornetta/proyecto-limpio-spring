@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.dao.TareaDao;
+import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
 
 @Service("servicioTarea")
@@ -45,8 +46,8 @@ public class ServicioTareaImpl implements ServicioTarea {
 	}
 	
 	@Override
-	public List<Tarea> consultarTareaPorProyecto(Integer idProyecto) {
-		return servicioTareaDao.consultarTareaPorProyecto(idProyecto);
+	public List<Tarea> consultarTareaPorProyecto(Proyecto proyecto) {
+		return servicioTareaDao.consultarTareaPorProyecto(proyecto);
 	}
 	
 

@@ -13,6 +13,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
@@ -62,13 +63,12 @@ public class TareaDaoImpl implements TareaDao {
 	}
 
 	@Override
-	public List<Tarea> consultarTareaPorProyecto(Integer idProyecto) {
+	public List<Tarea> consultarTareaPorProyecto(Proyecto proyecto) {
 		
 		final Session session = sessionFactory.openSession();
 		List<Tarea> Tareas;
-		Tareas = (List<Tarea>) session.createCriteria(Tarea.class)
-				.add(Restrictions.eq("proyecto", idProyecto))
-				.uniqueResult();
+		Tareas = session.createCriteria(Tarea.class)
+				.add(Restrictions.eq("proyecto", proyecto)).list();
 		
 		return Tareas;
 	}
