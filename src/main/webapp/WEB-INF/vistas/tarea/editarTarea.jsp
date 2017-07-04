@@ -51,7 +51,7 @@
 				<form:form action="editarTarea" method="POST" modelAttribute="tarea" role="form">      
 			    	<h1 class="page-header text-center titulo">Alta de Tareas</h1>
 					<br>					
-					<form:input path="Id" class="form-control" required="true"/>
+					<form:input path="Id" class="form-control" required="true" disabled="true"/>
 					<br>					
 					<form:input path="descripcion" placeholder="Descripcion" class="form-control" required="true"/>
 					<br>
@@ -69,9 +69,9 @@
 							<td><h4>Estado de la tarea :<h4></td>
 							<td><form:radiobutton path="estado" checked="checked" value="No iniciada"/></td>
 							<td><h5> No iniciada</h5></td>
-							<td><form:radiobutton path="estado" value="En curso" disabled="true"/></td>
+							<td><form:radiobutton path="estado" value="En curso"/></td>
 							<td><h5> En curso</h5></td>	
-							<td><form:radiobutton path="estado" value="Finalizada" disabled="true"/></td>													
+							<td><form:radiobutton path="estado" value="Finalizada"/></td>													
 							<td><h5> Finalizada	</h5></td>
 						</tr>
 					</table>
