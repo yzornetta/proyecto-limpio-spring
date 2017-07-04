@@ -24,12 +24,13 @@ public class Proyecto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer Id;
 	private String descripcion;
-	private Integer horasEstimadas = 0;
+	private Integer horasEstimadas;
 	private Integer horasReales = 0;
 	private Integer porcentajeAvance = 0;
 	private Date fechaAlta = new Date();
 	private String fechaFinalizacion;
 	private Integer idUsuarioAlta;
+	private String comentarios;
 			
 			//request.getSession().setAttribute("Id",usuarioValidado.getId());
 	
@@ -80,6 +81,12 @@ public class Proyecto {
 	}
 	public void setIdUsuarioAlta(Integer idUsuarioAlta) {
 		this.idUsuarioAlta = idUsuarioAlta;
+	}
+	public String getComentarios() {
+		return comentarios;
+	}
+	public void setComentarios(String comentarios) {
+		this.comentarios = comentarios;
 	}
 
 }

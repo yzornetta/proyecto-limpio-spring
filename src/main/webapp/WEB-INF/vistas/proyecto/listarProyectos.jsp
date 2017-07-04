@@ -83,6 +83,7 @@ pageEncoding="UTF-8"%>
 					    <th>Horas Reales</th>
 					    <th>% Avance</th>
 					    <th>Fecha Finalizacion</th>
+						<th>Comentarios</th>					    
 						<th>Fecha de Alta </th>
 					 </tr>
 	     		<thead>
@@ -96,6 +97,7 @@ pageEncoding="UTF-8"%>
 						    <td>${proyecto.horasReales}</td>
 						    <td>${proyecto.porcentajeAvance}</td>
 						    <td>${proyecto.fechaFinalizacion}</td>	
+							<td>${proyecto.comentarios}</td>		    						   
 						    <td>${proyecto.fechaAlta}</td>		
 					  </tr>
 					</c:forEach>

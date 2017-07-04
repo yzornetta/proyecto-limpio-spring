@@ -78,6 +78,11 @@
 					</div>
 
 					<div class="form-group">
+	      				<label><h4>Comentarios:</h4></label>					
+					  	<form:textarea path="comentarios" rows="6" placeholder="Comentarios" class="form-control"/>				  					
+					</div>	
+
+					<div class="form-group">
 						<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			
 					</div>
 
