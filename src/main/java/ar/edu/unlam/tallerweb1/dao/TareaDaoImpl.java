@@ -50,7 +50,9 @@ public class TareaDaoImpl implements TareaDao {
 
 	@Override
 	public Tarea consultarTareaPorID(Integer idTarea) {
-		final Session session = sessionFactory.openSession();
+		//final Session session = sessionFactory.openSession();
+		Session session = this.sessionFactory.getCurrentSession();
+		
 		return (Tarea) session.createCriteria(Tarea.class)
 				.add(Restrictions.eq("id", idTarea))
 				.uniqueResult();

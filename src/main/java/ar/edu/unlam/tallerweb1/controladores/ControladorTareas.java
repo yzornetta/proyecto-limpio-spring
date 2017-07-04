@@ -96,11 +96,12 @@ public class ControladorTareas {
 		modelAndView.addObject("usuarios", listaUsuarios);	
 		
 		//DEBUG
+		/*
 		System.out.println("El proyecto de la tarea a editar es");		
 		System.out.println(tareaElegida.getProyectoId());
 		System.out.println("El usuario de la tarea a editar es");
 		System.out.println(tareaElegida.getUsuarioId());		
-		
+		*/
 		
 		return modelAndView;
 	}	
@@ -122,14 +123,14 @@ public class ControladorTareas {
 		tarea.setUsuario(servicioLogin.findUserById(tarea.getUsuarioId()));		
 		
 		//DEBUG		
+		/*
 		System.out.println("TAREA A EDITAR ID:");	
-		//tarea.setId(1);		
 		System.out.println(tarea.getId());
 		System.out.println("El proyecto encontrado es");		
 		System.out.println(tarea.getProyecto().getDescripcion());
 		System.out.println("El usuario encontrado es");
 		System.out.println(tarea.getUsuario().getEmail());		
-		
+		*/
 		servicioTarea.editarTarea(tarea);
 		return new ModelAndView("redirect:/tarea/listarTareas");
 
@@ -176,12 +177,21 @@ public class ControladorTareas {
 		
 		String estado = tarea.getEstado();
 		
-		if (estado == "No iniciada") {
+		//DEBUG				
+		System.out.println("ID Tarea a editar es:");	
+		System.out.println(tarea.getId());
+		System.out.println("Estado actual es:");	
+		System.out.println(estado);		
+		
+		if (estado.equals("No iniciada")) {
 			tarea.setEstado("En proceso");
 		}
 		else {
 			tarea.setEstado("Finalizada");
 		}
+		
+		System.out.println("Estado modificado es:");	
+		System.out.println(tarea.getEstado());				
 		
 		servicioTarea.editarTarea(tarea);
 		return new ModelAndView("redirect:/tarea/listarTareas");
@@ -195,7 +205,7 @@ public class ControladorTareas {
 		
 		String estado = tarea.getEstado();
 		
-		if (estado == "Finalizada") {
+		if (estado.equals("Finalizada")) {
 			tarea.setEstado("En proceso");
 		}
 		else {
