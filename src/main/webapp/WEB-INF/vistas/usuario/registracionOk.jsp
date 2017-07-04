@@ -53,8 +53,8 @@
 			<div class="row">
 		    	<div class="col-xs-12">
 		   			<h1 class="page-header text-center titulo">TASK MANAGER PRO</h1>
-					<div class="page-header text-center titulo">REGISTRACIÓN EXITOSA!!!</div>
-					<div class="page-header text-center titulo">Ahora podes ingresar haciendo click <a href="/proyecto-limpio-spring/login">acá</a></div>	
+					<h1 class="page-header text-center titulo">REGISTRACIÓN EXITOSA!!!</h1>
+					<h1 class="page-header text-center titulo">Ahora podes ingresar haciendo click <a href="/proyecto-limpio-spring/login">acá</a></h1>	
 						<div></div>
 					</div>
 				</div>
