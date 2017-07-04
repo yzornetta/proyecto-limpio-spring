@@ -73,13 +73,10 @@
 						    	<h4 for="pwd">Repetir Contraseña:</h4>
 						    	<form:input path="passwordConf" type="password" class="form-control" id="pwd" required="required"/>
 						  	</div>
-						  	<div>
-								<center><button type="submit" class="btn btn-success btnRegistrarse">Registrarse</button></center>
-							</div>												
-							<div>
-								<center><a class="btn btn-danger btnCancelar" href="/proyecto-base-spring">Cancelar</a></center>
+						  	<div align="center">
+								<button type="submit" class="btn btn-success btnRegistrarse">Registrarse</button>
+								<a href="/proyecto-limpio-spring" class="btn btn-danger btnCancelar">Cancelar</a>
 							</div>
-							
 						</form:form>
 				    </div>	
 				   </div>
