@@ -72,9 +72,9 @@
 							<td><h4>Estado de la tarea :<h4></td>
 							<td><form:radiobutton path="estado" checked="checked" value="No iniciada"/></td>
 							<td><h5> No iniciada</h5></td>
-							<td><form:radiobutton path="estado" value="En curso" disabled="true"/></td>
+							<td><form:radiobutton path="estado" value="En curso"/></td>
 							<td><h5> En curso</h5></td>	
-							<td><form:radiobutton path="estado" value="Finalizada" disabled="true"/></td>													
+							<td><form:radiobutton path="estado" value="Finalizada"/></td>													
 							<td><h5> Finalizada	</h5></td>
 						</tr>
 					</table>

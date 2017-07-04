@@ -25,8 +25,8 @@ public class Tarea {
 	private String usuarioAsignado;
 	private String estado;
 	private Integer porcentajeAvance = 0;
-	private Integer horasEstimadas;
-	private Integer horasReales;
+	private Integer horasEstimadas = 0;
+	private Integer horasReales = 0;
 	private String comentarios;
 	//Esto sera fk a proyectos y será IdProyecto integer
 	private String descripcionProyecto;

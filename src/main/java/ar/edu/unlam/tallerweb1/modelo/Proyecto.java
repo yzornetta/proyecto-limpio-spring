@@ -24,8 +24,8 @@ public class Proyecto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer Id;
 	private String descripcion;
-	private Integer horasEstimadas;
-	private Integer horasReales;
+	private Integer horasEstimadas = 0;
+	private Integer horasReales = 0;
 	private Integer porcentajeAvance = 0;
 	private Date fechaAlta = new Date();
 	private String fechaFinalizacion;
