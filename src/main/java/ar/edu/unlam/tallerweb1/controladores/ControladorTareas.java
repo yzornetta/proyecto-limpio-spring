@@ -144,6 +144,46 @@ public class ControladorTareas {
 		modelAndView.setViewName("tarea/listarTarea");
 		modelAndView.addObject("tarea", tareaElegida);
 		return modelAndView;
-		
 	}
+	
+	//Cambia estado de tarea hacia adelante
+	//Tareas de un proyecto especifico
+	@RequestMapping("tarea/cambiarEstadoAdelante")
+	public ModelAndView cambiarEstadoAdelante(@RequestParam(value="idTarea") Integer idTarea){
+		
+		Tarea tarea = servicioTarea.consultarTareaPorID(idTarea);
+		
+		String estado = tarea.getEstado();
+		
+		if (estado == "No iniciada") {
+			tarea.setEstado("En proceso");
+		}
+		else {
+			tarea.setEstado("Finalizada");
+		}
+		
+		servicioTarea.editarTarea(tarea);
+		return new ModelAndView("redirect:/tarea/listarTareas");
+	}	
+	
+	//Cambia estado de tarea hacia atrás
+	@RequestMapping("tarea/cambiarEstadoAtras")
+	public ModelAndView cambiarEstadoAtras(@RequestParam(value="idTarea") Integer idTarea){
+		
+		Tarea tarea = servicioTarea.consultarTareaPorID(idTarea);
+		
+		String estado = tarea.getEstado();
+		
+		if (estado == "Finalizada") {
+			tarea.setEstado("En proceso");
+		}
+		else {
+			tarea.setEstado("No iniciada");
+		}
+		
+		servicioTarea.editarTarea(tarea);
+		return new ModelAndView("redirect:/tarea/listarTareas");
+	}
+	
+	
 }

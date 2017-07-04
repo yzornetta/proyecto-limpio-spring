@@ -104,7 +104,40 @@ pageEncoding="UTF-8"%>
 					    <td><a href="editarTarea?id=<c:out value="${tarea.id}"/>"><c:out value="${tarea.descripcion}"/></a></td>						    
 					    <!--<td>${tarea.descripcion}</td> -->
 					    <td>${tarea.usuario.email}</td>
-					    <td>${tarea.estado}</td>
+					    <!-- 
+					    <td>
+					    	<div>
+					    		<div><a href="cambiarEstadoAtras?idTarea=<c:out value="${tarea.id}"/>">◄</a></div>
+					    		<div>${tarea.estado}</div>
+					    		<div><a href="cambiarEstadoAdelante?idTarea=<c:out value="${tarea.id}"/>">►</a></div>					    	
+					    	</div>
+					    </td>
+					     -->					    					 
+					    <td>
+					    	<div>
+					    	<!-- Si la tarea está <> "No iniciada" entonces podrá volver atras-->
+							<c:choose>
+							    <c:when test="${tarea.estado != 'No iniciada'}">
+					    			<div><a href="cambiarEstadoAtras?idTarea=<c:out value="${tarea.id}"/>">◄</a></div>
+							    </c:when>    
+							    <c:otherwise>
+					    			<div><p>◄</p></div>
+							    </c:otherwise>
+							</c:choose>					    	
+					    	
+					    	<div>${tarea.estado}</div>
+
+					    	<!-- Si la tarea está <> "Finalizada" entonces podrá adelantar-->
+							<c:choose>
+							    <c:when test="${tarea.estado != 'Finalizada'}">
+					    	<div><a href="cambiarEstadoAdelante?idTarea=<c:out value="${tarea.id}"/>">►</a></div>					    	
+							    </c:when>    
+							    <c:otherwise>
+					    			<div><p>►</p></div>
+							    </c:otherwise>
+							</c:choose>		
+					    	</div>
+					    </td>
 					    <td>${tarea.porcentajeAvance}</td>	
 					    <td>${tarea.horasEstimadas}</td>		
 					    <td>${tarea.horasReales}</td>		
