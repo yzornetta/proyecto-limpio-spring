@@ -87,13 +87,13 @@ pageEncoding="UTF-8"%>
 					 <tr>
 					  <th>ID</th>
 					  <th>Descripcion</th>
+					  <th>Proyecto asociado</th>				  
 					  <th>Usuario Asignado</th>
-					  <th>Estado</th>
-					  <th>% Avance</th>					    
+					  <th>Estado</th>				  					  
 					  <th>Hs Estimadas</th>
 					  <th>Horas Reales</th>
+					  <th>% Avance</th>					    					  
 					  <th>Comentarios</th>					    
-					  <th>Proyecto asociado</th>
 					  <th>Fecha de Alta </th>
 					 </tr>
 	     		<thead>
@@ -102,17 +102,8 @@ pageEncoding="UTF-8"%>
 					  <tr>
 					    <td>${tarea.id}</td>
 					    <td><a href="editarTarea?id=<c:out value="${tarea.id}"/>"><c:out value="${tarea.descripcion}"/></a></td>						    
-					    <!--<td>${tarea.descripcion}</td> -->
-					    <td>${tarea.usuario.email}</td>
-					    <!-- 
-					    <td>
-					    	<div>
-					    		<div><a href="cambiarEstadoAtras?idTarea=<c:out value="${tarea.id}"/>">◄</a></div>
-					    		<div>${tarea.estado}</div>
-					    		<div><a href="cambiarEstadoAdelante?idTarea=<c:out value="${tarea.id}"/>">►</a></div>					    	
-					    	</div>
-					    </td>
-					     -->					    					 
+					    <td>${tarea.proyecto.descripcion}</td>		
+					    <td>${tarea.usuario.email}</td>	
 					    <td>
 					    	<div>
 					    	<!-- Si la tarea está <> "No iniciada" entonces podrá volver atras-->
@@ -138,11 +129,10 @@ pageEncoding="UTF-8"%>
 							</c:choose>		
 					    	</div>
 					    </td>
-					    <td>${tarea.porcentajeAvance}</td>	
 					    <td>${tarea.horasEstimadas}</td>		
-					    <td>${tarea.horasReales}</td>		
+					    <td>${tarea.horasReales}</td>	
+					    <td>${tarea.porcentajeAvance}</td>				    					    				    					    	
 					    <td>${tarea.comentarios}</td>		
-					    <td>${tarea.proyecto.descripcion}</td>		
 					    <td>${tarea.fechaAlta}</td>		
 					  </tr>
 					</c:forEach>

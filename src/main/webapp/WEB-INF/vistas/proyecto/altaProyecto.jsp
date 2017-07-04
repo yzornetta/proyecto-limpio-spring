@@ -56,27 +56,39 @@
 			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">		
 				<form:form action="agregarProyecto" method="POST" modelAttribute="proyecto" role="form">      
 			    	<h1 class="page-header text-center titulo">Alta de Proyectos</h1>
-					<br>					
-					<form:input path="descripcion" placeholder="Nombre del proyecto" class="form-control"/>
-					<br>
-				  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control"/>
-				  	<br>
-				  	<form:input path="horasReales" placeholder="Horas reales" class="form-control"/>
-					<br>
-					<table>
-						<tr>
-							<td><h4>Fecha de Finalizacion: </h4></td>
-							<td><form:input type="date" path="fechaFinalizacion" placeholder="Fecha finalizacion" class="form-control"/></td>
-						</tr>
-					</table>  
-				  	<br>
+					
+					<div class="form-group">
+	      				<label><h4>Descripción:</h4></label>					
+						<form:input path="descripcion" placeholder="Nombre del proyecto" class="form-control"/>
+					</div>
+					
+					<div class="form-group">
+	      				<label><h4>Horas estimadas:</h4></label>					
+				  		<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control"/>
+					</div>
+
+					<div class="form-group">
+	      				<label><h4>Horas reales:</h4></label>					
+				  		<form:input path="horasReales" placeholder="Horas reales" class="form-control"/>
+					</div>
+					
+					<div class="form-group">
+	      				<label><h4>Fecha de finalizacion:</h4></label>					
+						<label><form:input type="date" path="fechaFinalizacion" placeholder="Fecha finalizacion" class="form-control"/></label>
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			
+					</div>
+
+				  	<!-- 
+				  	Lista de usuarios
 					<c:forEach items="${command}" var="usuario" >											  	
 						<div class="checkbox">
 							<label><input type="checkbox" value="${usuario.id}" >${usuario.email}</label>
 						</div>
 					</c:forEach>
-				  	<br>		
-					<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			
+					 -->
 				</form:form>
 				<c:if test="${not empty error}">
 			        <h4><span>${error}</span></h4>

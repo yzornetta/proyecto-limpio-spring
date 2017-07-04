@@ -45,6 +45,8 @@ public class ControladorTareas {
 	private List<Usuario> listaUsuarios;
 	private List<Proyecto> listaProyectos;
 
+	
+	//////////////////////// ALTA DE TAREAS ////////////////////////
 		
 	//ARMA EL FORM DE ALTA DE TAREA
 	@RequestMapping(value="tarea/altaTarea",  method = RequestMethod.GET)
@@ -77,6 +79,7 @@ public class ControladorTareas {
 
 	}	
 
+	////////////////////////EDITAR TAREAS ////////////////////////
 	
 	//ARMA EL FORM DE EDIT DE TAREA
 	@RequestMapping(value="tarea/editarTarea")
@@ -109,33 +112,23 @@ public class ControladorTareas {
 	//ACCION DEL BOTON GRABAR - EDITAR TAREA
 	@RequestMapping(value="tarea/editarTarea",  method = RequestMethod.POST)
 	public ModelAndView editarTarea(@ModelAttribute("tarea") Tarea tarea) {
-		
-		//DEBUG		
-		System.out.println("El proyectoID seleccionado del combo es");		
-		System.out.println(tarea.getProyectoId());
-		System.out.println("El usuarioID seleccionado del combo es");
-		System.out.println(tarea.getUsuarioId());
+				
+		System.out.println("TAREA A EDITAR ID:");	
+		//tarea.setId(1);		
+		System.out.println(tarea.getId());
 		
 		//Guardo proyecto asignado
 		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(tarea.getProyectoId()));
 
 		//Guardo usuario asignado
 		tarea.setUsuario(servicioLogin.findUserById(tarea.getUsuarioId()));		
-		
-		//DEBUG		
-		/*
-		System.out.println("TAREA A EDITAR ID:");	
-		System.out.println(tarea.getId());
-		System.out.println("El proyecto encontrado es");		
-		System.out.println(tarea.getProyecto().getDescripcion());
-		System.out.println("El usuario encontrado es");
-		System.out.println(tarea.getUsuario().getEmail());		
-		*/
+
 		servicioTarea.editarTarea(tarea);
 		return new ModelAndView("redirect:/tarea/listarTareas");
 
-		//return new ModelAndView("listarTareas");
 	}	
+	
+	////////////////////////LISTAR TAREAS ////////////////////////	
 	
 	//LISTAR TODAS LAS TAREAS
 	@RequestMapping(value="tarea/listarTareas",  method = RequestMethod.GET)
@@ -168,8 +161,8 @@ public class ControladorTareas {
 		return modelAndView;
 	}
 	
-	//Cambia estado de tarea hacia adelante
-	//Tareas de un proyecto especifico
+	
+	////////////////////////CAMBIAR ESTADO DE TAREAS ////////////////////////
 	@RequestMapping("tarea/cambiarEstadoAdelante")
 	public ModelAndView cambiarEstadoAdelante(@RequestParam(value="idTarea") Integer idTarea){
 		
@@ -177,21 +170,12 @@ public class ControladorTareas {
 		
 		String estado = tarea.getEstado();
 		
-		//DEBUG				
-		System.out.println("ID Tarea a editar es:");	
-		System.out.println(tarea.getId());
-		System.out.println("Estado actual es:");	
-		System.out.println(estado);		
-		
 		if (estado.equals("No iniciada")) {
 			tarea.setEstado("En proceso");
 		}
 		else {
 			tarea.setEstado("Finalizada");
-		}
-		
-		System.out.println("Estado modificado es:");	
-		System.out.println(tarea.getEstado());				
+		}	
 		
 		servicioTarea.editarTarea(tarea);
 		return new ModelAndView("redirect:/tarea/listarTareas");

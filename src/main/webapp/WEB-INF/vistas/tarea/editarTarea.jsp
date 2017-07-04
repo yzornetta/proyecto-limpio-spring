@@ -49,46 +49,70 @@
 		<div class = "container">
 			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">		
 				<form:form action="editarTarea" method="POST" modelAttribute="tarea" role="form">      
-			    	<h1 class="page-header text-center titulo">Alta de Tareas</h1>
-					<br>					
-					<form:input path="Id" class="form-control" required="true" disabled="true"/>
-					<br>					
-					<form:input path="descripcion" placeholder="Descripcion" class="form-control" required="true"/>
-					<br>
-					<form:select path="proyectoId" multiple="false" class="form-control" required="true">
-					      <form:options items="${proyectos}" itemValue="id" itemLabel="descripcion"/>
-					 </form:select>
-					 <br>
-					 <form:select path="usuarioId" multiple="false" class="form-control" required="true">
-					      <form:options items="${usuarios}" itemValue="id" itemLabel="email"/>
-					 </form:select>
-				  	<br>
-				  	<!--<form:input path="estado" placeholder="Estado de la tarea" class="form-control"/>-->							  	
-					<table>
-						<tr>
-							<td><h4>Estado de la tarea :<h4></td>
-							<td><form:radiobutton path="estado" checked="checked" value="No iniciada"/></td>
-							<td><h5> No iniciada</h5></td>
-							<td><form:radiobutton path="estado" value="En curso"/></td>
-							<td><h5> En curso</h5></td>	
-							<td><form:radiobutton path="estado" value="Finalizada"/></td>													
-							<td><h5> Finalizada	</h5></td>
-						</tr>
-					</table>
-				  	<br>
-				  	<form:input path="horasEstimadas" placeholder="Horas estimadas" class="form-control" required="true"/>
-					<br>
-					<table>
-						<tr>
-							<td><h4>Fecha de Finalizacion: <h4></td>
-							<td><form:input type="date" path="fechaFinalizacion" placeholder="Fecha finalizacion" class="form-control"/></td>
-						</tr>
-					</table>  					
-					<br>
-				  	<form:textarea path="comentarios" rows="6" placeholder="Comentarios" class="form-control"/>				  	
-				  	<br>		
-				  	<br>
-					<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Tarea" type="Submit">Guardar</button>  			
+			    	
+			    	<h1 class="page-header text-center titulo">Editar de Tarea</h1>
+			    	
+					<form:input type="hidden" path="Id" class="form-control" required="true"/>
+
+					
+					<div class="form-group">
+	      				<label><h4>Descripción:</h4></label>					
+						<form:input path="descripcion" placeholder="Descripcion" class="form-control" required="true"/>					
+					</div>
+
+					<div class="form-group">		
+	      				<label><h4>Proyecto:</h4></label>
+						<form:select path="proyectoId" multiple="false" class="form-control" required="true">
+							<form:options items="${proyectos}" itemValue="id" itemLabel="descripcion"/>
+						</form:select>					
+					</div>
+
+					<div class="form-group">
+	      				<label><h4>Usuario asignado:</h4></label>					
+						<form:select path="usuarioId" multiple="false" class="form-control" required="true">
+							<form:options items="${usuarios}" itemValue="id" itemLabel="email"/>
+						</form:select>					
+					</div>
+							
+					<div class="form-group">
+						<label><h4>Estado:</h4></label>	
+						<label><form:radiobutton path="estado" checked="checked" value="No iniciada"/></label>   
+						<label><h5>No iniciada</h5></label>      						   
+						<label><form:radiobutton path="estado" value="En curso"/></label>  
+						<label><h5> En curso</h5></label>      						   						    
+						<label><form:radiobutton path="estado" value="Finalizada"/></label>
+						<label><h5>Finalizada</h5></label>      						   											
+					</div>	
+																							
+					<div class="form-group">
+	      				<label><h4>Horas estimadas:</h4></label>					
+					  	<form:input type="number" path="horasEstimadas" placeholder="Horas estimadas" class="form-control" required="true"/>				
+					</div>
+
+					<div class="form-group">
+	      				<label><h4>Horas reales:</h4></label>					
+					  	<form:input type="number" path="horasReales" placeholder="Horas reales" class="form-control"/>				
+					</div>
+
+					<div class="form-group">
+	      				<label><h4>% de Avance:</h4></label>					
+					  	<form:input type="number" path="porcentajeAvance" placeholder="% de avance" class="form-control"/>				
+					</div>								
+										
+					<div class="form-group">
+	      				<label><h4>Fecha de Finalización:</h4></label>
+						<label><form:input type="date" path="fechaFinalizacion" placeholder="Fecha finalizacion" class="form-control"/></label>
+					</div>					
+					
+					<div class="form-group">
+	      				<label><h4>Comentarios:</h4></label>					
+					  	<form:textarea path="comentarios" rows="6" placeholder="Comentarios" class="form-control"/>				  					
+					</div>					
+					
+					<div class="form-group">
+						<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Tarea" type="Submit">Guardar</button>  							
+					</div>					
+
 				</form:form>
 				<c:if test="${not empty error}">
 			        <h4><span>${error}</span></h4>
