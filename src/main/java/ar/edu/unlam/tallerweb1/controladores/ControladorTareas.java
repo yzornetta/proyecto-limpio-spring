@@ -93,7 +93,14 @@ public class ControladorTareas {
 		modelAndView.addObject("proyectos", listaProyectos);
 		
 		listaUsuarios = servicioLogin.obtenerTodos();
-		modelAndView.addObject("usuarios", listaUsuarios);		
+		modelAndView.addObject("usuarios", listaUsuarios);	
+		
+		//DEBUG
+		System.out.println("El proyecto de la tarea a editar es");		
+		System.out.println(tareaElegida.getProyectoId());
+		System.out.println("El usuario de la tarea a editar es");
+		System.out.println(tareaElegida.getUsuarioId());		
+		
 		
 		return modelAndView;
 	}	
@@ -102,12 +109,26 @@ public class ControladorTareas {
 	@RequestMapping(value="tarea/editarTarea",  method = RequestMethod.POST)
 	public ModelAndView editarTarea(@ModelAttribute("tarea") Tarea tarea) {
 		
+		//DEBUG		
+		System.out.println("El proyectoID seleccionado del combo es");		
+		System.out.println(tarea.getProyectoId());
+		System.out.println("El usuarioID seleccionado del combo es");
+		System.out.println(tarea.getUsuarioId());
 		
 		//Guardo proyecto asignado
 		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(tarea.getProyectoId()));
 
 		//Guardo usuario asignado
-		tarea.setUsuario(servicioLogin.findUserById(tarea.getUsuarioId()));
+		tarea.setUsuario(servicioLogin.findUserById(tarea.getUsuarioId()));		
+		
+		//DEBUG		
+		System.out.println("TAREA A EDITAR ID:");	
+		//tarea.setId(1);		
+		System.out.println(tarea.getId());
+		System.out.println("El proyecto encontrado es");		
+		System.out.println(tarea.getProyecto().getDescripcion());
+		System.out.println("El usuario encontrado es");
+		System.out.println(tarea.getUsuario().getEmail());		
 		
 		servicioTarea.editarTarea(tarea);
 		return new ModelAndView("redirect:/tarea/listarTareas");
