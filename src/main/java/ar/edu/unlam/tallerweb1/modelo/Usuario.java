@@ -11,12 +11,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name = "usuario")
 public class Usuario {
 	
-	@Id 
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id;
 	private String email;
@@ -24,10 +26,10 @@ public class Usuario {
 	private String apellido;
 	private String password;
 	private String passwordConf;
-	private Set<Proyecto> Proyecto = new HashSet<Proyecto>(0);
+	/*private Set<Proyecto> Proyecto = new HashSet<Proyecto>(0);*/
 	
-	
-	@Column(name = "Id", nullable = false)
+	@Id 
+	@Column(name = "Id")
 	public Integer getId() {
 		return id;
 	}	
@@ -35,7 +37,7 @@ public class Usuario {
 		this.id = id;
 	}
 	
-	@Column(name = "Email", nullable = false)
+	@Column(name = "email")
 	public String getEmail() {
 		return email;
 	}
@@ -43,7 +45,7 @@ public class Usuario {
 		this.email = email;
 	}
 	
-	@Column(name = "Password", nullable = false)
+	@Column(name = "password")
 	public String getPassword() {
 		return password;
 	}
@@ -51,7 +53,7 @@ public class Usuario {
 		this.password = password;
 	}
 	
-	@Column(name = "PasswordConf", nullable = false)
+	@Column(name = "passwordConf")
 	public String getPasswordConf() {
 		return passwordConf;
 	}
@@ -59,7 +61,7 @@ public class Usuario {
 		this.passwordConf = passwordConf;
 	}
 	
-	@Column(name = "Nombre", nullable = false)
+	@Column(name = "nombre")
 	public String getNombre() {
 		return nombre;
 	}
@@ -67,7 +69,7 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 	
-	@Column(name = "Apellido", nullable = false)
+	@Column(name = "apellido")
 	public String getApellido() {
 		return apellido;
 	}
@@ -75,6 +77,7 @@ public class Usuario {
 		this.apellido = apellido;
 	}
 	
+	/*
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "Proyecto")
 	public Set<Proyecto> getProyecto() {
 		return this.Proyecto;
@@ -83,7 +86,6 @@ public class Usuario {
 	public void setInscripcion(Set<Proyecto> Proyecto) {
 		this.Proyecto = Proyecto;
 	}
-	
-		
+	*/		
 	
 }

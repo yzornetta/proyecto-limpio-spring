@@ -25,7 +25,7 @@ import javax.persistence.Table;
 @Table(name = "proyecto")
 public class Proyecto {
 
-	@Id 
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer Id;
 	private String descripcion;
@@ -36,19 +36,20 @@ public class Proyecto {
 	private String fechaFinalizacion;
 	private Integer idUsuarioAlta;
 	private String comentarios;
-	private Set<Usuario> Usuario = new HashSet<Usuario>(0);
+	/*private Set<Usuario> Usuario = new HashSet<Usuario>(0);*/
 			
 			//request.getSession().setAttribute("Id",usuarioValidado.getId());
 	
 	
-	@Column(name = "Id", nullable = false)
+	@Id 
+	@Column(name = "Id")
 	public Integer getId() {
 		return Id;
 	}
 	public void setId(Integer id) {
 		Id = id;
 	}
-	@Column(name = "descripcion", nullable = false)
+	@Column(name = "descripcion")
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -56,7 +57,7 @@ public class Proyecto {
 		this.descripcion = descripcion;
 	}
 	
-	@Column(name = "HorasEstimadas", nullable = false)
+	@Column(name = "horasEstimadas")
 	public Integer getHorasEstimadas() {
 		return horasEstimadas;
 	}
@@ -64,7 +65,7 @@ public class Proyecto {
 		this.horasEstimadas = horasEstimadas;
 	}
 	
-	@Column(name = "PorcentajeAvance", nullable = false)
+	@Column(name = "porcentajeAvance")
 	public Integer getPorcentajeAvance() {
 		return porcentajeAvance;
 	}
@@ -72,7 +73,7 @@ public class Proyecto {
 		this.porcentajeAvance = porcentajeAvance;
 	}
 	
-	@Column(name = "HorasReales", nullable = false)
+	@Column(name = "horasReales")
 	public Integer getHorasReales() {
 		return horasReales;
 	}
@@ -80,7 +81,7 @@ public class Proyecto {
 		this.horasReales = horasReales;
 	}
 	
-	@Column(name = "FechaAlta", nullable = false)
+	@Column(name = "fechaAlta")
 	public Date getFechaAlta() {
 		return fechaAlta;
 	}
@@ -88,7 +89,7 @@ public class Proyecto {
 		this.fechaAlta = new Date();
 	}
 	
-	@Column(name = "FechaFinalizacion", nullable = false)
+	@Column(name = "fechaFinalizacion")
 	public String getFechaFinalizacion() {
 		return fechaFinalizacion;
 	}
@@ -96,7 +97,7 @@ public class Proyecto {
 		this.fechaFinalizacion = fechaFinalizacion;
 	}
 	
-	@Column(name = "idUsuarioAlta", nullable = false)
+	@Column(name = "idUsuarioAlta")
 	public Integer getIdUsuarioAlta() {
 		return idUsuarioAlta;
 	}
@@ -104,7 +105,7 @@ public class Proyecto {
 		this.idUsuarioAlta = idUsuarioAlta;
 	}
 	
-	@Column(name = "Comentarios", nullable = false)
+	@Column(name = "comentarios")
 	public String getComentarios() {
 		return comentarios;
 	}
@@ -112,6 +113,7 @@ public class Proyecto {
 		this.comentarios = comentarios;
 	}
 	
+	/*
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "Usuario")
 	public Set<Usuario> getUsuario() {
 		return this.Usuario;
@@ -120,5 +122,5 @@ public class Proyecto {
 	public void setInscripcion(Set<Usuario> Usuario) {
 		this.Usuario = Usuario;
 	}
-
+*/
 }
