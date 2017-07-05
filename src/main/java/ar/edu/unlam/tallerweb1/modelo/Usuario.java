@@ -26,7 +26,7 @@ public class Usuario {
 	private String apellido;
 	private String password;
 	private String passwordConf;
-	/*private Set<Proyecto> Proyecto = new HashSet<Proyecto>(0);*/
+	private Set<Proyecto> Proyecto = new HashSet<Proyecto>(0);
 	
 	@Id 
 	@Column(name = "Id")
@@ -77,15 +77,16 @@ public class Usuario {
 		this.apellido = apellido;
 	}
 	
-	/*
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "Proyecto")
+	/*Definicion de la relacion Mucho a Muchos, con la tabla usuarios*/
+	
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
 	public Set<Proyecto> getProyecto() {
 		return this.Proyecto;
 	}
 	
-	public void setInscripcion(Set<Proyecto> Proyecto) {
+	public void setProyecto(Set<Proyecto> Proyecto) {
 		this.Proyecto = Proyecto;
 	}
-	*/		
+			
 	
 }

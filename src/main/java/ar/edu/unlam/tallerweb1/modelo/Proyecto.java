@@ -36,7 +36,7 @@ public class Proyecto {
 	private String fechaFinalizacion;
 	private Integer idUsuarioAlta;
 	private String comentarios;
-	/*private Set<Usuario> Usuario = new HashSet<Usuario>(0);*/
+	private Set<Usuario> Usuario = new HashSet<Usuario>(0);
 			
 			//request.getSession().setAttribute("Id",usuarioValidado.getId());
 	
@@ -113,8 +113,8 @@ public class Proyecto {
 		this.comentarios = comentarios;
 	}
 	
-	/*
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "Usuario")
+	/*Definicion de la relacion Mucho a Muchos con tabla Proyectos*/
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "proyecto")
 	public Set<Usuario> getUsuario() {
 		return this.Usuario;
 	}
@@ -122,5 +122,5 @@ public class Proyecto {
 	public void setInscripcion(Set<Usuario> Usuario) {
 		this.Usuario = Usuario;
 	}
-*/
+
 }
