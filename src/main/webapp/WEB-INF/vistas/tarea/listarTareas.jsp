@@ -93,8 +93,9 @@ pageEncoding="UTF-8"%>
 					  <th>Hs Estimadas</th>
 					  <th>Horas Reales</th>
 					  <th>% Avance</th>					    					  
-					  <th>Comentarios</th>					    
-					  <th>Fecha de Alta </th>
+					  <th>Comentarios</th>		
+					  <th>Fecha de Finalizacion</th>					  			    
+					  <th>Fecha de Alta</th>
 					 </tr>
 	     		<thead>
 				<tbody>
@@ -133,6 +134,7 @@ pageEncoding="UTF-8"%>
 					    <td>${tarea.horasReales}</td>	
 					    <td>${tarea.porcentajeAvance}</td>				    					    				    					    	
 					    <td>${tarea.comentarios}</td>		
+					    <td>${tarea.fechaFinalizacion}</td>		
 					    <td>${tarea.fechaAlta}</td>		
 					  </tr>
 					</c:forEach>
