@@ -50,7 +50,7 @@
 
 		            <h1 class="text-center texto-login">Registración</h1>	           
 	           
-					<div class="col-xs-6 col-xs-offset-3 transparencia contenedor-registracion">
+					<div class="col-xs-6 col-xs-offset-3 contenedor-registracion">
 						<form:form method="POST" action="registracion" modelAttribute="classRegistrarse" class="form-horizontal" role="form">
 							
 							<div class="form-group">
