@@ -18,6 +18,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -37,9 +38,8 @@ public class Proyecto {
 	private Integer idUsuarioAlta;
 	private String comentarios;
 	private Set<Usuario> Usuario = new HashSet<Usuario>(0);
-			
-			//request.getSession().setAttribute("Id",usuarioValidado.getId());
-	
+		
+		
 	
 	@Id 
 	@Column(name = "Id")
@@ -113,14 +113,18 @@ public class Proyecto {
 		this.comentarios = comentarios;
 	}
 	
+	
 	/*Definicion de la relacion Mucho a Muchos con tabla Proyectos*/
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "proyecto")
+	
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "Proyecto")
 	public Set<Usuario> getUsuario() {
-		return this.Usuario;
+	    return Usuario;
 	}
 	
-	public void setInscripcion(Set<Usuario> Usuario) {
-		this.Usuario = Usuario;
-	}
-
+	public void setUsuario(Set<Usuario> usuario){
+	    this.Usuario = usuario;
+	  }
+	
 }
+
+

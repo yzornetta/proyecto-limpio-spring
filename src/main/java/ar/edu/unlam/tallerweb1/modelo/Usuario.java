@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import antlr.collections.List;
+
 
 @Entity
 @Table(name = "usuario")
@@ -27,6 +29,9 @@ public class Usuario {
 	private String password;
 	private String passwordConf;
 	private Set<Proyecto> Proyecto = new HashSet<Proyecto>(0);
+	
+	
+	
 	
 	@Id 
 	@Column(name = "Id")
@@ -77,16 +82,16 @@ public class Usuario {
 		this.apellido = apellido;
 	}
 	
+	
 	/*Definicion de la relacion Mucho a Muchos, con la tabla usuarios*/
 	
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
-	public Set<Proyecto> getProyecto() {
-		return this.Proyecto;
-	}
-	
-	public void setProyecto(Set<Proyecto> Proyecto) {
-		this.Proyecto = Proyecto;
-	}
-			
-	
+	 public Set<Proyecto> getProyectos() {
+		    return Proyecto;
+		  }
+
+     public void setProyectos(Set<Proyecto> Proyecto) {
+	 this.Proyecto = Proyecto;
+   }
+    
 }
