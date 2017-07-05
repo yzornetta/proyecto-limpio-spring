@@ -46,11 +46,11 @@ public class ControladorTareas {
 	private List<Proyecto> listaProyectos;
 
 	
-	//////////////////////// ALTA DE TAREAS ////////////////////////
+	//////////////////////// INICIO ALTA DE TAREAS ////////////////////////
 		
 	//ARMA EL FORM DE ALTA DE TAREA
 	@RequestMapping(value="tarea/altaTarea",  method = RequestMethod.GET)
-	public ModelAndView vistaRegistrar(Model modelo) {
+	public ModelAndView altaTarea(Model modelo) {
 		
 		modelo.addAttribute("tarea", new Tarea());		
 		
@@ -78,8 +78,11 @@ public class ControladorTareas {
 		return new ModelAndView("redirect:/tarea/listarTareas");
 
 	}	
-
-	////////////////////////EDITAR TAREAS ////////////////////////
+	
+	//////////////////////// FIN ALTA DE TAREAS ////////////////////////
+	
+	
+	////////////////////////INICIO EDITAR TAREAS ////////////////////////
 	
 	//ARMA EL FORM DE EDIT DE TAREA
 	@RequestMapping(value="tarea/editarTarea")
@@ -128,7 +131,9 @@ public class ControladorTareas {
 
 	}	
 	
-	////////////////////////LISTAR TAREAS ////////////////////////	
+	////////////////////////FIN EDITAR TAREAS ////////////////////////	
+	
+	////////////////////////INICIO LISTAR TAREAS ////////////////////////	
 	
 	//LISTAR TODAS LAS TAREAS
 	@RequestMapping(value="tarea/listarTareas",  method = RequestMethod.GET)
@@ -139,14 +144,59 @@ public class ControladorTareas {
 		return new ModelAndView("tarea/listarTareas","command", listaTareas);
 	}
 	
-	//Tareas de un proyecto especifico
+	//LISTAR TAREAS FILTRADAS POR PROYECTO
 	@RequestMapping("tarea/listarTareasPorProyecto")
 	public ModelAndView listarTareasPorProyecto(@RequestParam(value="idProyecto") Integer idProyecto){
 		
 		Proyecto proyecto = servicioProyecto.consultarProyectoPorID(idProyecto);
 		listaTareas = servicioTarea.consultarTareaPorProyecto(proyecto);
-		return new ModelAndView("tarea/listarTareas","command", listaTareas);
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.setViewName("tarea/listarTareasPorProyecto");
+		modelAndView.addObject("command", listaTareas);
+		modelAndView.addObject("idProyecto", idProyecto);
+		
+		return modelAndView;
 	}	
+
+	////////////////////////FIN LISTAR TAREAS ////////////////////////	
+
+	
+	
+	//ALTA DE TAREA PROYECTO ESPECIFICO
+	@RequestMapping(value="tarea/altaTareaProyecto",  method = RequestMethod.GET)
+	public ModelAndView altaTareaProyecto(@RequestParam(value="idProyecto") Integer idProyecto, Model modelo) {
+		
+		modelo.addAttribute("tarea", new Tarea());		
+		
+		//Traigo solo un proyecto
+		//listaProyectos.add(servicioProyecto.consultarProyectoPorID(idProyecto));
+		listaProyectos = servicioProyecto.obtenerTodos();
+		modelo.addAttribute("proyectos", listaProyectos);
+		
+		listaUsuarios = servicioLogin.obtenerTodos();
+		modelo.addAttribute("usuarios", listaUsuarios);
+		
+		return new ModelAndView("tarea/altaTareaProyecto");
+	}	
+
+	//ACCION DEL BOTON GRABAR - ALTA DE TAREA
+	@RequestMapping(value="tarea/agregarTareaProyecto",  method = RequestMethod.POST)
+	public ModelAndView altaTareaProyecto(@ModelAttribute("tarea") Tarea tarea) {
+
+		//Guardo proyecto asignado
+		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(tarea.getProyectoId()));
+
+		//Guardo usuario asignado
+		tarea.setUsuario(servicioLogin.findUserById(tarea.getUsuarioId()));
+			
+		servicioTarea.grabarTarea(tarea);
+		
+		Integer idProyecto = tarea.getProyectoId();
+		
+		return new ModelAndView("redirect:/tarea/listarTareasPorProyecto?idProyecto="+idProyecto);
+
+	}
 	
 	//VER DETALLE DE LA TAREA
 	@RequestMapping(value="tarea/listarTarea")
@@ -200,5 +250,43 @@ public class ControladorTareas {
 		return new ModelAndView("redirect:/tarea/listarTareas");
 	}
 	
+	////////////////////////CAMBIAR ESTADO DE TAREAS POR PROYECTO ////////////////////////
+	@RequestMapping("tarea/cambiarEstadoAdelanteProyecto")
+	public ModelAndView cambiarEstadoAdelanteProyecto(@RequestParam(value="idTarea") Integer idTarea){
+		
+		Tarea tarea = servicioTarea.consultarTareaPorID(idTarea);
+		
+		String estado = tarea.getEstado();
+		
+		if (estado.equals("No iniciada")) {
+			tarea.setEstado("En proceso");
+		}
+		else {
+			tarea.setEstado("Finalizada");
+		}	
+		
+		servicioTarea.editarTarea(tarea);
+		return new ModelAndView("redirect:/tarea/listarTareasPorProyecto?idProyecto=" + tarea.getProyectoId());
+	}	
+	
+	//Cambia estado de tarea hacia atrás
+	@RequestMapping("tarea/cambiarEstadoAtrasProyecto")
+	public ModelAndView cambiarEstadoAtrasProyecto(@RequestParam(value="idTarea") Integer idTarea){
+		
+		Tarea tarea = servicioTarea.consultarTareaPorID(idTarea);
+		
+		String estado = tarea.getEstado();
+		
+		if (estado.equals("Finalizada")) {
+			tarea.setEstado("En proceso");
+		}
+		else {
+			tarea.setEstado("No iniciada");
+		}
+		
+		servicioTarea.editarTarea(tarea);
+		return new ModelAndView("redirect:/tarea/listarTareasPorProyecto?idProyecto=" + tarea.getProyectoId());
+	}
+
 	
 }
