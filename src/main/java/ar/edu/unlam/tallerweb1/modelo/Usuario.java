@@ -27,19 +27,22 @@ public class Usuario {
 	private Set<Proyecto> Proyecto = new HashSet<Proyecto>(0);
 	
 	
+	@Column(name = "Id", nullable = false)
 	public Integer getId() {
 		return id;
-	}
-	
+	}	
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	@Column(name = "Email", nullable = false)
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	@Column(name = "Password", nullable = false)
 	public String getPassword() {
 		return password;
