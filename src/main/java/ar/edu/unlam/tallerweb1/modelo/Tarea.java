@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -44,6 +45,8 @@ public class Tarea {
 	private Proyecto proyecto;	
 	private Integer proyectoId;
 	
+	
+	@Column(name = "Id", nullable = false)
 	public Integer getId() {
 		return Id;
 	}
@@ -52,7 +55,7 @@ public class Tarea {
 		Id = id;
 	}
 
-	
+	@Column(name = "Estado", nullable = false)
 	public String getEstado() {
 		return estado;
 	}
@@ -61,7 +64,7 @@ public class Tarea {
 		this.estado = estado;
 	}
 
-
+	@Column(name = "HorasEstimadas", nullable = false)
 	public Integer getHorasEstimadas() {
 		return horasEstimadas;
 	}
@@ -70,6 +73,7 @@ public class Tarea {
 		this.horasEstimadas = horasEstimadas;
 	}
 
+	@Column(name = "HorasReales", nullable = false)
 	public Integer getHorasReales() {
 		return horasReales;
 	}
@@ -78,6 +82,7 @@ public class Tarea {
 		this.horasReales = horasReales;
 	}
 
+	@Column(name = "Comentarios", nullable = false)
 	public String getComentarios() {
 		return comentarios;
 	}
@@ -86,6 +91,7 @@ public class Tarea {
 		this.comentarios = comentarios;
 	}
 
+	@Column(name = "Descripcion", nullable = false)
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -94,6 +100,7 @@ public class Tarea {
 		this.descripcion = descripcion;
 	}
 
+	@Column(name = "DescripcionProyecto", nullable = false)
 	public String getDescripcionProyecto() {
 		return descripcionProyecto;
 	}
@@ -102,7 +109,7 @@ public class Tarea {
 		this.descripcionProyecto = descripcionProyecto;
 	}
 
-
+	@Column(name = "FechaFinalizacion", nullable = false)
 	public String getFechaFinalizacion() {
 		return fechaFinalizacion;
 	}
@@ -111,6 +118,7 @@ public class Tarea {
 		this.fechaFinalizacion = fechaFinalizacion;
 	}
 
+	@Column(name = "FechaAlta", nullable = false)
 	public Date getFechaAlta() {
 		return fechaAlta;
 	}
@@ -119,6 +127,7 @@ public class Tarea {
 		this.fechaAlta = fechaAlta;
 	}
 
+	@Column(name = "UsuarioAsignado", nullable = false)
 	public String getUsuarioAsignado() {
 		return usuarioAsignado;
 	}
@@ -127,6 +136,7 @@ public class Tarea {
 		this.usuarioAsignado = usuarioAsignado;
 	}
 
+	@Column(name = "PorcentajeAvance", nullable = false)
 	public Integer getPorcentajeAvance() {
 		return porcentajeAvance;
 	}
@@ -135,6 +145,7 @@ public class Tarea {
 		this.porcentajeAvance = porcentajeAvance;
 	}
 
+	@Column(name = "Usuario", nullable = false)
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -143,6 +154,7 @@ public class Tarea {
 		this.usuario = usuario;
 	}
 
+	@Column(name = "Proyecto", nullable = false)
 	public Proyecto getProyecto() {
 		return proyecto;
 	}
@@ -151,6 +163,7 @@ public class Tarea {
 		this.proyecto = proyecto;
 	}
 
+	@Column(name = "ProyectoId", nullable = false)
 	public Integer getProyectoId() {
 		return proyectoId;
 	}
@@ -159,6 +172,7 @@ public class Tarea {
 		this.proyectoId = proyectoId;
 	}
 
+	@Column(name = "UsuarioId", nullable = false)
 	public Integer getUsuarioId() {
 		return usuarioId;
 	}

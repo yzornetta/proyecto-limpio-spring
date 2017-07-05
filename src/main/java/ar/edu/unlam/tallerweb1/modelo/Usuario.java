@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +20,7 @@ public class Usuario {
 	private String password;
 	private String passwordConf;
 	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -32,6 +34,7 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	@Column(name = "Password", nullable = false)
 	public String getPassword() {
 		return password;
 	}
@@ -39,6 +42,7 @@ public class Usuario {
 		this.password = password;
 	}
 	
+	@Column(name = "PasswordConf", nullable = false)
 	public String getPasswordConf() {
 		return passwordConf;
 	}
@@ -46,6 +50,7 @@ public class Usuario {
 		this.passwordConf = passwordConf;
 	}
 	
+	@Column(name = "Nombre", nullable = false)
 	public String getNombre() {
 		return nombre;
 	}
@@ -53,6 +58,7 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 	
+	@Column(name = "Apellido", nullable = false)
 	public String getApellido() {
 		return apellido;
 	}

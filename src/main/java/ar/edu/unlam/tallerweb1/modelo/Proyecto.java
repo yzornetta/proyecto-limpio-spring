@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,54 +35,71 @@ public class Proyecto {
 			
 			//request.getSession().setAttribute("Id",usuarioValidado.getId());
 	
+	
+	@Column(name = "Id", nullable = false)
 	public Integer getId() {
 		return Id;
 	}
 	public void setId(Integer id) {
 		Id = id;
 	}
+	@Column(name = "descripcion", nullable = false)
 	public String getDescripcion() {
 		return descripcion;
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	
+	@Column(name = "HorasEstimadas", nullable = false)
 	public Integer getHorasEstimadas() {
 		return horasEstimadas;
 	}
 	public void setHorasEstimadas(Integer horasEstimadas) {
 		this.horasEstimadas = horasEstimadas;
 	}
+	
+	@Column(name = "PorcentajeAvance", nullable = false)
 	public Integer getPorcentajeAvance() {
 		return porcentajeAvance;
 	}
 	public void setPorcentajeAvance(Integer porcentajeAvance) {
 		this.porcentajeAvance = porcentajeAvance;
 	}
+	
+	@Column(name = "HorasReales", nullable = false)
 	public Integer getHorasReales() {
 		return horasReales;
 	}
 	public void setHorasReales(Integer horasReales) {
 		this.horasReales = horasReales;
 	}
+	
+	@Column(name = "FechaAlta", nullable = false)
 	public Date getFechaAlta() {
 		return fechaAlta;
 	}
 	public void setFechaAlta(Date fechaAlta) {
 		this.fechaAlta = new Date();
 	}
+	
+	@Column(name = "FechaFinalizacion", nullable = false)
 	public String getFechaFinalizacion() {
 		return fechaFinalizacion;
 	}
 	public void setFechaFinalizacion(String fechaFinalizacion) {
 		this.fechaFinalizacion = fechaFinalizacion;
 	}
+	
+	@Column(name = "idUsuarioAlta", nullable = false)
 	public Integer getIdUsuarioAlta() {
 		return idUsuarioAlta;
 	}
 	public void setIdUsuarioAlta(Integer idUsuarioAlta) {
 		this.idUsuarioAlta = idUsuarioAlta;
 	}
+	
+	@Column(name = "Comentarios", nullable = false)
 	public String getComentarios() {
 		return comentarios;
 	}
