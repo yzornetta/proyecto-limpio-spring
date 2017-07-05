@@ -104,9 +104,7 @@ public class ControladorTareas {
 		//DEBUG
 		/*
 		System.out.println("El proyecto de la tarea a editar es");		
-		System.out.println(tareaElegida.getProyectoId());
-		System.out.println("El usuario de la tarea a editar es");
-		System.out.println(tareaElegida.getUsuarioId());		
+		System.out.println(tareaElegida.getProyectoId());	
 		*/
 		
 		return modelAndView;
@@ -162,7 +160,6 @@ public class ControladorTareas {
 	////////////////////////FIN LISTAR TAREAS ////////////////////////	
 
 	
-	
 	//ALTA DE TAREA PROYECTO ESPECIFICO
 	@RequestMapping(value="tarea/altaTareaProyecto",  method = RequestMethod.GET)
 	public ModelAndView altaTareaProyecto(@RequestParam(value="idProyecto") Integer idProyecto, Model modelo) {
@@ -197,19 +194,49 @@ public class ControladorTareas {
 		return new ModelAndView("redirect:/tarea/listarTareasPorProyecto?idProyecto="+idProyecto);
 
 	}
+		
+	////////////////////////INICIO EDITAR TAREAS PROYECTO ////////////////////////
 	
-	//VER DETALLE DE LA TAREA
-	@RequestMapping(value="tarea/listarTarea")
-	//public ModelAndView IrATarea(@ModelAttribute Tarea tarea)
-	public ModelAndView IrATarea(@RequestParam("id") Integer idTarea)
-	{
+	//ARMA EL FORM DE EDIT DE TAREA
+	@RequestMapping(value="tarea/editarTareaProyecto")
+	public ModelAndView editarTareaProyecto(@RequestParam("id") Integer idTarea) {
+		
 		Tarea tareaElegida = servicioTarea.consultarTareaPorID(idTarea);
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("tarea/listarTarea");
+		modelAndView.setViewName("tarea/editarTareaProyecto");
 		modelAndView.addObject("tarea", tareaElegida);
+		
+		
+		listaProyectos = servicioProyecto.obtenerTodos();		
+		modelAndView.addObject("proyectos", listaProyectos);
+		
+		listaUsuarios = servicioLogin.obtenerTodos();
+		modelAndView.addObject("usuarios", listaUsuarios);	
+		
 		return modelAndView;
-	}
+	}	
+	
+	//ACCION DEL BOTON GRABAR - EDITAR TAREA
+	@RequestMapping(value="tarea/editarTareaProyecto",  method = RequestMethod.POST)
+	public ModelAndView editarTareaProyecto(@ModelAttribute("tarea") Tarea tarea) {
+				
+		//System.out.println("TAREA A EDITAR ID:");	
+		//tarea.setId(1);		
+		//System.out.println(tarea.getId());
+		
+		//Guardo proyecto asignado
+		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(tarea.getProyectoId()));
+
+		//Guardo usuario asignado
+		tarea.setUsuario(servicioLogin.findUserById(tarea.getUsuarioId()));		
+
+		servicioTarea.editarTarea(tarea);
+		return new ModelAndView("redirect:/tarea/listarTareasPorProyecto?idProyecto=" + tarea.getProyectoId());
+
+	}	
+	
+	////////////////////////FIN EDITAR TAREAS PROYECTO ////////////////////////	
 	
 	
 	////////////////////////CAMBIAR ESTADO DE TAREAS ////////////////////////

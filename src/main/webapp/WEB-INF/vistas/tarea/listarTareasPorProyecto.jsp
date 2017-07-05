@@ -93,15 +93,16 @@ pageEncoding="UTF-8"%>
 					  <th>Hs Estimadas</th>
 					  <th>Horas Reales</th>
 					  <th>% Avance</th>					    					  
-					  <th>Comentarios</th>					    
-					  <th>Fecha de Alta </th>
+					  <th>Comentarios</th>	
+					  <th>Fecha de Finalizacion</th>					  			    					  				    
+					  <th>Fecha de Alta</th>
 					 </tr>
 	     		<thead>
 				<tbody>
 	 				<c:forEach items="${command}" var="tarea" >					
 					  <tr>
 					    <td>${tarea.id}</td>
-					    <td><a href="editarTarea?id=<c:out value="${tarea.id}"/>"><c:out value="${tarea.descripcion}"/></a></td>						    
+					    <td><a href="editarTareaProyecto?id=<c:out value="${tarea.id}"/>"><c:out value="${tarea.descripcion}"/></a></td>						    
 					    <td>${tarea.proyecto.descripcion}</td>		
 					    <td>${tarea.usuario.email}</td>	
 					    <td>
@@ -132,7 +133,8 @@ pageEncoding="UTF-8"%>
 					    <td>${tarea.horasEstimadas}</td>		
 					    <td>${tarea.horasReales}</td>	
 					    <td>${tarea.porcentajeAvance}</td>				    					    				    					    	
-					    <td>${tarea.comentarios}</td>		
+					    <td>${tarea.comentarios}</td>	
+					    <td>${tarea.fechaFinalizacion}</td>							    	
 					    <td>${tarea.fechaAlta}</td>		
 					  </tr>
 					</c:forEach>

@@ -48,7 +48,7 @@
 		
 		<div class = "container">
 			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">		
-				<form:form action="editarTarea" method="POST" modelAttribute="tarea" role="form">      
+				<form:form action="editarTareaProyecto" method="POST" modelAttribute="tarea" role="form">      
 			    	
 			    	<h1 class="page-header text-center titulo">Editar Tarea</h1>
 			    	
