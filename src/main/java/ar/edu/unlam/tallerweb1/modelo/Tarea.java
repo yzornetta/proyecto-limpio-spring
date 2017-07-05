@@ -2,7 +2,6 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,7 +17,7 @@ import javax.persistence.Transient;
 @Table(name = "tarea")
 public class Tarea {
 
-	
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer Id;
 	//Esto sera fk a empleados y será integer
@@ -33,8 +32,6 @@ public class Tarea {
 	private String descripcionProyecto;
 	private Date fechaAlta = new Date();
 	private String fechaFinalizacion;
-	
-	
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "usuario") //Nombre de la columna en la tabla Tarea
@@ -47,8 +44,6 @@ public class Tarea {
 	private Proyecto proyecto;	
 	private Integer proyectoId;
 	
-	@Id 
-	@Column(name = "Id", nullable = false)
 	public Integer getId() {
 		return Id;
 	}
@@ -57,7 +52,7 @@ public class Tarea {
 		Id = id;
 	}
 
-	@Column(name = "estado", nullable = false)
+	
 	public String getEstado() {
 		return estado;
 	}
@@ -66,7 +61,7 @@ public class Tarea {
 		this.estado = estado;
 	}
 
-	@Column(name = "horasEstimadas", nullable = false)
+
 	public Integer getHorasEstimadas() {
 		return horasEstimadas;
 	}
@@ -75,7 +70,6 @@ public class Tarea {
 		this.horasEstimadas = horasEstimadas;
 	}
 
-	@Column(name = "horasReales", nullable = false)
 	public Integer getHorasReales() {
 		return horasReales;
 	}
@@ -84,7 +78,6 @@ public class Tarea {
 		this.horasReales = horasReales;
 	}
 
-	@Column(name = "comentarios", nullable = false)
 	public String getComentarios() {
 		return comentarios;
 	}
@@ -93,7 +86,6 @@ public class Tarea {
 		this.comentarios = comentarios;
 	}
 
-	@Column(name = "descripcion", nullable = false)
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -102,7 +94,6 @@ public class Tarea {
 		this.descripcion = descripcion;
 	}
 
-	@Column(name = "descripcionProyecto", nullable = false)
 	public String getDescripcionProyecto() {
 		return descripcionProyecto;
 	}
@@ -111,7 +102,7 @@ public class Tarea {
 		this.descripcionProyecto = descripcionProyecto;
 	}
 
-	@Column(name = "fechaFinalizacion", nullable = false)
+
 	public String getFechaFinalizacion() {
 		return fechaFinalizacion;
 	}
@@ -120,7 +111,6 @@ public class Tarea {
 		this.fechaFinalizacion = fechaFinalizacion;
 	}
 
-	@Column(name = "fechaAlta", nullable = false)
 	public Date getFechaAlta() {
 		return fechaAlta;
 	}
@@ -129,7 +119,6 @@ public class Tarea {
 		this.fechaAlta = fechaAlta;
 	}
 
-	@Column(name = "usuarioAsignado", nullable = false)
 	public String getUsuarioAsignado() {
 		return usuarioAsignado;
 	}
@@ -138,7 +127,6 @@ public class Tarea {
 		this.usuarioAsignado = usuarioAsignado;
 	}
 
-	@Column(name = "porcentajeAvance", nullable = false)
 	public Integer getPorcentajeAvance() {
 		return porcentajeAvance;
 	}
@@ -147,7 +135,6 @@ public class Tarea {
 		this.porcentajeAvance = porcentajeAvance;
 	}
 
-	@Column(name = "usuario", nullable = false)
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -156,7 +143,6 @@ public class Tarea {
 		this.usuario = usuario;
 	}
 
-	@Column(name = "proyecto", nullable = false)
 	public Proyecto getProyecto() {
 		return proyecto;
 	}
@@ -165,7 +151,6 @@ public class Tarea {
 		this.proyecto = proyecto;
 	}
 
-	@Column(name = "proyectoId", nullable = false)
 	public Integer getProyectoId() {
 		return proyectoId;
 	}
@@ -174,7 +159,6 @@ public class Tarea {
 		this.proyectoId = proyectoId;
 	}
 
-	@Column(name = "usuarioId", nullable = false)
 	public Integer getUsuarioId() {
 		return usuarioId;
 	}
