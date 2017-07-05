@@ -7,13 +7,17 @@ import org.junit.runner.Request;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -32,6 +36,7 @@ public class Proyecto {
 	private String fechaFinalizacion;
 	private Integer idUsuarioAlta;
 	private String comentarios;
+	private Set<Usuario> Usuario = new HashSet<Usuario>(0);
 			
 			//request.getSession().setAttribute("Id",usuarioValidado.getId());
 	
@@ -105,6 +110,15 @@ public class Proyecto {
 	}
 	public void setComentarios(String comentarios) {
 		this.comentarios = comentarios;
+	}
+	
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "Usuario")
+	public Set<Usuario> getUsuario() {
+		return this.Usuario;
+	}
+	
+	public void setInscripcion(Set<Usuario> Usuario) {
+		this.Usuario = Usuario;
 	}
 
 }
