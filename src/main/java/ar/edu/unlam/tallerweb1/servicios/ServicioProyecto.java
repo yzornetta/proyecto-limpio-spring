@@ -15,4 +15,6 @@ public interface ServicioProyecto {
 	Proyecto consultarProyectoPorID(Integer idProyecto);
 
 	List<Proyecto> obtenerTodos();
+
+	void editarProyecto(Proyecto proyecto);
 }

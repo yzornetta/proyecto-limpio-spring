@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.dao.ProyectoDao;
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
+import ar.edu.unlam.tallerweb1.modelo.Tarea;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Service("servicioProyecto")
@@ -30,6 +31,12 @@ public class ServicioProyectoImpl implements ServicioProyecto {
 		servicioProyectoDao.save(proyecto);
 	}
 
+	@Override
+	@Transactional
+	public void editarProyecto(Proyecto proyecto) {
+		servicioProyectoDao.edit(proyecto);
+	}		
+	
 	/*
 	@Override
 	public Proyecto consultarProyectoPorID(ArrayList<Proyecto> listaProyectos, Integer idProyecto) {

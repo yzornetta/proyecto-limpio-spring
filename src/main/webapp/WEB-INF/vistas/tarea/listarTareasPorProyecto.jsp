@@ -86,6 +86,7 @@ pageEncoding="UTF-8"%>
 				<thead>
 					 <tr>
 					  <th>ID</th>
+					  <th></th>					  
 					  <th>Descripcion</th>
 					  <th>Proyecto asociado</th>				  
 					  <th>Usuario Asignado</th>
@@ -102,7 +103,8 @@ pageEncoding="UTF-8"%>
 	 				<c:forEach items="${command}" var="tarea" >					
 					  <tr>
 					    <td>${tarea.id}</td>
-					    <td><a href="editarTareaProyecto?id=<c:out value="${tarea.id}"/>"><c:out value="${tarea.descripcion}"/></a></td>						    
+					    <td><a href="editarTareaProyecto?id=<c:out value="${tarea.id}"/>"><c:out value=""/><span class="glyphicon glyphicon-pencil"></span></a></td>						    
+					    <td>${tarea.descripcion}</td>		
 					    <td>${tarea.proyecto.descripcion}</td>		
 					    <td>${tarea.usuario.email}</td>	
 					    <td>
@@ -110,10 +112,10 @@ pageEncoding="UTF-8"%>
 					    	<!-- Si la tarea está <> "No iniciada" entonces podrá volver atras-->
 							<c:choose>
 							    <c:when test="${tarea.estado != 'No iniciada'}">
-					    			<div><a href="cambiarEstadoAtrasProyecto?idTarea=<c:out value="${tarea.id}"/>">◄</a></div>
+					    			<div><a href="cambiarEstadoAtrasProyecto?idTarea=<c:out value="${tarea.id}"/>"><span class="glyphicon glyphicon-arrow-left"></span></a></div>
 							    </c:when>    
 							    <c:otherwise>
-					    			<div><p>◄</p></div>
+					    			<div><p><span class="glyphicon glyphicon-arrow-left"></span></p></div>
 							    </c:otherwise>
 							</c:choose>					    	
 					    	
@@ -122,10 +124,10 @@ pageEncoding="UTF-8"%>
 					    	<!-- Si la tarea está <> "Finalizada" entonces podrá adelantar-->
 							<c:choose>
 							    <c:when test="${tarea.estado != 'Finalizada'}">
-					    	<div><a href="cambiarEstadoAdelanteProyecto?idTarea=<c:out value="${tarea.id}"/>">►</a></div>					    	
+					    	<div><a href="cambiarEstadoAdelanteProyecto?idTarea=<c:out value="${tarea.id}"/>"><span class="glyphicon glyphicon-arrow-right"></span></a></div>					    	
 							    </c:when>    
 							    <c:otherwise>
-					    			<div><p>►</p></div>
+					    			<div><p><span class="glyphicon glyphicon-arrow-right"></span></p></div>
 							    </c:otherwise>
 							</c:choose>		
 					    	</div>

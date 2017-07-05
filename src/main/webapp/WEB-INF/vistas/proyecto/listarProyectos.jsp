@@ -78,6 +78,7 @@ pageEncoding="UTF-8"%>
 				<thead>
 					 <tr>
 					    <th>ID</th>
+					    <th></th>					    
 					    <th>Descripcion</th>
 					    <th>Hs Estimadas</th>
 					    <th>Horas Reales</th>
@@ -91,6 +92,7 @@ pageEncoding="UTF-8"%>
 	 				<c:forEach items="${command}" var="proyecto" >					
 					  <tr>
 						    <td>${proyecto.id}</td>
+						    <td><a href="editarProyecto?id=<c:out value="${proyecto.id}"/>"><c:out value=""/><span class="glyphicon glyphicon-pencil"></span></a></td>						    						    
 						    <!--<td><a href="listarProyecto?id=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td> -->
 						    <td><a href="../tarea/listarTareasPorProyecto?idProyecto=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td>						    
 						    <td>${proyecto.horasEstimadas}</td>

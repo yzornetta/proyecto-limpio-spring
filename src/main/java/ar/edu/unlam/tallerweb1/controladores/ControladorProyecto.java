@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Persona;
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
+import ar.edu.unlam.tallerweb1.modelo.Tarea;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProyecto;
@@ -63,6 +64,32 @@ public class ControladorProyecto {
 		return new ModelAndView("redirect:/proyecto/listarProyectos");
 
 	}	
+	
+	////////////////////////INICIO EDITAR PROYECTOS ////////////////////////
+	
+	//ARMA EL FORM DE EDIT DE TAREA
+	@RequestMapping(value="proyecto/editarProyecto")
+	public ModelAndView editarProyecto(@RequestParam("id") Integer idProyecto) {
+		
+		Proyecto proyectoElegido = servicioProyecto.consultarProyectoPorID(idProyecto);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("proyecto/editarProyecto");
+		modelAndView.addObject("proyecto", proyectoElegido);
+
+		return modelAndView;
+	}	
+	
+	//ACCION DEL BOTON GRABAR - EDITAR TAREA
+	@RequestMapping(value="proyecto/editarProyecto",  method = RequestMethod.POST)
+	public ModelAndView editarProyecto(@ModelAttribute("proyecto") Proyecto proyecto) {	
+
+		servicioProyecto.editarProyecto(proyecto);
+		return new ModelAndView("redirect:/proyecto/listarProyectos");
+
+	}	
+	
+	////////////////////////FIN EDITAR PROYECTOS ////////////////////////	
 
 	//LISTAR TODOS LOS PROYECTOS
 	@RequestMapping(value="proyecto/listarProyectos",  method = RequestMethod.GET)

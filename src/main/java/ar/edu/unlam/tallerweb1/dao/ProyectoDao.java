@@ -15,5 +15,7 @@ public interface ProyectoDao {
 	Proyecto consultarProyectoPorID(Integer idProyecto);
 
 	List<Proyecto> obtenerTodos();
+
+	void edit(Proyecto proyecto);
 }
 

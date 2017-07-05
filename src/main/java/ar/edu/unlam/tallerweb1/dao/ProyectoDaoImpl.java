@@ -13,6 +13,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
+import ar.edu.unlam.tallerweb1.modelo.Tarea;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Service("proyectoDao")
@@ -39,6 +40,15 @@ public class ProyectoDaoImpl implements ProyectoDao {
 		
 		session.persist(proyecto);
 	}
+	
+	@Override
+	public void edit(Proyecto proyecto) {
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		//session.flush();
+
+		session.update(proyecto);
+	}	
 
 	@Override
 	public Proyecto consultarProyectoPorID(Integer idProyecto) {
