@@ -141,7 +141,7 @@ $(document).ready(function(){
 							<td>${proyecto.comentarios}</td>		    						   
 						    <td>${proyecto.fechaAlta}</td>		
 						    
-						    <td><a href="generarQR?id=<c:out value="${QR.id}"/>" data-toggle="tooltip" title="Generar QR"><c:out value=""/><span class="glyphicon glyphicon-qrcode"></span></a></td>
+						    <!--  <td><a href="generarQR?id=<c:out value="${QR.id}"/>" data-toggle="tooltip" title="Generar QR"><c:out value=""/><span class="glyphicon glyphicon-qrcode"></span></a></td> -->
 					  </tr>
 					</c:forEach>
 				</tbody>			

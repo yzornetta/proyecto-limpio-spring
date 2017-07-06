@@ -18,5 +18,7 @@ public interface ServicioTarea {
 	void editarTarea(Tarea tarea);
 
 	List<Tarea> consultarTareaPorProyecto(Proyecto proyecto);
+
+	void eliminarTarea(Tarea tarea);
 	
 }

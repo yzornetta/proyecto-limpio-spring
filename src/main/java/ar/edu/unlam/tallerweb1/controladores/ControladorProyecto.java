@@ -98,6 +98,8 @@ public class ControladorProyecto {
 	{
 	
 		listaProyectos = servicioProyecto.obtenerTodos();
+		
+		
 		return new ModelAndView("proyecto/listarProyectos","command", listaProyectos);//devuelve vista exito
 	}
 	

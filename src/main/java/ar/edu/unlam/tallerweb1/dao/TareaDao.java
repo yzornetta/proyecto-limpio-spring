@@ -19,6 +19,8 @@ public interface TareaDao {
 	void edit(Tarea tarea);
 
 	List<Tarea> consultarTareaPorProyecto(Proyecto proyecto);
+
+	void eliminarTarea(Tarea tarea);
 	
 
 }

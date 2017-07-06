@@ -323,5 +323,26 @@ public class ControladorTareas {
 		return new ModelAndView("redirect:/tarea/listarTareasPorProyecto?idProyecto=" + tarea.getProyectoId());
 	}
 
-	
+
+	//ELIMINAR TAREA
+	@RequestMapping("tarea/eliminarTarea")
+	public ModelAndView eliminarTarea(@RequestParam(value="id") Integer idTarea){
+		
+		Tarea tarea = servicioTarea.consultarTareaPorID(idTarea);		
+		
+		servicioTarea.eliminarTarea(tarea);
+		
+		return new ModelAndView("redirect:/tarea/listarTareas");
+	}	
+
+	//ELIMINAR TAREA PROYECTO
+	@RequestMapping("tarea/eliminarTareaProyecto")
+	public ModelAndView eliminarTareaProyecto(@RequestParam(value="id") Integer idTarea){
+		
+		Tarea tarea = servicioTarea.consultarTareaPorID(idTarea);		
+		
+		servicioTarea.eliminarTarea(tarea);
+		
+		return new ModelAndView("redirect:/tarea/listarTareasPorProyecto?idProyecto=" + tarea.getProyectoId());
+	}	
 }

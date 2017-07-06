@@ -88,4 +88,10 @@ public class ServicioTareaImpl implements ServicioTarea {
 		return servicioTareaDao.obtenerTodas();
 	}
 
+	@Override
+	public void eliminarTarea(Tarea tarea) {
+		servicioTareaDao.eliminarTarea(tarea);
+		
+	}
+
 }

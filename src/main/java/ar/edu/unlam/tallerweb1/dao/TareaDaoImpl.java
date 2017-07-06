@@ -78,4 +78,11 @@ public class TareaDaoImpl implements TareaDao {
 		
 		return Tareas;
 	}
+
+	@Override
+	public void eliminarTarea(Tarea tarea) {
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		session.delete(tarea);		
+	}
 }
