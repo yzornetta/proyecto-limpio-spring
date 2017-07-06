@@ -26,6 +26,12 @@ pageEncoding="UTF-8"%>
   			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
 <style>
 
 	th, td, h1 {
@@ -78,7 +84,8 @@ pageEncoding="UTF-8"%>
 				<thead>
 					 <tr>
 					    <th>ID</th>
-					    <th></th>					    
+					    <th></th>
+					    <th></th>					    					    					    
 					    <th>Descripcion</th>
 					    <th>Hs Estimadas</th>
 					    <th>Horas Reales</th>
@@ -92,9 +99,10 @@ pageEncoding="UTF-8"%>
 	 				<c:forEach items="${command}" var="proyecto" >					
 					  <tr>
 						    <td>${proyecto.id}</td>
-						    <td><a href="editarProyecto?id=<c:out value="${proyecto.id}"/>"><c:out value=""/><span class="glyphicon glyphicon-pencil"></span></a></td>						    						    
+						    <td><a href="editarProyecto?id=<c:out value="${proyecto.id}"/>" data-toggle="tooltip" title="Editar proyecto"><c:out value=""/><span class="glyphicon glyphicon-pencil"></span></a></td>						    						    
+						    <td><a href="editarProyecto?id=<c:out value="${proyecto.id}"/>"  data-toggle="tooltip" title="Asignar usuarios al proyecto"><c:out value=""/><span class="glyphicon glyphicon-user"></span></a></td>						    						    						 
 						    <!--<td><a href="listarProyecto?id=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td> -->
-						    <td><a href="../tarea/listarTareasPorProyecto?idProyecto=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td>						    
+						    <td><a data-toggle="tooltip" title="Ir a tareas del proyecto" href="../tarea/listarTareasPorProyecto?idProyecto=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td>						    
 						    <td>${proyecto.horasEstimadas}</td>
 						    <td>${proyecto.horasReales}</td>
 						    <td>${proyecto.porcentajeAvance}</td>

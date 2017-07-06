@@ -85,7 +85,10 @@
 					</div>	
 
 					<div class="form-group">
-						<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			
+						<div>
+							<button class="btn btn-primary btn-block"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			
+							<button class="btn btn-primary btn-danger"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>
+						</div>  								
 					</div>
 
 				  	<!-- 
