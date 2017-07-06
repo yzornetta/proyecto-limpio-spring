@@ -77,5 +77,10 @@ public class ControladorLogin {
 		listaUsuarios = servicioLogin.obtenerTodos();
 		return new ModelAndView("usuario/listarUsuarios","command", listaUsuarios);//devuelve vista exito
 	}
+
+	public void setValidarUsuarioMock(ServicioLogin servicioMock) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

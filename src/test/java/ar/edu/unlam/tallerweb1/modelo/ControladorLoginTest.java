@@ -6,9 +6,11 @@ import org.mockito.Mock;
 import org.springframework.web.servlet.ModelAndView;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import ar.edu.unlam.tallerweb1.controladores.ControladorLogin;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
@@ -16,47 +18,23 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 public class ControladorLoginTest {
 
 	@Test
-	public void consultarUsuarioExistente () {
+	public void testLoguearseConUsuarioYPassCorrectosDeberiaIrALaVistaIndex() {
+		HttpServletRequest requestMock = mock(HttpServletRequest.class);
+		when(requestMock.getSession()).thenReturn(mock(HttpSession.class));
 		
-		//Todas las instancias deben ser MOCK
-		Usuario usuarioPrueba = mock(Usuario.class);
-		ServicioLogin servicioLoginFake = mock(ServicioLogin.class);
+		Usuario usuario = new Usuario();
+		usuario.setEmail("test1@hotmail.com");
+		usuario.setNombre("Luis");
+		usuario.setApellido("Lopes");
+		usuario.setPassword("111");		
 		
-		when(servicioLoginFake.consultarUsuario(usuarioPrueba)).thenReturn(usuarioPrueba);
-		
-		ControladorLogin controlador = new ControladorLogin();
-		
-		//Setearle al controlador el servicio mockeado
-		controlador.setServicioLoginMock(servicioLoginFake);
-		
-		//HttpServletRequest request = null;
-		ModelAndView modelAndView = controlador.validarLogin(usuarioPrueba, null);
+		ServicioLogin servicioMock = mock(ServicioLogin.class);
+		when (servicioMock.consultarUsuario(usuario));
+		ControladorLogin controladorLogin = new ControladorLogin();
+		controladorLogin.setValidarUsuarioMock(servicioMock);
 
-		//Verifica que se ejecute al menos 1 vez, metodo getEmail();
-		verify(usuarioPrueba, times(1)).getEmail();
-		assertThat(modelAndView.getViewName()).isEqualTo("redirect:/home");
-		
+		ModelAndView mav = controladorLogin.validarLogin(usuario, requestMock);
+		assertThat(mav.getViewName()).isEqualTo("redirect:/");
 	}
-	
-	@Test
-	public void consultarUsuarioInexistente () {
-	
-		//Todas las instancias deben ser MOCK
-		Usuario usuarioPrueba = mock(Usuario.class);
-		ServicioLogin servicioLoginFake = mock(ServicioLogin.class);
-		
-		when(servicioLoginFake.consultarUsuario(usuarioPrueba)).thenReturn(null);
-		
-		ControladorLogin controlador = new ControladorLogin();
-		
-		//Setearle al controlador el servicio mockeado
-		controlador.setServicioLoginMock(servicioLoginFake);
-		
-		ModelAndView modelAndView = controlador.validarLogin(usuarioPrueba, null);
-		
-		verify(usuarioPrueba, times(0)).getEmail();
-		assertThat(modelAndView.getModelMap().get("error")).isEqualTo("Usuario o clave incorrecta");
-		assertThat(modelAndView.getViewName()).isEqualTo("login");
-	}
-	
 }
+	
