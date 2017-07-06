@@ -75,7 +75,7 @@
 		            <h1 class="text-center texto-login">MODIFICAR PERFIL</h1>	           
 	           
 					<div class="col-xs-6 col-xs-offset-3 contenedor-registracion">
-						<form:form method="POST" action="modificar" modelAttribute="classRegistrarse" class="form-horizontal" role="form">
+						<form:form method="POST" action="modificar" modelAttribute="classModificar" class="form-horizontal" role="form">
 							
 							<div class="form-group">
 						    	<h4 for="nombre_usr">Nombre:</h4>
@@ -99,7 +99,7 @@
 								<center><button type="submit" class="btn btn-success btnRegistrarse">MODIFICAR</button></center>
 							</div>												
 							<div>
-								<center><a class="btn btn-danger btnCancelar" href="/proyecto-base-spring">Cancelar</a></center>
+								<center><a class="btn btn-danger btnCancelar" href="/proyecto-limpio-spring/home">Cancelar</a></center>
 							</div>
 							
 							
