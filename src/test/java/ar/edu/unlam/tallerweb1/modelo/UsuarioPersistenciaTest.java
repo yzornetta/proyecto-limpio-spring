@@ -29,8 +29,6 @@ public void guardarUsuTest(){
 	Usuario buscado = sessionFactory.getCurrentSession().get(Usuario.class, usu.getId());
 	Assert.assertTrue("correcto", buscado.getApellido().equals("Lopes"));
 	
-	
-<<<<<<< HEAD
 	}
 
 	public void modificarUsuTest(){
@@ -55,8 +53,5 @@ public void guardarUsuTest(){
 	Assert.assertTrue("correcto", buscado2.getApellido().equals("Rodriguez"));
 	
 	}
-=======
-}
->>>>>>> origin/master
 
 }
