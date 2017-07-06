@@ -147,14 +147,12 @@ $(document).ready(function(){
 		</div>
 	</div>
 	
-			<!-- Footer -->
-	        <footer>
-	            <div class="row">
-	                <div class="col-lg-12 footer">
+			
+       		<!-- Footer -->	     
+
+	                <div class="footer">
 	                    <center><p>Copyright &copy; Task Manager Pro 2018</p></center>
-	                </div>
-	            </div>
-	        </footer>
+	                </div> 
 </body>
 </html>
 
