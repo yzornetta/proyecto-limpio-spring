@@ -33,6 +33,12 @@ pageEncoding="UTF-8"%>
   			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+		<script>
+		$(document).ready(function(){
+		    $('[data-toggle="tooltip"]').tooltip();   
+		});
+		</script>
+
 <style>
 
 	th, td, h1 {
@@ -103,7 +109,7 @@ pageEncoding="UTF-8"%>
 	 				<c:forEach items="${command}" var="tarea" >					
 					  <tr>
 					    <td>${tarea.id}</td>
-					    <td><a href="editarTarea?id=<c:out value="${tarea.id}"/>"><c:out value=""/><span class="glyphicon glyphicon-pencil"></span></a></td>						    					    
+					    <td><a data-toggle="tooltip" title="Editar tarea" href="editarTarea?id=<c:out value="${tarea.id}"/>"><c:out value=""/><span class="glyphicon glyphicon-pencil"></span></a></td>						    					    
 					    <td>${tarea.descripcion}</td>		
 					    <td>${tarea.proyecto.descripcion}</td>		
 					    <td>${tarea.usuario.email}</td>	
@@ -112,7 +118,7 @@ pageEncoding="UTF-8"%>
 					    	<!-- Si la tarea está <> "No iniciada" entonces podrá volver atras-->
 							<c:choose>
 							    <c:when test="${tarea.estado != 'No iniciada'}">
-					    			<div><a href="cambiarEstadoAtras?idTarea=<c:out value="${tarea.id}"/>"><span class="glyphicon glyphicon-arrow-left"></span></a></div>
+					    			<div><a data-toggle="tooltip" title="Retroceder estado" href="cambiarEstadoAtras?idTarea=<c:out value="${tarea.id}"/>"><span class="glyphicon glyphicon-arrow-left"></span></a></div>
 							    </c:when>    
 							    <c:otherwise>
 					    			<div><p><span class="glyphicon glyphicon-arrow-left"></span></p></div>
@@ -124,7 +130,7 @@ pageEncoding="UTF-8"%>
 					    	<!-- Si la tarea está <> "Finalizada" entonces podrá adelantar-->
 							<c:choose>
 							    <c:when test="${tarea.estado != 'Finalizada'}">
-					    	<div><a href="cambiarEstadoAdelante?idTarea=<c:out value="${tarea.id}"/>"><span class="glyphicon glyphicon-arrow-right"></span></a></div>					    	
+					    	<div><a data-toggle="tooltip" title="Avanzar estado" href="cambiarEstadoAdelante?idTarea=<c:out value="${tarea.id}"/>"><span class="glyphicon glyphicon-arrow-right"></span></a></div>					    	
 							    </c:when>    
 							    <c:otherwise>
 					    			<div><p><span class="glyphicon glyphicon-arrow-right"></span></p></div>
