@@ -26,6 +26,33 @@ pageEncoding="UTF-8"%>
   			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <script>
+
+    function pop1(id){
+    	
+    		var w = 395;
+    		var h = 415;
+    	    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+    	    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+    	    var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    	    var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    	    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    	    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+    	    var newWindow = window.open('asignarUsuarios?idProyecto=' + id, 'Asignación de usuarios', 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+    	    // Puts focus on the newWindow
+    	    if (window.focus) {
+    	        newWindow.focus();
+    	    }
+    	
+        //window.open('asignarUsuarios?idProyecto=' + id,'popwin','width=395, height=415, top=top');
+
+    }
+
+    </script>
+
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
@@ -100,7 +127,11 @@ $(document).ready(function(){
 					  <tr>
 						    <td>${proyecto.id}</td>
 						    <td><a href="editarProyecto?id=<c:out value="${proyecto.id}"/>" data-toggle="tooltip" title="Editar proyecto"><c:out value=""/><span class="glyphicon glyphicon-pencil"></span></a></td>						    						    
-						    <td><a href="editarProyecto?id=<c:out value="${proyecto.id}"/>"  data-toggle="tooltip" title="Asignar usuarios al proyecto"><c:out value=""/><span class="glyphicon glyphicon-user"></span></a></td>						    						    						 
+						    
+						    <td><a data-toggle="tooltip" title="Asignar usuarios al proyecto" href="#" onclick="pop1(${proyecto.id})"><span class="glyphicon glyphicon-user"></span></a></td>						    						    						 
+						    
+						    <!-- <td><a href="asignarUsuarios?idProyecto=<c:out value="${proyecto.id}"/>"  data-toggle="tooltip" title="Asignar usuarios al proyecto"><c:out value=""/><span class="glyphicon glyphicon-user"></span></a></td> -->						    						    						 
+						    
 						    <!--<td><a href="listarProyecto?id=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td> -->
 						    <td><a data-toggle="tooltip" title="Ir a tareas del proyecto" href="../tarea/listarTareasPorProyecto?idProyecto=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td>						    
 						    <td>${proyecto.horasEstimadas}</td>

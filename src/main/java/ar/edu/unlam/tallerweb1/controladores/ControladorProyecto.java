@@ -25,6 +25,7 @@ import ar.edu.unlam.tallerweb1.modelo.Persona;
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.modelo.UsuarioProyecto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProyecto;
 
@@ -115,4 +116,41 @@ public class ControladorProyecto {
 		return modelAndView;
 		
 	}
+
+	//////////////////////// ASOCIAR USUARIOS-PROYECTOS ////////////////////////
+	
+	@RequestMapping(value="proyecto/asignarUsuarios", method = RequestMethod.GET)
+	public ModelAndView asignarUsuarios(@RequestParam("idProyecto") Integer idProyecto, Model modelo) {
+		
+		//Proyecto proyecto = servicioProyecto.consultarProyectoPorID(idProyecto);
+		
+		modelo.addAttribute("usuarioProyecto", new  UsuarioProyecto());		
+				
+		listaProyectos = servicioProyecto.obtenerTodos();
+		modelo.addAttribute("proyectos", listaProyectos);
+		
+		listaUsuarios = servicioLogin.obtenerTodos();
+		modelo.addAttribute("usuarios", listaUsuarios);
+				
+		return new ModelAndView("proyecto/asignarUsuarios");
+	}	
+	
+	
+	//ACCION DEL BOTON GRABAR - ASIGNAR
+	@RequestMapping(value="proyecto/asignarUsuarios",  method = RequestMethod.POST)
+	public ModelAndView asignarUsuarios(@ModelAttribute("usuarioProyecto") UsuarioProyecto usuarioProyecto) {
+		
+		//Guardo proyecto asignado
+		Integer IdProyecto = usuarioProyecto.getProyectoId();
+		
+		//Guardo usuario asignado
+		Integer IdUsuario = usuarioProyecto.getUsuarioId();
+
+		//servicioProyecto.asignarUsuario;
+		
+		return new ModelAndView("redirect:/proyecto/listarProyectos");
+
+	}		
+	
+	
 }
