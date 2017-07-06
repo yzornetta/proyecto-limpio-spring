@@ -90,4 +90,20 @@ public class ProyectoDaoImpl implements ProyectoDao {
 				.add(Restrictions.eq("usuario", usuario))				
 				.uniqueResult();
 	}
+
+
+	@Override
+	public UsuarioProyecto consultarUsuariosProyectoPorId(Integer idUsuarioProyecto) {
+		Session session = this.sessionFactory.getCurrentSession();
+		return (UsuarioProyecto) session.createCriteria(UsuarioProyecto.class)
+				.add(Restrictions.eq("id", idUsuarioProyecto))
+				.uniqueResult();	
+	}
+
+	@Override
+	public void eliminarUsuarioProyecto(UsuarioProyecto usuarioProyecto) {
+		Session session = this.sessionFactory.getCurrentSession();
+
+		session.delete(usuarioProyecto);		
+	}
 }

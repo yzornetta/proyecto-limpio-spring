@@ -176,4 +176,30 @@ public class ControladorProyecto {
 	}		
 	
 	
+	@RequestMapping(value="proyecto/eliminarUsuarioProyecto", method = RequestMethod.GET)
+	public ModelAndView eliminarUsuarioProyecto(@RequestParam("id") Integer idUsuarioProyecto, 
+												@RequestParam("idProyecto") Integer idProyecto,
+												Model modelo) {
+		
+		System.out.println("PASO 1");	
+
+		UsuarioProyecto usuarioProyecto = servicioProyecto.consultarUsuariosProyectoPorId(idUsuarioProyecto);					
+
+		System.out.println("PASO 2");	
+		
+		servicioProyecto.eliminarUsuarioProyecto(usuarioProyecto);
+		
+		Proyecto ProyectoSeleccionado = servicioProyecto.consultarProyectoPorID(idProyecto);
+		
+		System.out.println("PASO 3");	
+
+		modelo.addAttribute("ProyectoSeleccionado", ProyectoSeleccionado);
+
+		List<UsuarioProyecto> listaUsuariosProyecto;
+		listaUsuariosProyecto =  servicioProyecto.consultarUsuariosProyecto(ProyectoSeleccionado);
+		modelo.addAttribute("listaUsuariosProyecto", listaUsuariosProyecto);
+		
+		return new ModelAndView("redirect:/proyecto/asignarUsuarios?idProyecto=" + idProyecto);
+	}	
+	
 }

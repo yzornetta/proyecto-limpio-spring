@@ -81,9 +81,8 @@
 																																	
 					<div class="form-group">
 						<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Tarea" type="Submit">Asignar</button>  							
-					</div>					
-			        <h4><span>${error}</span></h4>
-
+					</div>
+										
 				</form:form>
 				
 			
@@ -96,7 +95,6 @@
 
 		<div class="container">	
 	    	<h4>Lista de usuarios asignados:</h4>		
-			        <h4><span>${error}</span></h4>
 			<div class="table-responsive">  
 				       
 				<table class="table">
@@ -109,8 +107,8 @@
 					<tbody>
 		 				<c:forEach items="${listaUsuariosProyecto}" var="usuarioProyecto" >	
 						  <tr>
-						    <td><a href="eliminarUsuarioProyecto?idUsuario=<c:out value="${usuarioProyecto.usuario.email}"/>" data-toggle="tooltip" title="Quitar usuario"><c:out value=""/><span class="glyphicon glyphicon-remove"></span></a></td>						    						    
-						    <td><h5>${usuarioProyecto.usuario.email}</h5></td>
+						    <!-- <td><a href="eliminarUsuarioProyecto?idUsuario=<c:out value="${usuarioProyecto.usuario.id}"/>&idProyecto=<c:out value="${usuarioProyecto.proyecto.id}"/>" data-toggle="tooltip" title="Quitar usuario"><c:out value=""/><span class="glyphicon glyphicon-remove"></span></a></td>  -->
+						    <td><a href="eliminarUsuarioProyecto?id=<c:out value="${usuarioProyecto.id}"/>&idProyecto=<c:out value="${usuarioProyecto.proyecto.id}"/>" data-toggle="tooltip" title="Quitar usuario"><c:out value=""/><span class="glyphicon glyphicon-remove"></span></a></td><td><h5>${usuarioProyecto.usuario.email}</h5></td>
 						  </tr>
 						</c:forEach>
 					</tbody>			

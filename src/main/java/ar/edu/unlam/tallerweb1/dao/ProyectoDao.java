@@ -24,5 +24,9 @@ public interface ProyectoDao {
 	List<UsuarioProyecto> consultarUsuariosProyecto(Proyecto proyecto);
 
 	UsuarioProyecto consultarSiExisteProyectoUsuario(Proyecto proyecto, Usuario usuario);
+
+	UsuarioProyecto consultarUsuariosProyectoPorId(Integer idUsuarioProyecto);
+
+	void eliminarUsuarioProyecto(UsuarioProyecto usuarioProyecto);
 }
 

@@ -87,4 +87,16 @@ public class ServicioProyectoImpl implements ServicioProyecto {
 		return servicioProyectoDao.consultarSiExisteProyectoUsuario(proyecto, usuario);
 	}
 
+	@Override
+	@Transactional
+	public void eliminarUsuarioProyecto(UsuarioProyecto usuarioProyecto) {
+		servicioProyectoDao.eliminarUsuarioProyecto(usuarioProyecto);
+		
+	}
+
+	@Override
+	public UsuarioProyecto consultarUsuariosProyectoPorId(Integer idUsuarioProyecto) {		
+		return servicioProyectoDao.consultarUsuariosProyectoPorId(idUsuarioProyecto);
+	}
+
 }
