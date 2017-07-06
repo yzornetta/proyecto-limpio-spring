@@ -85,7 +85,6 @@ pageEncoding="UTF-8"%>
 						    <td>${usuario.email}</td>
 						    <td>${usuario.nombre}</td>
 						    <td>${usuario.apellido}</td>	
-						    <td>${usuario.password}</td>		
 					  </tr>
 					</c:forEach>
 				</tbody>			

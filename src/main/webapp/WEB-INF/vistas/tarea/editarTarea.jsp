@@ -97,12 +97,7 @@
 					<div class="form-group">
 	      				<label><h4>% de Avance:</h4></label>					
 					  	<form:input type="number" path="porcentajeAvance" placeholder="% de avance" class="form-control"/>				
-					</div>								
-										
-					<div class="form-group">
-	      				<label><h4>Fecha de Finalización:</h4></label>
-						<label><form:input type="date" path="fechaFinalizacion" placeholder="Fecha finalizacion" class="form-control"/></label>
-					</div>					
+					</div>											
 					
 					<div class="form-group">
 	      				<label><h4>Comentarios:</h4></label>					

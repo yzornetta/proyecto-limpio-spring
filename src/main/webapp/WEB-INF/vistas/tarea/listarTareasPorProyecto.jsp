@@ -92,6 +92,7 @@ pageEncoding="UTF-8"%>
 				<thead>
 					 <tr>
 					  <th>ID</th>
+					  <th></th>					  					  
 					  <th></th>					  
 					  <th>Descripcion</th>
 					  <th>Proyecto asociado</th>				  
@@ -110,6 +111,7 @@ pageEncoding="UTF-8"%>
 					  <tr>
 					    <td>${tarea.id}</td>
 					    <td><a data-toggle="tooltip" title="Editar tarea" href="editarTareaProyecto?id=<c:out value="${tarea.id}"/>"><c:out value=""/><span class="glyphicon glyphicon-pencil"></span></a></td>						    
+					    <td><a data-toggle="tooltip" title="Eliminar tarea" href="eliminarTareaProyecto?id=<c:out value="${tarea.id}"/>"><c:out value=""/><span class="glyphicon glyphicon-remove"></span></a></td>						    					    					    
 					    <td>${tarea.descripcion}</td>		
 					    <td>${tarea.proyecto.descripcion}</td>		
 					    <td>${tarea.usuario.email}</td>	

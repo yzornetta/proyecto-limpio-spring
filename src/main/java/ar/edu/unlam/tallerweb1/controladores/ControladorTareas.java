@@ -102,10 +102,8 @@ public class ControladorTareas {
 		modelAndView.addObject("usuarios", listaUsuarios);	
 		
 		//DEBUG
-		/*
-		System.out.println("El proyecto de la tarea a editar es");		
-		System.out.println(tareaElegida.getProyectoId());	
-		*/
+		System.out.println(tareaElegida.getFechaFinalizacion());	
+		
 		
 		return modelAndView;
 	}	
@@ -113,10 +111,8 @@ public class ControladorTareas {
 	//ACCION DEL BOTON GRABAR - EDITAR TAREA
 	@RequestMapping(value="tarea/editarTarea",  method = RequestMethod.POST)
 	public ModelAndView editarTarea(@ModelAttribute("tarea") Tarea tarea) {
-				
-		System.out.println("TAREA A EDITAR ID:");	
-		//tarea.setId(1);		
-		System.out.println(tarea.getId());
+					
+		System.out.println(tarea.getFechaFinalizacion());
 		
 		//Guardo proyecto asignado
 		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(tarea.getProyectoId()));
@@ -229,9 +225,8 @@ public class ControladorTareas {
 	@RequestMapping(value="tarea/editarTareaProyecto",  method = RequestMethod.POST)
 	public ModelAndView editarTareaProyecto(@ModelAttribute("tarea") Tarea tarea) {
 				
-		//System.out.println("TAREA A EDITAR ID:");	
-		//tarea.setId(1);		
-		//System.out.println(tarea.getId());
+		System.out.println(tarea.getFechaFinalizacion());
+
 		
 		//Guardo proyecto asignado
 		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(tarea.getProyectoId()));

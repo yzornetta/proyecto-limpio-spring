@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -58,14 +60,20 @@ public class ServicioTareaImpl implements ServicioTarea {
 		 
         case "En proceso":
 	        tarea.setEstadoOrdenar(1); 
+	        tarea.setFechaFinalizacion(null);
 	        break;
  
         case "No iniciada":
         	tarea.setEstadoOrdenar(2); 
+        	tarea.setFechaFinalizacion(null);
 	        break;
 
         case "Finalizada":
-	        tarea.setEstadoOrdenar(3); 
+	        tarea.setEstadoOrdenar(3);
+	        
+	        SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
+	        
+	        tarea.setFechaFinalizacion(dt1.format(new Date()));
 	        break;
 		}		
 		
