@@ -55,7 +55,7 @@
 		<div class = "container">
 			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">		
 				<form:form action="editarProyecto" method="POST" modelAttribute="proyecto" role="form">      
-			    	<h1 class="page-header text-center titulo">Alta de Proyectos</h1>
+			    	<h1 class="page-header text-center titulo">Editar Proyecto</h1>
 					
 					<form:input type="hidden" path="Id" class="form-control" required="true"/>
 					

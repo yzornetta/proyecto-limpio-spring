@@ -125,12 +125,17 @@ public class ControladorProyecto {
 		//Proyecto proyecto = servicioProyecto.consultarProyectoPorID(idProyecto);
 		
 		modelo.addAttribute("usuarioProyecto", new  UsuarioProyecto());		
-				
-		listaProyectos = servicioProyecto.obtenerTodos();
-		modelo.addAttribute("proyectos", listaProyectos);
+		
+		Proyecto ProyectoSeleccionado = servicioProyecto.consultarProyectoPorID(idProyecto);
+		modelo.addAttribute("ProyectoSeleccionado", ProyectoSeleccionado);
 		
 		listaUsuarios = servicioLogin.obtenerTodos();
 		modelo.addAttribute("usuarios", listaUsuarios);
+		
+		List<UsuarioProyecto> listaUsuariosProyecto;
+		listaUsuariosProyecto =  servicioProyecto.consultarUsuariosProyecto(ProyectoSeleccionado);
+		modelo.addAttribute("listaUsuariosProyecto", listaUsuariosProyecto);
+		
 				
 		return new ModelAndView("proyecto/asignarUsuarios");
 	}	
@@ -142,13 +147,31 @@ public class ControladorProyecto {
 		
 		//Guardo proyecto asignado
 		Integer IdProyecto = usuarioProyecto.getProyectoId();
-		
 		//Guardo usuario asignado
 		Integer IdUsuario = usuarioProyecto.getUsuarioId();
 
+		Proyecto proyecto = servicioProyecto.consultarProyectoPorID(IdProyecto);
+		Usuario usuario = servicioLogin.findUserById(IdUsuario);
+				
+		UsuarioProyecto yaExisteUsuarioAsignado = servicioProyecto.consultarSiExisteProyectoUsuario(proyecto, usuario);
+		
+		if (yaExisteUsuarioAsignado != null) {
+			ModelMap model = new ModelMap();
+			model.put("error", "Usuario ya asignado");			
+			return new ModelAndView("redirect:/proyecto/asignarUsuarios?idProyecto=" + IdProyecto, model);
+		}		
+		
+		//Guardo proyecto asignado
+		usuarioProyecto.setProyecto(proyecto);
+
+		//Guardo usuario asignado
+		usuarioProyecto.setUsuario(usuario);
+			
+		servicioProyecto.asignarUsuarioProyecto(usuarioProyecto);
+		
 		//servicioProyecto.asignarUsuario;
 		
-		return new ModelAndView("redirect:/proyecto/listarProyectos");
+		return new ModelAndView("redirect:/proyecto/asignarUsuarios?idProyecto=" + IdProyecto);
 
 	}		
 	

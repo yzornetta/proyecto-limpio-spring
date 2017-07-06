@@ -31,7 +31,7 @@ pageEncoding="UTF-8"%>
     function pop1(id){
     	
     		var w = 395;
-    		var h = 415;
+    		var h = 600;
     	    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
     	    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
 

@@ -58,9 +58,12 @@
 
 					<div class="form-group">		
 	      				<label><h4>Proyecto:</h4></label>
-						<form:select path="proyectoId" multiple="false" class="form-control" required="true">
+						<!--<form:select path="proyectoId" multiple="false" class="form-control" required="true">
 							<form:options items="${proyectos}" itemValue="id" itemLabel="descripcion"/>
-						</form:select>					
+						</form:select>-->
+						<form:select path="proyectoId" multiple="false" class="form-control" required="true">
+							  <option value="${ProyectoSeleccionado.id}">${ProyectoSeleccionado.descripcion}</option>							
+						</form:select>											
 					</div>
 
 					<div class="form-group">

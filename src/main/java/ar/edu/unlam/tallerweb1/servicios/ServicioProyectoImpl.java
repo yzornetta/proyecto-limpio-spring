@@ -12,6 +12,7 @@ import ar.edu.unlam.tallerweb1.dao.ProyectoDao;
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.modelo.UsuarioProyecto;
 
 @Service("servicioProyecto")
 @Transactional
@@ -67,6 +68,23 @@ public class ServicioProyectoImpl implements ServicioProyecto {
 	@Override
 	public List<Proyecto> obtenerTodos() {
 		return servicioProyectoDao.obtenerTodos();
+	}
+
+	@Override
+	public void asignarUsuarioProyecto(UsuarioProyecto usuarioProyecto) {
+		servicioProyectoDao.saveUsuarioProyecto(usuarioProyecto);
+		
+	}
+
+	@Override
+	public List<UsuarioProyecto> consultarUsuariosProyecto(Proyecto proyecto) {
+		return servicioProyectoDao.consultarUsuariosProyecto(proyecto);
+
+	}
+
+	@Override
+	public UsuarioProyecto consultarSiExisteProyectoUsuario(Proyecto proyecto, Usuario usuario) {
+		return servicioProyectoDao.consultarSiExisteProyectoUsuario(proyecto, usuario);
 	}
 
 }

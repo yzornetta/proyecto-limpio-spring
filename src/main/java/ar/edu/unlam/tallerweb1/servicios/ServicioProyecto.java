@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.modelo.UsuarioProyecto;
 
 
 public interface ServicioProyecto {
@@ -17,4 +19,11 @@ public interface ServicioProyecto {
 	List<Proyecto> obtenerTodos();
 
 	void editarProyecto(Proyecto proyecto);
+
+	void asignarUsuarioProyecto(UsuarioProyecto usuarioProyecto);
+	
+	List<UsuarioProyecto> consultarUsuariosProyecto(Proyecto proyecto);
+
+	UsuarioProyecto consultarSiExisteProyectoUsuario(Proyecto proyecto, Usuario usuario);
+	
 }

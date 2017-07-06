@@ -5,6 +5,7 @@ import java.util.List;
 
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.modelo.UsuarioProyecto;
 
 public interface ProyectoDao {
 	
@@ -17,5 +18,11 @@ public interface ProyectoDao {
 	List<Proyecto> obtenerTodos();
 
 	void edit(Proyecto proyecto);
+
+	void saveUsuarioProyecto(UsuarioProyecto usuarioProyecto);
+
+	List<UsuarioProyecto> consultarUsuariosProyecto(Proyecto proyecto);
+
+	UsuarioProyecto consultarSiExisteProyectoUsuario(Proyecto proyecto, Usuario usuario);
 }
 

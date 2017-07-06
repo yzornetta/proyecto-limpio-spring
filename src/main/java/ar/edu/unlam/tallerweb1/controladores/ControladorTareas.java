@@ -168,8 +168,13 @@ public class ControladorTareas {
 		
 		//Traigo solo un proyecto
 		//listaProyectos.add(servicioProyecto.consultarProyectoPorID(idProyecto));
-		listaProyectos = servicioProyecto.obtenerTodos();
-		modelo.addAttribute("proyectos", listaProyectos);
+
+		Proyecto ProyectoSeleccionado = servicioProyecto.consultarProyectoPorID(idProyecto);
+
+		modelo.addAttribute("ProyectoSeleccionado", ProyectoSeleccionado);		
+		
+		//listaProyectos = servicioProyecto.obtenerTodos();
+		//modelo.addAttribute("proyectos", listaProyectos);
 		
 		listaUsuarios = servicioLogin.obtenerTodos();
 		modelo.addAttribute("usuarios", listaUsuarios);
@@ -207,9 +212,12 @@ public class ControladorTareas {
 		modelAndView.setViewName("tarea/editarTareaProyecto");
 		modelAndView.addObject("tarea", tareaElegida);
 		
-		
-		listaProyectos = servicioProyecto.obtenerTodos();		
-		modelAndView.addObject("proyectos", listaProyectos);
+		Proyecto ProyectoSeleccionado = servicioProyecto.consultarProyectoPorID(tareaElegida.getProyectoId());
+
+		modelAndView.addObject("ProyectoSeleccionado", ProyectoSeleccionado);
+
+		//listaProyectos = servicioProyecto.obtenerTodos();		
+		//modelAndView.addObject("proyectos", listaProyectos);
 		
 		listaUsuarios = servicioLogin.obtenerTodos();
 		modelAndView.addObject("usuarios", listaUsuarios);	
