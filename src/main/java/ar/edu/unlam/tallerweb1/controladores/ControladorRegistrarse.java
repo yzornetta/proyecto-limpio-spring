@@ -21,16 +21,6 @@ public class ControladorRegistrarse {
 	private ServicioLogin servicioLogin;
 	
 
-/*mapping de creacion de usuario*/
-	
-	/*ANTERIOR	
-	@RequestMapping(value = "/nuevoUsuario", method = RequestMethod.GET)
-	public String create(Model model) {
-		 model.addAttribute("altaUsuario", new Usuario());
-		return "/altaUsuario";
-	}
-	*/
-	
 	@RequestMapping(value="/nuevoUsuario",  method = RequestMethod.GET)
 	public ModelAndView vistaRegistrar(Model modelo) {
 		ModelAndView altaUsuario = new ModelAndView();
@@ -52,7 +42,7 @@ public class ControladorRegistrarse {
         return registracion;
 	}
 	
-	@RequestMapping(value = "/alta", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/alta", method = RequestMethod.POST)
 	public String save(@ModelAttribute("usuario") Usuario user, BindingResult bindingResult){
 	
 		Usuario existeUsuario = servicioLogin.findUserByEmail(user.getEmail());
@@ -68,18 +58,14 @@ public class ControladorRegistrarse {
 		
 		return "redirect:/login";
 		
-	}
+	}*/
 	
-	
-	
-	
-	/*Nuevo*/
 	
 	
 	@RequestMapping(value="/modificarUsuario",  method = RequestMethod.GET)
 	public ModelAndView vistaModificarUsuario(Model modelo) {
 		ModelAndView modificarUsuario = new ModelAndView();
-		modelo.addAttribute("classRegistrarse", new Usuario());
+		modelo.addAttribute("classModificar", new Usuario());
 		modificarUsuario.setViewName("usuario/modificarUsuario");
 		return modificarUsuario;
 	}	

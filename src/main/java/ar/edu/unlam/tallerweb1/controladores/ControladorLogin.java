@@ -70,10 +70,6 @@ public class ControladorLogin {
 		return new ModelAndView("redirect:/");
 	}
 	
-	public void setServicioLoginMock(ServicioLogin servicioLogin) {
-		this.servicioLogin = servicioLogin;
-	}
-	
 	//LISTAR TODOS LOS USUARIOS
 	@RequestMapping(value="usuario/listarUsuarios",  method = RequestMethod.GET)
 	public ModelAndView listarProyectos()

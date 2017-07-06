@@ -102,7 +102,7 @@
 								<center><button type="submit" class="btn btn-success btnRegistrarse">MODIFICAR</button></center>
 							</div>												
 							<div>
-								<center><a class="btn btn-danger btnCancelar" href="/proyecto-limpio-spring">Cancelar</a></center>
+								<center><a class="btn btn-danger btnCancelar" href="/proyecto-limpio-spring/home">Cancelar</a></center>
 							</div>
 							
 							
