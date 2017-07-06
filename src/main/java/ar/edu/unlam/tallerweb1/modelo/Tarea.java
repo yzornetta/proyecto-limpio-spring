@@ -24,6 +24,7 @@ public class Tarea {
 	private String descripcion;
 	private String usuarioAsignado;
 	private String estado;
+	private Integer estadoOrdenar;
 	private Integer porcentajeAvance = 0;
 	private Integer horasEstimadas;
 	private Integer horasReales = 0;
@@ -165,6 +166,14 @@ public class Tarea {
 
 	public void setUsuarioId(Integer usuarioId) {
 		this.usuarioId = usuarioId;
+	}
+
+	public Integer getEstadoOrdenar() {
+		return estadoOrdenar;
+	}
+
+	public void setEstadoOrdenar(Integer estadoOrdenar) {
+		this.estadoOrdenar = estadoOrdenar;
 	}
 
 

@@ -1,21 +1,18 @@
 package ar.edu.unlam.tallerweb1.dao;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import org.assertj.core.internal.cglib.transform.impl.AddDelegateTransformer;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
-import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Service("tareaDao")
 public class TareaDaoImpl implements TareaDao {
@@ -60,7 +57,13 @@ public class TareaDaoImpl implements TareaDao {
 
 	@Override
 	public List<Tarea> obtenerTodas() {
-		List <Tarea> Tareas = sessionFactory.openSession().createCriteria(Tarea.class).list();
+		
+		
+		final Session session = sessionFactory.openSession();
+		List<Tarea> Tareas;
+		Tareas = session.createCriteria(Tarea.class)
+				.addOrder(Order.asc("estadoOrdenar")).list();
+
 		return Tareas;
 	}
 
@@ -70,7 +73,8 @@ public class TareaDaoImpl implements TareaDao {
 		final Session session = sessionFactory.openSession();
 		List<Tarea> Tareas;
 		Tareas = session.createCriteria(Tarea.class)
-				.add(Restrictions.eq("proyecto", proyecto)).list();
+				.add(Restrictions.eq("proyecto", proyecto))
+				.addOrder(Order.asc("estadoOrdenar")).list();
 		
 		return Tareas;
 	}

@@ -31,12 +31,44 @@ public class ServicioTareaImpl implements ServicioTarea {
 	@Override
 	@Transactional
 	public void grabarTarea(Tarea tarea) {
+		
+		switch (tarea.getEstado()) {
+		 
+        case "En proceso":
+	        tarea.setEstadoOrdenar(1); 
+	        break;
+ 
+        case "No iniciada":
+        	tarea.setEstadoOrdenar(2); 
+	        break;
+
+        case "Finalizada":
+	        tarea.setEstadoOrdenar(3); 
+	        break;
+		}
+		
 		servicioTareaDao.save(tarea);
 	}
 	
 	@Override
 	@Transactional
 	public void editarTarea(Tarea tarea) {
+		
+		switch (tarea.getEstado()) {
+		 
+        case "En proceso":
+	        tarea.setEstadoOrdenar(1); 
+	        break;
+ 
+        case "No iniciada":
+        	tarea.setEstadoOrdenar(2); 
+	        break;
+
+        case "Finalizada":
+	        tarea.setEstadoOrdenar(3); 
+	        break;
+		}		
+		
 		servicioTareaDao.edit(tarea);
 	}	
 
