@@ -98,9 +98,11 @@ $(document).ready(function(){
 	<div class="container-fluid">
 		<center><h1 align="center">Lista de Proyectos</h1></center>
 	</div>
-	
+
+	<div align="right" style= "padding-right:10%">
+		<a href="/proyecto-limpio-spring/home" class="btn btn-lg btn-primary glyphicon glyphicon-arrow-left" role="button" > Volver</a>													
+	</div>	
 	<div>
-		<br></br>			
 		<center><a href="altaProyecto" class="btn btn-danger btn-lg active" role="button">Crear Proyecto</a></center>				
 	</div>
 	<br>

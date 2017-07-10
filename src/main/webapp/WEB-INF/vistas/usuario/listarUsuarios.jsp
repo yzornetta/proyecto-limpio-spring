@@ -75,7 +75,6 @@ pageEncoding="UTF-8"%>
 					    <th>Email</th>
 					    <th>Nombre</th>
 					    <th>Apellido</th>
-					    <th>Password</th>
 					 </tr>
 	     		<thead>
 				<tbody>

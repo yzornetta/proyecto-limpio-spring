@@ -84,11 +84,9 @@
 					  	<form:textarea path="comentarios" rows="6" placeholder="Comentarios" class="form-control"/>				  					
 					</div>	
 
-					<div class="form-group">
-						<div>
-							<button class="btn btn-primary btn-block"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			
-							<!-- <button class="btn btn-primary btn-danger"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  -->
-						</div>  								
+					<div class="form-group" align="center">
+						<button class="btn btn-lg btn-primary btn-success"  name="Submit" value="Crear Proyecto" type="Submit">Guardar</button>  			
+						<a href="/proyecto-limpio-spring/proyecto/listarProyectos" class="btn btn-lg btn-primary btn-danger" role="button" >Cancelar</a>																								  							
 					</div>
 
 				  	<!-- 

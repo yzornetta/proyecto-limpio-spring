@@ -80,8 +80,10 @@ pageEncoding="UTF-8"%>
 		<center><h1 align="center">Lista de Tareas</h1></center>
 	</div>
 	
+	<div align="right" style= "padding-right:10%">
+		<a href="/proyecto-limpio-spring/proyecto/listarProyectos" class="btn btn-lg btn-primary glyphicon glyphicon-arrow-left" role="button" > Volver</a>													
+	</div>	
 	<div>
-		<br></br>			
 		<center><a href="altaTareaProyecto?idProyecto=${idProyecto}" class="btn btn-danger btn-lg active" role="button">Crear Tarea</a></center>				
 	</div>
 	<br>

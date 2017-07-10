@@ -105,9 +105,12 @@
 					  	<form:textarea path="comentarios" rows="6" placeholder="Comentarios" class="form-control"/>				  					
 					</div>					
 					
-					<div class="form-group">
-						<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Tarea" type="Submit">Guardar</button>  							
-					</div>					
+					<div class="form-group" align="center">
+						<button class="btn btn-lg btn-primary btn-success"  name="Submit" value="Crear Tarea" type="Submit">Guardar</button>					
+						<a href="javascript:history.back()" class="btn btn-lg btn-primary btn-danger" role="button" >Cancelar</a>
+						<a data-toggle="tooltip" title="Ir a tareas del proyecto" href="../tarea/listarTareasPorProyecto?idProyecto=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a>						    
+																								
+					</div>
 
 				</form:form>
 				<c:if test="${not empty error}">

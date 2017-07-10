@@ -101,11 +101,12 @@
 					
 					<div class="form-group">
 	      				<label><h4>Comentarios:</h4></label>					
-					  	<form:textarea path="comentarios" rows="6" placeholder="Comentarios" class="form-control"/>				  					
+					  	<form:textarea path="comentarios" rows="6" placeholder="Comentarios" class="form-control" maxlength="100"/>				  					
 					</div>					
 					
-					<div class="form-group">
-						<button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Crear Tarea" type="Submit">Guardar</button>  							
+					<div class="form-group" align="center">
+						<button class="btn btn-lg btn-primary btn-success"  name="Submit" value="Crear Tarea" type="Submit">Guardar</button>
+						<a href="/proyecto-limpio-spring/tarea/listarTareas" class="btn btn-lg btn-primary btn-danger" role="button" >Cancelar</a>																								  							
 					</div>					
 
 				</form:form>
