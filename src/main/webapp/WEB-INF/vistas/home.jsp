@@ -85,7 +85,7 @@
 					</div>
 					<br>
 					<div>
-						<center><a href="tarea/listarTareas" class="button">Todas mis tareas</a></center>
+						<center><a href="tarea/listarTareas" class="button">Mis tareas</a></center>
 					</div>
 					<br>
 					<div>

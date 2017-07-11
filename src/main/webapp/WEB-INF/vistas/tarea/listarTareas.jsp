@@ -77,7 +77,7 @@ pageEncoding="UTF-8"%>
 			
 			
 	<div class="container-fluid">
-		<center><h1 align="center">Lista de Tareas</h1></center>
+		<center><h1 align="center">Mis tareas asignadas</h1></center>
 	</div>
 
 	<div align="right" style= "padding-right:10%">
