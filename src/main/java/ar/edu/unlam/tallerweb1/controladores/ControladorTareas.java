@@ -24,6 +24,7 @@ import ar.edu.unlam.tallerweb1.modelo.Persona;
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.modelo.UsuarioProyecto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import ar.edu.unlam.tallerweb1.servicios.ServicioProyecto;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTarea;
@@ -165,23 +166,24 @@ public class ControladorTareas {
 		
 		modelo.addAttribute("tarea", new Tarea());		
 		
-		//Traigo solo un proyecto
-		//listaProyectos.add(servicioProyecto.consultarProyectoPorID(idProyecto));
-
 		Proyecto ProyectoSeleccionado = servicioProyecto.consultarProyectoPorID(idProyecto);
 
 		modelo.addAttribute("ProyectoSeleccionado", ProyectoSeleccionado);		
 		
-		//listaProyectos = servicioProyecto.obtenerTodos();
-		//modelo.addAttribute("proyectos", listaProyectos);
 		
-		listaUsuarios = servicioLogin.obtenerTodos();
-		modelo.addAttribute("usuarios", listaUsuarios);
+		//listaUsuarios = servicioLogin.obtenerTodos();
+		//modelo.addAttribute("usuarios", listaUsuarios);
+		
+		
+		List<UsuarioProyecto> listaUsuariosProyecto;
+		listaUsuariosProyecto =  servicioProyecto.consultarUsuariosProyecto(ProyectoSeleccionado);
+		modelo.addAttribute("listaUsuariosProyecto", listaUsuariosProyecto);		
+		
 		
 		return new ModelAndView("tarea/altaTareaProyecto");
 	}	
 
-	//ACCION DEL BOTON GRABAR - ALTA DE TAREA
+	//ACCION DEL BOTON GRABAR - ALTA DE TAREA PROYECTO
 	@RequestMapping(value="tarea/agregarTareaProyecto",  method = RequestMethod.POST)
 	public ModelAndView altaTareaProyecto(@ModelAttribute("tarea") Tarea tarea) {
 
@@ -218,8 +220,12 @@ public class ControladorTareas {
 		//listaProyectos = servicioProyecto.obtenerTodos();		
 		//modelAndView.addObject("proyectos", listaProyectos);
 		
-		listaUsuarios = servicioLogin.obtenerTodos();
-		modelAndView.addObject("usuarios", listaUsuarios);	
+		//listaUsuarios = servicioLogin.obtenerTodos();
+		//modelAndView.addObject("usuarios", listaUsuarios);	
+		
+		List<UsuarioProyecto> listaUsuariosProyecto;
+		listaUsuariosProyecto =  servicioProyecto.consultarUsuariosProyecto(ProyectoSeleccionado);
+		modelAndView.addObject("listaUsuariosProyecto", listaUsuariosProyecto);		
 		
 		return modelAndView;
 	}	
@@ -227,10 +233,7 @@ public class ControladorTareas {
 	//ACCION DEL BOTON GRABAR - EDITAR TAREA
 	@RequestMapping(value="tarea/editarTareaProyecto",  method = RequestMethod.POST)
 	public ModelAndView editarTareaProyecto(@ModelAttribute("tarea") Tarea tarea) {
-				
-		System.out.println(tarea.getFechaFinalizacion());
-
-		
+						
 		//Guardo proyecto asignado
 		tarea.setProyecto(servicioProyecto.consultarProyectoPorID(tarea.getProyectoId()));
 
@@ -243,7 +246,6 @@ public class ControladorTareas {
 	}	
 	
 	////////////////////////FIN EDITAR TAREAS PROYECTO ////////////////////////	
-	
 	
 	////////////////////////CAMBIAR ESTADO DE TAREAS ////////////////////////
 	@RequestMapping("tarea/cambiarEstadoAdelante")

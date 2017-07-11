@@ -66,12 +66,16 @@
 						</form:select>											
 					</div>
 
+					
 					<div class="form-group">
 	      				<label><h4>Usuario asignado:</h4></label>					
 						<form:select path="usuarioId" multiple="false" class="form-control" required="true">
 							<form:options items="${usuarios}" itemValue="id" itemLabel="email"/>
+			 				<c:forEach items="${listaUsuariosProyecto}" var="usuarioProyecto" >	
+  								 <option value="${usuarioProyecto.usuario.id}">${usuarioProyecto.usuario.email}.</option>
+							</c:forEach>														
 						</form:select>					
-					</div>
+					</div>					 			
 					
 					<div class="form-group">
 						<label><h4>Estado:</h4></label>	

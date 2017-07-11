@@ -83,9 +83,10 @@ pageEncoding="UTF-8"%>
 	<div align="right" style= "padding-right:10%">
 		<a href="/proyecto-limpio-spring/home" class="btn btn-lg btn-primary glyphicon glyphicon-arrow-left" role="button" > Volver</a>													
 	</div>	
-	<div>
+	<!-- <div>
 		<center><a href="altaTarea" class="btn btn-danger btn-lg active" role="button">Crear Tarea</a></center>													
 	</div>
+	 -->
 	<br>
 	<br>		
 	<div class="container">			
