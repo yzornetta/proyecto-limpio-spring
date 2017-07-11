@@ -4,6 +4,7 @@ import java.util.List;
 
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 
 public interface TareaDao {
@@ -21,6 +22,8 @@ public interface TareaDao {
 	List<Tarea> consultarTareaPorProyecto(Proyecto proyecto);
 
 	void eliminarTarea(Tarea tarea);
+
+	List<Tarea> consultarTareaPorUsuarioAsignado(Usuario usuario);
 	
 
 }

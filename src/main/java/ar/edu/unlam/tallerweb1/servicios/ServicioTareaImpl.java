@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.dao.TareaDao;
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Service("servicioTarea")
 @Transactional
@@ -36,7 +37,7 @@ public class ServicioTareaImpl implements ServicioTarea {
 		
 		switch (tarea.getEstado()) {
 		 
-        case "En proceso":
+        case "En curso":
 	        tarea.setEstadoOrdenar(1); 
 	        break;
  
@@ -58,7 +59,7 @@ public class ServicioTareaImpl implements ServicioTarea {
 		
 		switch (tarea.getEstado()) {
 		 
-        case "En proceso":
+        case "En curso":
 	        tarea.setEstadoOrdenar(1); 
 	        tarea.setFechaFinalizacion(null);
 	        break;
@@ -100,6 +101,11 @@ public class ServicioTareaImpl implements ServicioTarea {
 	public void eliminarTarea(Tarea tarea) {
 		servicioTareaDao.eliminarTarea(tarea);
 		
+	}
+
+	@Override
+	public List<Tarea> consultarTareaPorUsuarioAsignado(Usuario usuario) {
+		return servicioTareaDao.consultarTareaPorUsuarioAsignado(usuario);
 	}
 
 }

@@ -60,8 +60,19 @@ public class ControladorProyecto {
 	@RequestMapping(value="proyecto/agregarProyecto",  method = RequestMethod.POST)
 	public ModelAndView agregarProyecto(@ModelAttribute("proyecto") Proyecto proyecto, HttpServletRequest request) {
 		
-		proyecto.setIdUsuarioAlta((Integer) request.getSession().getAttribute("Id"));
+		Integer idUsuario = (Integer) request.getSession().getAttribute("Id");
+		
+		proyecto.setIdUsuarioAlta(idUsuario);
 		servicioProyecto.grabarProyecto(proyecto);
+		
+		Usuario usuario = servicioLogin.findUserById(idUsuario);
+		
+		UsuarioProyecto usuarioProyecto = new UsuarioProyecto();
+		usuarioProyecto.setProyecto(proyecto);
+		usuarioProyecto.setUsuario(usuario);
+			
+		servicioProyecto.asignarUsuarioProyecto(usuarioProyecto);	
+		
 		return new ModelAndView("redirect:/proyecto/listarProyectos");
 
 	}	
@@ -183,18 +194,13 @@ public class ControladorProyecto {
 												@RequestParam("idProyecto") Integer idProyecto,
 												Model modelo) {
 		
-		System.out.println("PASO 1");	
 
 		UsuarioProyecto usuarioProyecto = servicioProyecto.consultarUsuariosProyectoPorId(idUsuarioProyecto);					
-
-		System.out.println("PASO 2");	
-		
+	
 		servicioProyecto.eliminarUsuarioProyecto(usuarioProyecto);
 		
 		Proyecto ProyectoSeleccionado = servicioProyecto.consultarProyectoPorID(idProyecto);
 		
-		System.out.println("PASO 3");	
-
 		modelo.addAttribute("ProyectoSeleccionado", ProyectoSeleccionado);
 
 		List<UsuarioProyecto> listaUsuariosProyecto;

@@ -131,10 +131,13 @@ public class ControladorTareas {
 	
 	//LISTAR TODAS LAS TAREAS
 	@RequestMapping(value="tarea/listarTareas",  method = RequestMethod.GET)
-	public ModelAndView listarTareas()
+	public ModelAndView listarTareas(HttpServletRequest request)
 	{
-		listaTareas = servicioTarea.obtenerTodos();
-				
+		//listaTareas = servicioTarea.obtenerTodos();
+		Usuario usuario = servicioLogin.findUserById((Integer) request.getSession().getAttribute("Id"));
+
+		listaTareas = servicioTarea.consultarTareaPorUsuarioAsignado(usuario);		
+		
 		return new ModelAndView("tarea/listarTareas","command", listaTareas);
 	}
 	

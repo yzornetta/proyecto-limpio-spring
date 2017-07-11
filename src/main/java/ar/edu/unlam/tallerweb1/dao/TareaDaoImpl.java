@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unlam.tallerweb1.modelo.Proyecto;
 import ar.edu.unlam.tallerweb1.modelo.Tarea;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Service("tareaDao")
 public class TareaDaoImpl implements TareaDao {
@@ -84,5 +85,18 @@ public class TareaDaoImpl implements TareaDao {
 		Session session = this.sessionFactory.getCurrentSession();
 		
 		session.delete(tarea);		
+	}
+
+	@Override
+	public List<Tarea> consultarTareaPorUsuarioAsignado(Usuario usuario) {
+		
+		final Session session = sessionFactory.openSession();
+
+		List<Tarea> Tareas;
+		Tareas = session.createCriteria(Tarea.class)
+				.add(Restrictions.eq("usuario", usuario))
+				.addOrder(Order.asc("estadoOrdenar")).list();
+		
+		return Tareas;
 	}
 }
