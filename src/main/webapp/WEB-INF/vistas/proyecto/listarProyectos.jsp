@@ -125,23 +125,23 @@ $(document).ready(function(){
 					 </tr>
 	     		<thead>
 				<tbody>
-	 				<c:forEach items="${command}" var="proyecto" >					
+	 				<c:forEach items="${command}" var="listaUsuariosProyecto" >					
 					  <tr>
 						    <td>${proyecto.id}</td>
-						    <td><a href="editarProyecto?id=<c:out value="${proyecto.id}"/>" data-toggle="tooltip" title="Editar proyecto"><c:out value=""/><span class="glyphicon glyphicon-pencil"></span></a></td>						    						    
+						    <td><a href="editarProyecto?id=<c:out value="${listaUsuariosProyecto.proyecto.id}"/>" data-toggle="tooltip" title="Editar proyecto"><c:out value=""/><span class="glyphicon glyphicon-pencil"></span></a></td>						    						    
 						    
-						    <td><a data-toggle="tooltip" title="Asignar usuarios al proyecto" href="#" onclick="pop1(${proyecto.id})"><span class="glyphicon glyphicon-user"></span></a></td>						    						    						 
+						    <td><a data-toggle="tooltip" title="Asignar usuarios al proyecto" href="#" onclick="pop1(${listaUsuariosProyecto.proyecto.id})"><span class="glyphicon glyphicon-user"></span></a></td>						    						    						 
 						    
 						    <!-- <td><a href="asignarUsuarios?idProyecto=<c:out value="${proyecto.id}"/>"  data-toggle="tooltip" title="Asignar usuarios al proyecto"><c:out value=""/><span class="glyphicon glyphicon-user"></span></a></td> -->						    						    						 
 						    
 						    <!--<td><a href="listarProyecto?id=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td> -->
-						    <td><a data-toggle="tooltip" title="Ir a tareas del proyecto" href="../tarea/listarTareasPorProyecto?idProyecto=<c:out value="${proyecto.id}"/>"><c:out value="${proyecto.descripcion}"/></a></td>						    
-						    <td>${proyecto.horasEstimadas}</td>
-						    <td>${proyecto.horasReales}</td>
-						    <td>${proyecto.porcentajeAvance}</td>
-						    <td>${proyecto.fechaFinalizacion}</td>	
-							<td>${proyecto.comentarios}</td>		    						   
-						    <td>${proyecto.fechaAlta}</td>		
+						    <td><a data-toggle="tooltip" title="Ir a tareas del proyecto" href="../tarea/listarTareasPorProyecto?idProyecto=<c:out value="${listaUsuariosProyecto.proyecto.id}"/>"><c:out value="${listaUsuariosProyecto.proyecto.descripcion}"/></a></td>						    
+						    <td>${listaUsuariosProyecto.proyecto.horasEstimadas}</td>
+						    <td>${listaUsuariosProyecto.proyecto.horasReales}</td>
+						    <td>${listaUsuariosProyecto.proyecto.porcentajeAvance}</td>
+						    <td>${listaUsuariosProyecto.proyecto.fechaFinalizacion}</td>	
+							<td>${listaUsuariosProyecto.proyecto.comentarios}</td>		    						   
+						    <td>${listaUsuariosProyecto.proyecto.fechaAlta}</td>		
 						    
 						    <!--  <td><a href="generarQR?id=<c:out value="${QR.id}"/>" data-toggle="tooltip" title="Generar QR"><c:out value=""/><span class="glyphicon glyphicon-qrcode"></span></a></td> -->
 					  </tr>

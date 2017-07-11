@@ -99,4 +99,10 @@ public class ServicioProyectoImpl implements ServicioProyecto {
 		return servicioProyectoDao.consultarUsuariosProyectoPorId(idUsuarioProyecto);
 	}
 
+	@Override
+	public List<UsuarioProyecto> obtenerTodosPorUsuario(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return servicioProyectoDao.obtenerTodosPorUsuario(usuario);
+	}
+
 }

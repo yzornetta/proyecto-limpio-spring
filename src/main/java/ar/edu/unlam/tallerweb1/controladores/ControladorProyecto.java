@@ -105,13 +105,16 @@ public class ControladorProyecto {
 
 	//LISTAR TODOS LOS PROYECTOS
 	@RequestMapping(value="proyecto/listarProyectos",  method = RequestMethod.GET)
-	public ModelAndView listarProyectos()
+	public ModelAndView listarProyectos(HttpServletRequest request)
 	{
 	
-		listaProyectos = servicioProyecto.obtenerTodos();
+		//listaProyectos = servicioProyecto.obtenerTodos();
+		Usuario usuario = servicioLogin.findUserById((Integer) request.getSession().getAttribute("Id"));
+
+		List<UsuarioProyecto> listaUsuarioProyectos = servicioProyecto.obtenerTodosPorUsuario(usuario);
 		
 		
-		return new ModelAndView("proyecto/listarProyectos","command", listaProyectos);//devuelve vista exito
+		return new ModelAndView("proyecto/listarProyectos","command", listaUsuarioProyectos);//devuelve vista exito
 	}
 	
 	

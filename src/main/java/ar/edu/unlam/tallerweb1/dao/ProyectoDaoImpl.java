@@ -106,4 +106,15 @@ public class ProyectoDaoImpl implements ProyectoDao {
 
 		session.delete(usuarioProyecto);		
 	}
+
+	@Override
+	public List<UsuarioProyecto> obtenerTodosPorUsuario(Usuario usuario) {
+		final Session session = sessionFactory.openSession();
+		List<UsuarioProyecto> listaUsuarioProyecto;
+		
+		listaUsuarioProyecto = session.createCriteria(UsuarioProyecto.class)
+				.add(Restrictions.eq("usuario", usuario)).list();
+		
+		return listaUsuarioProyecto;
+	}
 }

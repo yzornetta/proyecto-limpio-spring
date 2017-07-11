@@ -29,5 +29,7 @@ public interface ServicioProyecto {
 	UsuarioProyecto consultarUsuariosProyectoPorId(Integer idUsuarioProyecto);
 
 	void eliminarUsuarioProyecto(UsuarioProyecto usuarioProyecto);
+
+	List<UsuarioProyecto> obtenerTodosPorUsuario(Usuario usuario);
 	
 }
